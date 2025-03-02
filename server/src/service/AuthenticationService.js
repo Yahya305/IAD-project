@@ -4,7 +4,7 @@ import { HttpStatusCode } from "../utils/exceptions/HttpStatusCode.js";
 import TeacherService from "./TeacherService.js";
 
 class AuthenticationService {
-    async teacherLogin({ email, password }) {
+    static async teacherLogin({ email, password }) {
         const teacher = await TeacherService.fetchTeacher();
 
         if (
@@ -20,4 +20,4 @@ class AuthenticationService {
         return teacher;
     }
 }
-export default new AuthenticationService();
+export default AuthenticationService;
