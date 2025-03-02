@@ -14,10 +14,10 @@ datasource db {
 }
 
 model Teacher {
-    id       Int    @id @default(autoincrement())
-    name     String
-    email    String @unique()
-    password String
+    teacherId String @id @default(uuid())
+    name      String
+    email     String @unique()
+    password  String
 }
 
 model Student {
@@ -44,9 +44,9 @@ model Challenge {
 
 model ChallegeScore {
     challengeScoreId String    @id @default(uuid())
+    score            Float
     studentId        String
     challengeId      String
     Student          Student   @relation(fields: [studentId], references: [studentId])
     Challenge        Challenge @relation(fields: [challengeId], references: [challengeId])
 }
-

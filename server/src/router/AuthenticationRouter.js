@@ -4,11 +4,8 @@ import { requestHandler } from "../utils/requestHandler";
 
 const AuthenticationRouter = Router();
 
-AuthenticationRouter.post("/", upload.array("files"), (req, res, next) =>
+AuthenticationRouter.post("/login", (req, res, next) =>
     requestHandler(req, res, next, AuthenticationController.login)
-);
-AuthenticationRouter.get("/:vesselId", (req, res, next) =>
-    requestHandler(req, res, next, AuthenticationController.fetchCOF)
 );
 
 export default AuthenticationRouter;
