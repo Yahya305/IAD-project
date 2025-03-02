@@ -8,7 +8,7 @@ class TeacherService {
     }
 
     async setupTeacherConsole() {
-        const hashedPwd = hashPassword(process.env.PASSWORD);
+        const hashedPwd = hashPassword(process.env.TEACHER_PASSWORD);
         await TeacherRepository.setupTeacherConsole({
             name: "Dr Humera Tariq",
             email: process.env.TEACHER_EMAIL,

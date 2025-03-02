@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import ErrorMiddleware from "./router/ErrorRouter.js";
 import { setupApplication } from "./config/setupApplication.js";
+import AuthenticationRouter from "./router/AuthenticationRouter.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,6 +18,8 @@ setupApplication();
 app.get("/", (req, res) => {
     res.send("Hello, Express with ES6!");
 });
+
+app.use("/auth", AuthenticationRouter);
 
 app.use(ErrorMiddleware);
 

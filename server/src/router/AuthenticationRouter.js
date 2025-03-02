@@ -1,11 +1,11 @@
 import { Router } from "express";
-import AuthenticationController from "../controller/AuthenticationController";
-import { requestHandler } from "../utils/requestHandler";
+import AuthenticationController from "../controller/AuthenticationController.js";
+import { requestHandler } from "../utils/requestHandler.js";
 
 const AuthenticationRouter = Router();
 
-AuthenticationRouter.post("/login", (req, res, next) =>
-    requestHandler(req, res, next, AuthenticationController.login)
+AuthenticationRouter.post("/admin-login", (req, res, next) =>
+    requestHandler(req, res, next, AuthenticationController.teacherLogin)
 );
 
 export default AuthenticationRouter;
