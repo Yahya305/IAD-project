@@ -16,8 +16,8 @@ class AuthenticationService {
                 HttpStatusCode.UNAUTHORIZED
             );
         }
-        const { password: _, ...data } = teacher;
-        return data;
+        const { password: _, ..._teacher_data } = teacher;
+        return _teacher_data;
     }
 }
 export default AuthenticationService;
