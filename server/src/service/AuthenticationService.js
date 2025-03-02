@@ -9,15 +9,15 @@ class AuthenticationService {
 
         if (
             teacher.email !== email ||
-            !checkPassword(password,teacher.password)
+            !checkPassword(password, teacher.password)
         ) {
             throw new CustomError(
                 "Invalid Email or Password.",
                 HttpStatusCode.UNAUTHORIZED
             );
         }
-
-        return teacher;
+        const { password: _, ...data } = teacher;
+        return data;
     }
 }
 export default AuthenticationService;
