@@ -1,21 +1,21 @@
 import prisma from "../config/prismaConfig";
 
 class StudentRepository {
-    async fetchUserById(studentId) {
+    static async fetchUserById(studentId) {
         return await prisma.student.findUnique({
             where: {
                 studentId,
             },
         });
     }
-    async fetchUserByIdOrThrow(studentId) {
+    static async fetchUserByIdOrThrow(studentId) {
         return await prisma.student.findUnique({
             where: {
                 studentId,
             },
         });
     }
-    async fetchUserBySeatNumber(seatNo) {
+    static async fetchUserBySeatNumber(seatNo) {
         return await prisma.student.findUnique({
             where: {
                 seatNo,
@@ -24,4 +24,4 @@ class StudentRepository {
     }
 }
 
-export default new StudentRepository();
+export default StudentRepository;

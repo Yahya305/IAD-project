@@ -4,20 +4,20 @@ import { HttpStatusCode } from "../utils/exceptions/HttpStatusCode.js";
 import TeacherService from "./TeacherService.js";
 
 class AuthenticationService {
-    async teacherLogin({ email, password }) {
+    static async teacherLogin({ email, password }) {
         const teacher = await TeacherService.fetchTeacher();
 
         if (
             teacher.email !== email ||
-            !checkPassword(password,teacher.password)
+            !checkPassword(password, teacher.password)
         ) {
             throw new CustomError(
                 "Invalid Email or Password.",
                 HttpStatusCode.UNAUTHORIZED
             );
         }
-
-        return teacher;
+        const { password: _, ..._teacher_data } = teacher;
+        return _teacher_data;
     }
 }
-export default new AuthenticationService();
+export default AuthenticationService;
