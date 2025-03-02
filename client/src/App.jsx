@@ -1,11 +1,8 @@
-import React from 'react'
+import React from "react";
+import Router from "./routes/route";
 
 const App = () => {
-	return (
-		<div className="app">
-			<h1>Hello, React with JSX!</h1>
-		</div>
-	)
-}
+    return <Router />;
+};
 
-export default App
+export default App;
