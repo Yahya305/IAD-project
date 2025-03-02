@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
     res.send("Hello, Express with ES6!");
 });
 
-// app.use(ErrorMiddleware);
+app.use(ErrorMiddleware);
 
 // Start server
 app.listen(PORT, () => {

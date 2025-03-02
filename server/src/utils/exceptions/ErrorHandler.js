@@ -1,6 +1,5 @@
-import { CustomError } from "./CustomError";
-import HttpStatusCode from "../HttpStatusCode";
-
+import { CustomError } from "./CustomError.js";
+import { HttpStatusCode } from "./HttpStatusCode.js";
 export class ErrorHandler {
     isTrustedError(error) {
         if (error instanceof CustomError) {
