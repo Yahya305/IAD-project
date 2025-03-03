@@ -21,32 +21,49 @@ model Teacher {
 }
 
 model Student {
-    studentId     String          @id @default(uuid())
-    seatNo        String          @unique()
-    name          String
-    email         String          @unique()
-    password      String
-    teamId        String
-    Team          Team            @relation(fields: [teamId], references: [teamId])
-    ChallegeScore ChallegeScore[]
+    studentId         String             @id @default(uuid())
+    seatNo            String             @unique()
+    name              String
+    section           Section?
+    email             String?            @unique()
+    password          String?
+    teamId            String?
+    isActivated       Boolean            @default(false)
+    team              Team?              @relation(fields: [teamId], references: [teamId])
+    competitionScores CompetitionScore[]
 }
 
 model Team {
-    teamId  String    @id @default(uuid())
-    Student Student[]
+    teamId       String        @id @default(uuid())
+    students     Student[]
+    competitions Competition[] // Many-to-many with Competition
 }
 
 model Challenge {
-    challengeId     String          @id @default(uuid())
-    challengeNumber Int
-    ChallegeScore   ChallegeScore[]
+    challengeId   String        @id @default(uuid())
+    challengeName String
+    competitions  Competition[] // Lowercase plural
 }
 
-model ChallegeScore {
-    challengeScoreId String    @id @default(uuid())
-    score            Float
-    studentId        String
-    challengeId      String
-    Student          Student   @relation(fields: [studentId], references: [studentId])
-    Challenge        Challenge @relation(fields: [challengeId], references: [challengeId])
+model Competition {
+    competitionId     String             @id @default(uuid())
+    competitionName   String
+    challengeId       String
+    challenge         Challenge          @relation(fields: [challengeId], references: [challengeId])
+    competitionScores CompetitionScore[]
+    teams             Team[] // Many-to-many with Team
+}
+
+model CompetitionScore {
+    competitionScoreId String      @id @default(uuid())
+    score              Float
+    studentId          String
+    competitionId      String
+    student            Student     @relation(fields: [studentId], references: [studentId])
+    competition        Competition @relation(fields: [competitionId], references: [competitionId])
+}
+
+enum Section {
+    A
+    B
 }
