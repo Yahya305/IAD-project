@@ -4,6 +4,7 @@ dotenv.config();
 import ErrorMiddleware from "./router/ErrorRouter.js";
 import { setupApplication } from "./config/setupApplication.js";
 import AuthenticationRouter from "./router/AuthenticationRouter.js";
+import ChallengeRouter from "./router/ChallengeRouter.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", AuthenticationRouter);
+app.use("/challenge", ChallengeRouter);
 
 app.use(ErrorMiddleware);
 
