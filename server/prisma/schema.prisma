@@ -34,7 +34,9 @@ model Student {
 }
 
 model Team {
-    teamId       String        @id @default(uuid())
+    teamId       String        @id
+    teamNumber   Int
+    section      Section
     students     Student[]
     competitions Competition[] // Many-to-many with Competition
 }
@@ -42,6 +44,8 @@ model Team {
 model Challenge {
     challengeId   String        @id @default(uuid())
     challengeName String
+    startDate     DateTime      @default(now())
+    endDate       DateTime
     competitions  Competition[] // Lowercase plural
 }
 

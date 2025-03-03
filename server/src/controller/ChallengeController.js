@@ -5,5 +5,9 @@ class ChallengeController {
         const { email, password } = req.body;
         return await ChallengeService.fetchAllChallenges({ email, password });
     }
+    static async startChallengeRound(req) {
+        const { challengeName, endDate } = req.body;
+        return await ChallengeService.startChallengeRound({ challengeName, endDate });
+    }
 }
 export default ChallengeController;

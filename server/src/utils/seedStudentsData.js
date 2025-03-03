@@ -19,12 +19,16 @@ export const seedStudentsData = async () => {
                 seatNo: row.SeatNo,
                 name: row.Name,
                 section: row.Section,
+                teamNumber: parseInt(row.Team), // Parse team number from CSV
+                teamId: `${row.Team}${row.Section}`, // Generate teamId (e.g., "9B")
             };
             studentsData.push(student);
         })
         .on("end", async () => {
-            console.log("CSV file successfully processed. Seeding Students Data...");
+            console.log(
+                "CSV file successfully processed. Seeding Students Data..."
+            );
 
-            await StudentRepository.seedStudents(studentsData);
+            await StudentRepository.seedStudentsAndAssignTeams(studentsData);
         });
 };
