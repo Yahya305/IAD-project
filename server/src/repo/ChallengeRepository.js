@@ -6,7 +6,9 @@ class ChallengeRepository {
         return challenges;
     }
     static async createChallenge({ challengeName, endDate }) {
-        const challenge = await prisma.challenge.create({data:{ challengeName, endDate }});
+        const challenge = await prisma.challenge.create({
+            data: { challengeName, endDate },
+        });
         return challenge;
     }
 }
