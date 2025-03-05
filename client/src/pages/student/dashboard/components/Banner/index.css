@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+.banner-section {
+    /* background-color: url();   */
+    background-color: red;
+    height: 420px;
+}
+
+.banner-section .banner-wrapper {
+    padding: 50px;
+}
+
+.banner-section .banner-wrapper .heading {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 130%;
+    letter-spacing: 0%;
+
+}
+
+.banner-section .para {
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0px;
+
+}
