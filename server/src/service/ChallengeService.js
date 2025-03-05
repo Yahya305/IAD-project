@@ -7,6 +7,13 @@ class ChallengeService {
         const challenges = await ChallengeRepository.fetchAllChallenges();
         return challenges;
     }
+    static async fetchCompetitionAllChallenges(competitionId) {
+        const challenges =
+            await ChallengeRepository.fetchCompetitionAllChallenges(
+                competitionId
+            );
+        return challenges;
+    }
     static async startChallengeRound({
         challengeName,
         endDate,
