@@ -23,7 +23,13 @@ function Table() {
           </div>
         </div>
         <div className="table-fields">
-
+            <div className="field-wrapper">
+              <p className="fields tasks">Tasks</p>
+              <p className="fields submission-link">Submission Link</p>
+              <p className="fields deadline">Deadline</p>
+              <p className="fields status">Status</p>
+              <p className="fields score">Score</p>
+            </div>
         </div>
         <div className="tables-rows">
           {/* each-row */}
