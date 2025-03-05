@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
 
 app.use("/auth", AuthenticationRouter);
 app.use("/challenge", ChallengeRouter);
+app.use("/comptition", ComptitionRouter);
 
 app.use(ErrorMiddleware);
 
