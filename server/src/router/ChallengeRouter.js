@@ -15,6 +15,9 @@ ChallengeRouter.get("/", authorizeStudent, (req, res, next) =>
 ChallengeRouter.post("/", authorizeInstructor, (req, res, next) =>
     requestHandler(req, res, next, ChallengeController.startChallengeRound)
 );
+ChallengeRouter.post("/competition", authorizeInstructor, (req, res, next) =>
+    requestHandler(req, res, next, ChallengeController.fetchCompetitionAllChallenges)
+);
 
 // ChallengeRouter.post("/:challengeId", (req, res, next) =>
 //     requestHandler(req, res, next, ChallengeController.studentRegister)
