@@ -7,4 +7,8 @@ export class CompetitionRepository {
         });
         return competition;
     }
+    static async fetchCompetitions() {
+        const competitions = await prisma.competition.findMany();
+        return competitions;
+    }
 }
