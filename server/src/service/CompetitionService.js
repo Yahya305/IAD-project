@@ -7,4 +7,8 @@ export class CompetitionService {
         );
         return competition;
     }
+    static async fetchCompetitions() {
+        const competitions = await CompetitionRepository.fetchCompetitions();
+        return competitions;
+    }
 }

@@ -7,5 +7,8 @@ class CompetitionController {
             competitionName,
         });
     }
+    static async fetchCompetitions() {
+        return await CompetitionService.fetchCompetitions();
+    }
 }
 export default CompetitionController;
