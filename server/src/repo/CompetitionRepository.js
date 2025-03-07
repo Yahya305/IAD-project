@@ -1,9 +1,9 @@
 import prisma from "../config/prismaConfig.js";
 
 export class CompetitionRepository {
-    static async createCompetition(competitionName) {
+    static async createCompetition({ competitionName, section, endDate }) {
         const competition = await prisma.competition.create({
-            data: { competitionName },
+            data: { competitionName, section, endDate },
         });
         return competition;
     }

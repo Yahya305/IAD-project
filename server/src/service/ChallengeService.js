@@ -1,23 +1,37 @@
 import ChallengeRepository from "../repo/ChallengeRepository.js";
+import TeamRepository from "../repo/TeamsRepository.js";
 import { CustomError } from "../utils/exceptions/CustomError.js";
 import { HttpStatusCode } from "../utils/exceptions/HttpStatusCode.js";
 
 class ChallengeService {
-    static async fetchAllChallenges({ email, password }) {
-        const challenges = await ChallengeRepository.fetchAllChallenges();
+    static async fetchAllChallengesInCompetition({ competitionId }) {
+        const challenges = await ChallengeRepository.fetchChallenges({
+            competitionId,
+        });
 
         return challenges;
     }
-    static async startChallengeRound({ challengeName, endDate }) {
-        const today = new Date().toISOString(); // Get current date in ISO 8601 format
+    static async startChallengeRound({
+        name,
+        description,
+        competitionId,
+        teamIds,
+    }) {
+        // check if teams exist
+        const existingTeams = await TeamRepository.findManyTeams(teamIds);
 
-        if (new Date(endDate) < new Date(today)) {
-            throw new CustomError("Invalid Date", HttpStatusCode.BAD_REQUEST);
+        if (existingTeams.length !== teamIds.length) {
+            throw new CustomError(
+                "One or more teams do not exist.",
+                HttpStatusCode.NOT_FOUND
+            );
         }
 
         const challenge = await ChallengeRepository.createChallenge({
-            challengeName,
-            endDate,
+            name,
+            description,
+            competitionId,
+            teamIds,
         });
         return challenge;
     }

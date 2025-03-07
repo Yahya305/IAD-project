@@ -1,13 +1,15 @@
 import ChallengeService from "../service/ChallengeService.js";
 
 class ChallengeController {
-    static async fetchAllChallenges(req) {
-        const { email, password } = req.body;
-        return await ChallengeService.fetchAllChallenges({ email, password });
+    static async fetchAllChallengesInCompetition(req) {
+        const { competitionId } = req.params;
+        return await ChallengeService.fetchAllChallengesInCompetition({ competitionId });
     }
     static async startChallengeRound(req) {
-        const { challengeName, endDate } = req.body;
-        return await ChallengeService.startChallengeRound({ challengeName, endDate });
+        const { name, description, competitionId, teamIds } = req.body;
+        return await ChallengeService.startChallengeRound({
+            name, description, competitionId, teamIds
+        });
     }
 }
 export default ChallengeController;

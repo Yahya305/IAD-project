@@ -8,8 +8,8 @@ import ChallengeController from "../controller/ChallengeController.js";
 
 const ChallengeRouter = Router();
 
-ChallengeRouter.get("/", authorizeStudent, (req, res, next) =>
-    requestHandler(req, res, next, ChallengeController.fetchAllChallenges)
+ChallengeRouter.get("/challenges-in-competition/:competitionId", authorizeStudent, (req, res, next) =>
+    requestHandler(req, res, next, ChallengeController.fetchAllChallengesInCompetition)
 );
 
 
