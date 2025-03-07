@@ -7,12 +7,12 @@ class ChallengeRepository {
         });
         return challenges;
     }
-    static async fetchChallengeById({challengeId,includeTeams=false}) {
+    static async fetchChallengeById({ challengeId, includeTeams = false }) {
         const challenges = await prisma.challenge.findUnique({
             where: { challengeId },
-            include:{
-                teams:includeTeams
-            }
+            include: {
+                teams: includeTeams,
+            },
         });
         return challenges;
     }
@@ -47,6 +47,15 @@ class ChallengeRepository {
                 title,
                 description,
                 projectURL,
+                challengeId,
+                teamId,
+            },
+        });
+        return challengeSubmission;
+    }
+    static async fetchTeamChallangeSubmission({ challengeId, teamId }) {
+        const challengeSubmission = await prisma.challengeSubmission.findFirst({
+            where: {
                 challengeId,
                 teamId,
             },

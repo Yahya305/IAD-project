@@ -71,6 +71,19 @@ class ChallengeService {
             );
         }
 
+        const existingSubmission =
+            await ChallengeRepository.fetchTeamChallangeSubmission({
+                challengeId,
+                teamId,
+            });
+
+        if (existingSubmission) {
+            throw new CustomError(
+                "Project has already been submitted.",
+                HttpStatusCode.CONFLICT
+            );
+        }
+
         const projectSubmission =
             await ChallengeRepository.createChallengeSubmission({
                 title,
