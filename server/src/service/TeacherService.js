@@ -7,14 +7,17 @@ class TeacherService {
         return teacher;
     }
 
-    static async createTeacher(name, email, password) {
-        const hashedPwd = hashPassword(password);
-        await TeacherRepository.setupTeacherConsole({
-            name: name,
-            email: email,
-            password: hashedPwd,
-        });
-    }
+    static async setupTeacherConsole() {
+        const teacher = await TeacherService.fetchTeacher();
 
+        if (!teacher) {
+            const hashedPwd = hashPassword(process.env.TEACHER_PASSWORD);
+            await TeacherRepository.setupTeacherConsole({
+                name: "Dr Humera Tariq",
+                email: process.env.TEACHER_EMAIL,
+                password: hashedPwd,
+            });
+        }
+    }
 }
 export default TeacherService;
