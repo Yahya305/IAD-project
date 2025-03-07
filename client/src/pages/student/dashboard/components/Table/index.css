@@ -4,7 +4,7 @@
 .table-section {
     width: 100%;
     background-color: azure;
-    max-width: 1063px;
+    /* max-width: 1063px; */
     border-radius: 20px;
 }
 

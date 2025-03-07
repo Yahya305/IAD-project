@@ -12,7 +12,7 @@ function StudentDashboard() {
             <Search />
             <Banner />
             <Table />
-            <Card />
+            {/* <Card /> */}
             {/* <Card />
             <Card />
             <Card /> */}
