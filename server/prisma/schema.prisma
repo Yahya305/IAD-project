@@ -27,82 +27,47 @@ model Student {
     section     Section?
     email       String?  @unique()
     password    String?
+    teamId      String?
     isActivated Boolean  @default(false)
-
-    teamId String?
-    team   Team?   @relation(fields: [teamId], references: [teamId])
-
-    challengeScore ChallengeScore[]
+    team        Team?    @relation(fields: [teamId], references: [teamId])
+    // competitionScores CompetitionScore[]
 }
 
 model Team {
-    teamId     String  @id
-    teamNumber Int
-    section    Section
-
-    students             Student[]
-    challenges           Challenge[] // Many-to-many with Challenge
-    challengeSubmissions ChallengeSubmission[]
-}
-
-model ChallengeSubmission {
-    submissionId String  @id @default(uuid())
-    title        String
-    description  String?
-    teamId       String
-    challengeId  String
-
-    submissionDate DateTime @default(now())
-
-    team      Team      @relation(fields: [teamId], references: [teamId])
-    challenge Challenge @relation(fields: [challengeId], references: [challengeId])
+    teamId       String      @id
+    teamNumber   Int
+    section      Section
+    students     Student[]
+    competitions Challenge[] // Many-to-many with Competition
 }
 
 model Competition {
-    competitionId   String   @id @default(uuid())
+    competitionId   String      @id @default(uuid())
     competitionName String
-    section         Section
-    startDate       DateTime @default(now())
+    startDate       DateTime    @default(now())
     endDate         DateTime
-
-    challenges Challenge[] // Lowercase plural
+    competitions    Challenge[] // Lowercase plural
 }
 
 model Challenge {
-    challengeId String          @id @default(uuid())
-    name        String
-    description String
-    status      ChallengeStatus @default(PENDING)
-
-    competitionId String
-    competition   Competition @relation(fields: [competitionId], references: [competitionId])
-
-    challengeScore ChallengeScore[]
-
-    teams                Team[]
-    challengeSubmissions ChallengeSubmission[]
+    challengeId     String      @id @default(uuid())
+    competitionName String
+    competitionId   String
+    challenge       Competition @relation(fields: [competitionId], references: [competitionId])
+    // competitionScores CompetitionScore[]
+    teams           Team[] // Many-to-many with Team
 }
 
-model ChallengeScore {
-    challengeScoreId String @id @default(uuid())
-    score            Float
-
-    studentId String
-    student   Student @relation(fields: [studentId], references: [studentId])
-
-    challengeId String
-    challenge   Challenge @relation(fields: [challengeId], references: [challengeId])
-}
+// model CompetitionScore {
+//     competitionScoreId String    @id @default(uuid())
+//     score              Float
+//     studentId          String
+//     competitionId      String
+//     student            Student   @relation(fields: [studentId], references: [studentId])
+//     competition        Challenge @relation(fields: [competitionId], references: [competitionId])
+// }
 
 enum Section {
     A
     B
 }
-
-enum ChallengeStatus {
-    PENDING
-    IN_PROGRESS
-    COMPLETED
-}
-
-// // TODO 1) Challenge Status   2) section based segregation  3)  project submissions

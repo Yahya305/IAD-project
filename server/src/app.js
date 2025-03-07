@@ -2,9 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 import ErrorMiddleware from "./router/ErrorRouter.js";
+import { setupApplication } from "./config/setupApplication.js";
 import AuthenticationRouter from "./router/AuthenticationRouter.js";
 import ChallengeRouter from "./router/ChallengeRouter.js";
-import { Initializer } from "./utils/Initializer.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 // Setting Up the Application
-Initializer.init();
+setupApplication();
 
 // Routes
 app.get("/", (req, res) => {
@@ -22,7 +22,6 @@ app.get("/", (req, res) => {
 
 app.use("/auth", AuthenticationRouter);
 app.use("/challenge", ChallengeRouter);
-app.use("/comptition", ComptitionRouter);
 
 app.use(ErrorMiddleware);
 

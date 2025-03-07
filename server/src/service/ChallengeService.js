@@ -3,22 +3,12 @@ import { CustomError } from "../utils/exceptions/CustomError.js";
 import { HttpStatusCode } from "../utils/exceptions/HttpStatusCode.js";
 
 class ChallengeService {
-    static async fetchAllChallenges() {
+    static async fetchAllChallenges({ email, password }) {
         const challenges = await ChallengeRepository.fetchAllChallenges();
+
         return challenges;
     }
-    static async fetchCompetitionAllChallenges(competitionId) {
-        const challenges =
-            await ChallengeRepository.fetchCompetitionAllChallenges(
-                competitionId
-            );
-        return challenges;
-    }
-    static async startChallengeRound({
-        challengeName,
-        endDate,
-        competitionId,
-    }) {
+    static async startChallengeRound({ challengeName, endDate }) {
         const today = new Date().toISOString(); // Get current date in ISO 8601 format
 
         if (new Date(endDate) < new Date(today)) {
@@ -28,7 +18,6 @@ class ChallengeService {
         const challenge = await ChallengeRepository.createChallenge({
             challengeName,
             endDate,
-            competitionId,
         });
         return challenge;
     }

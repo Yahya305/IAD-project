@@ -5,17 +5,9 @@ class ChallengeRepository {
         const challenges = await prisma.challenge.findMany({});
         return challenges;
     }
-    static async fetchCompetitionAllChallenges(competitionId) {
-        const challenges = await prisma.challenge.findMany({
-            where: {
-                challengeId: competitionId,
-            },
-        });
-        return challenges;
-    }
-    static async createChallenge({ challengeName, endDate, competitionId }) {
+    static async createChallenge({ challengeName, endDate }) {
         const challenge = await prisma.challenge.create({
-            data: { challengeName, endDate, competitionId },
+            data: { challengeName, endDate },
         });
         return challenge;
     }
