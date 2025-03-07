@@ -35,5 +35,51 @@ class ChallengeService {
         });
         return challenge;
     }
+    static async submitProject({
+        title,
+        description,
+        projectURL,
+        challengeId,
+        teamId,
+    }) {
+        // check if team exists
+        const team = await TeamRepository.fetchTeamById(teamId);
+        if (!team) {
+            throw new CustomError("Team Not Found.", HttpStatusCode.NOT_FOUND);
+        }
+
+        // check if challenge exists
+        const challenge = await ChallengeRepository.fetchChallengeById({
+            challengeId,
+            includeTeams: true,
+        });
+        if (!challenge) {
+            throw new CustomError(
+                "Challenge Not Found.",
+                HttpStatusCode.NOT_FOUND
+            );
+        }
+
+        // Check if the team is part of the challenge
+        const isTeamInChallenge = challenge.teams.some(
+            (team) => team.teamId === teamId
+        );
+        if (!isTeamInChallenge) {
+            throw new CustomError(
+                "Team is not part of this challenge.",
+                HttpStatusCode.FORBIDDEN
+            );
+        }
+
+        const projectSubmission =
+            await ChallengeRepository.createChallengeSubmission({
+                title,
+                description,
+                projectURL,
+                challengeId,
+                teamId,
+            });
+        return projectSubmission;
+    }
 }
 export default ChallengeService;

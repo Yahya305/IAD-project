@@ -7,6 +7,15 @@ class ChallengeRepository {
         });
         return challenges;
     }
+    static async fetchChallengeById({challengeId,includeTeams=false}) {
+        const challenges = await prisma.challenge.findUnique({
+            where: { challengeId },
+            include:{
+                teams:includeTeams
+            }
+        });
+        return challenges;
+    }
     static async createChallenge({
         name,
         description,
@@ -25,6 +34,24 @@ class ChallengeRepository {
             },
         });
         return challenge;
+    }
+    static async createChallengeSubmission({
+        title,
+        description,
+        projectURL,
+        challengeId,
+        teamId,
+    }) {
+        const challengeSubmission = await prisma.challengeSubmission.create({
+            data: {
+                title,
+                description,
+                projectURL,
+                challengeId,
+                teamId,
+            },
+        });
+        return challengeSubmission;
     }
 }
 

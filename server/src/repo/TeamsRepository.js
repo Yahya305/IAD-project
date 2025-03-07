@@ -7,6 +7,12 @@ class TeamRepository {
         });
         return teams;
     }
+    static async fetchTeamById(teamId) {
+        const team = await prisma.team.findUnique({
+            where: { teamId },
+        });
+        return team;
+    }
 }
 
 export default TeamRepository;

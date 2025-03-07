@@ -43,6 +43,7 @@ model ChallengeSubmission {
     submissionId String  @id @default(uuid())
     title        String
     description  String?
+    projectURL   String
     teamId       String
     challengeId  String
 
