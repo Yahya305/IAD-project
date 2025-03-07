@@ -1,8 +1,8 @@
-import StudentRepository from "../repo/StudentsRepository";
+import StudentRepository from "../repo/StudentsRepository.js";
 import fs from "fs";
 import csv from "csv-parser";
-import TeacherService from "../service/TeacherService";
-import TeacherRepository from "../repo/TeacherRepository";
+import TeacherService from "../service/TeacherService.js";
+import TeacherRepository from "../repo/TeacherRepository.js";
 
 export class Initializer {
     static async init() {

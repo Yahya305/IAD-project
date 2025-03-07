@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { requestHandler } from "../utils/requestHandler.js";
 import { authorizeInstructor } from "../middlewares/authorizationMiddleware.js";
-import CompetitionRouter from "../controller/CompetitionRouter.js";
 import CompetitionController from "../controller/CompetitionController.js";
 
 const CompetitionRouter = Router();

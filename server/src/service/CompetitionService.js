@@ -1,4 +1,4 @@
-import { CompetitionRepository } from "../repo/CompetitionRepository";
+import { CompetitionRepository } from "../repo/CompetitionRepository.js";
 
 export class CompetitionService {
     static async createCompitition(competitionName) {
