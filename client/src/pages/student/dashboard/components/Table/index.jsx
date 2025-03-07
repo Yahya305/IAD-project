@@ -24,7 +24,7 @@ function Table() {
           </div>
         </div>
         <div className="table-content">
-        <div className="table-fields">
+          <div className="table-fields">
             <div className="field-wrapper">
               <p className="fields tasks">Tasks</p>
               <p className="fields submission-link">Submission Link</p>
@@ -33,8 +33,8 @@ function Table() {
               <p className="fields score">Score</p>
               <p className="fields expand"></p>
             </div>
-        </div>
-        <div className="tables-rows">
+          </div>
+          <div className="tables-rows">
             <Row />
             <Row />
           </div>
