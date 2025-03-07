@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Table/index.css'
+import Row from '../Row/index.jsx'
 
 function Table() {
   return (
@@ -22,11 +23,21 @@ function Table() {
             <button className="upload-button">+Upload Task</button>
           </div>
         </div>
+        <div className="table-content">
         <div className="table-fields">
-
+            <div className="field-wrapper">
+              <p className="fields tasks">Tasks</p>
+              <p className="fields submission-link">Submission Link</p>
+              <p className="fields deadline">Deadline</p>
+              <p className="fields status">Status</p>
+              <p className="fields score">Score</p>
+              <p className="fields expand"></p>
+            </div>
         </div>
         <div className="tables-rows">
-          {/* each-row */}
+            <Row />
+            <Row />
+          </div>
         </div>
       </div>
     </div>

@@ -1,29 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
 
 .banner-section {
-    /* background-color: url();   */
-    background-color: red;
-    height: 420px;
+    background-color: #233951;
+    width: 100%;
+}
+
+.banner-section .image-wrapper{
+    background-image: url(./IAD-Banner.png);
+    width: 100%;
+    aspect-ratio: 3.8;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    object-fit: cover;
 }
 
 .banner-section .banner-wrapper {
-    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: calc(90px + 60px) 0px 50px 50px;
+    gap: 15px;
+    width: 100%;
+    max-width: 765px;
+    /* z-index: 1; */
+    @media (max-width:1440pxpx){
+    }
+    @media (max-width:991px){
+        padding: calc(90px + 40px) 0px 30px 30px;
+        max-width: 80%;
+    }
+    @media (max-width:767px){
+        max-width: 80%;
+        padding: calc(90px + 40px) 20px 20px 20px;
+    }
+    @media (max-width:567px){
+        max-width: 90%;
+        gap: 10px;
+    }
 }
 
 .banner-section .banner-wrapper .heading {
+    font-size: 36px;
     font-family: DM Sans;
     font-weight: 700;
-    font-size: 36px;
     line-height: 130%;
     letter-spacing: 0%;
+    color: white;
+    @media (max-width:1440px){
+        font-size: 32px;
+    }
+    @media (max-width:991px){
+        font-size: 28px;
+    }
+    @media (max-width:767px){
+        font-size: 24px;
+    }
+    @media (max-width:567px){
+        font-size: 20px;
+    }
 
 }
 
 .banner-section .para {
+    font-size: 16px;
     font-family: DM Sans;
     font-weight: 400;
-    font-size: 16px;
     line-height: 150%;
     letter-spacing: 0px;
+    color: white;
+    opacity: 55%;
+    @media (max-width:1440px){
+
+    }
+    @media (max-width:991px){
+
+    }
+    @media (max-width:767px){
+        font-size: 14px;
+    }
+    @media (max-width:567px){
+
+    }
 
 }
