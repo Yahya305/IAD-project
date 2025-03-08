@@ -7,7 +7,6 @@ export default function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [seatnum, setSeatno] = useState("");
-    const [isLogin, setIsLogin] = useState(true);
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -17,7 +16,6 @@ export default function Signup() {
 
     const handlelogin = (e) => {
         e.preventDefault();
-        setIsLogin(true);
         navigate("/student/login");
     };
 
