@@ -5,7 +5,6 @@ import ErrorMiddleware from "./router/ErrorRouter.js";
 import { setupApplication } from "./config/setupApplication.js";
 import AuthenticationRouter from "./router/AuthenticationRouter.js";
 import ChallengeRouter from "./router/ChallengeRouter.js";
-import { Initializer } from "./utils/Initializer.js";
 import CompetitionRouter from "./router/CompetitionRouter.js";
 
 const app = express();
