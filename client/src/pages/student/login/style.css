@@ -6,31 +6,31 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #00365c;
-  }
-  
-  .container {
+}
+
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100%;
-  }
-  
-  .form-container {
+}
+
+.form-container {
     background-color: white;
-    padding: 20px;  
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(56, 8, 8, 0.1);
     width: 300px;
-  }
-  
-  .form-toggle {
+}
+
+.form-toggle {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-  }
-  
-  .form-toggle button {
+}
+
+.form-toggle button {
     width: 50%;
     padding: 10px;
     background-color: #f3f3f3;
@@ -38,39 +38,56 @@ body {
     cursor: pointer;
     font-size: 16px;
     border-radius: 10px 10px 0 0;
-  }
-  
-  .form-toggle .active {
+}
+
+.form-toggle .active {
     background-color: #033452;
     color: white;
-  }
-  
-  .form {
+}
+
+.form {
     display: flex;
     flex-direction: column;
-  }
-  
-  .form h2 {
+}
+
+.form h2 {
     margin-bottom: 20px;
-  }
-  
-  .form input {
+}
+
+.form input {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-  }
-  
-  .form button {
+}
+
+.form button {
     padding: 10px;
-    background-color:#033452;
+    background-color: #033452;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  /* .form a {
+}
+
+.signup-login-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+.signup-login-link span {
+    color: #033452;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.signup-login-link span:hover {
+    color: #071d35;
+}
+/* .form a {
     color: #007bff;
     text-decoration: none;
     margin-bottom: 10px;
@@ -81,47 +98,49 @@ body {
     text-align: center;
   } */
 
-  h1 {
-    margin:3px ;
+h1,
+h2 {
+    margin: 3px;
     padding: 9px;
     text-align: center;
-  }
+}
 
-  .form button:hover {
+.form button:hover {
     background-color: #071d35;
-  }
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .container {
-      max-width: 90%;
+        max-width: 90%;
     }
-  
+
     .form-toggle button {
-      font-size: 14px;
+        font-size: 14px;
     }
-  
-    .form input, .form button {
-      font-size: 14px;
-      padding: 8px;
+
+    .form input,
+    .form button {
+        font-size: 14px;
+        padding: 8px;
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     .container {
-      max-width: 100%;
-      padding: 10px;
+        max-width: 100%;
+        padding: 10px;
     }
-  
+
     .form-container {
-      padding: 15px;
+        padding: 15px;
     }
-  
+
     .form-toggle {
-      flex-direction: column;
+        flex-direction: column;
     }
-  
+
     .form-toggle button {
-      width: 100%;
-      margin-bottom: 5px;
+        width: 100%;
+        margin-bottom: 5px;
     }
-  }
+}

@@ -14,7 +14,7 @@ function Router() {
             <Route path="/student/dashboard" element={<StudentDashboard />} />
             <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
             <Route path="/student/login" element={<Loginpage/>} />
-            <Route path="/student/Signup" element={<Signup/>} />
+            <Route path="/student/signup" element={<Signup/>} />
             
 
         </Routes>

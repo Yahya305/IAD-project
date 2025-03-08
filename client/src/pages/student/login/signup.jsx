@@ -1,8 +1,7 @@
-import React from 'react'
+import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
-
 
 export default function Signup() {
     const [email, setEmail] = useState("");
@@ -14,55 +13,62 @@ export default function Signup() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Logging in with", email, password);
-      };
-
-    const handlelogin = (e) => {
-      e.preventDefault();
-      setIsLogin(true);
-      navigate("/student/login");
     };
 
+    const handlelogin = (e) => {
+        e.preventDefault();
+        setIsLogin(true);
+        navigate("/student/login");
+    };
 
-
-  return (
-    <div className="container">
-      <div className="form-container">
-      <div className="form-toggle">
-                    <button className={!isLogin ? "active" : ""}   onClick={handlelogin} >Login</button>
-                    <button className={isLogin ? "active" : ""}  onClick={()=> {setIsLogin(false)}} >Signup</button>
-        </div>
-        <h1>Signup</h1>
-        <form className="form">
-          <input
-            type="text"
-            placeholder="Name"
-          />
-          <input
+    return (
+        <div className="container">
+            <div className="form-container">
+                <h1>Enroll Now</h1>
+                <h2>Signup</h2>
+                <form className="form">
+                    <input type="text" placeholder="Name" />
+                    <input
                         type="email"
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-          <input type="text" 
-          placeholder='Seat Number'
-          value={seatnum}
-          onChange={(e) => setSeatno(e.target.value)}/>
+                    <input
+                        type="text"
+                        placeholder="Seat Number"
+                        value={seatnum}
+                        onChange={(e) => setSeatno(e.target.value)}
+                    />
 
-           <input
+                    <input
                         type="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-          <input
+                    <input
                         type="password"
                         placeholder="Confirm Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-          <button type="submit">Signup</button>
-        </form>
-      </div>
-    </div>
-  )
+                    <button type="submit">Signup</button>
+                </form>
+                <p className="signup-login-link">
+                    Already have an account?{" "}
+                    <span
+                        onClick={handlelogin}
+                        style={{
+                            cursor: "pointer",
+                            color: "#033452",
+                            fontWeight: "bold",
+                        }}
+                    >
+                        Login
+                    </span>
+                </p>
+            </div>
+        </div>
+    );
 }
