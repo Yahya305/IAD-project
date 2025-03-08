@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #00365c;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .form-container {
+    background-color: white;
+    padding: 20px;  
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(56, 8, 8, 0.1);
+    width: 300px;
+  }
+  
+  .form-toggle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .form-toggle button {
+    width: 50%;
+    padding: 10px;
+    background-color: #f3f3f3;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .form-toggle .active {
+    background-color: #033452;
+    color: white;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .form button {
+    padding: 10px;
+    background-color:#033452;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* .form a {
+    color: #007bff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    text-align: right;
+  }
+  
+  .form p {
+    text-align: center;
+  } */
+
+  h1 {
+    margin:3px ;
+    padding: 9px;
+    text-align: center;
+  }
+
+  .form button:hover {
+    background-color: #071d35;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      max-width: 90%;
+    }
+  
+    .form-toggle button {
+      font-size: 14px;
+    }
+  
+    .form input, .form button {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      max-width: 100%;
+      padding: 10px;
+    }
+  
+    .form-container {
+      padding: 15px;
+    }
+  
+    .form-toggle {
+      flex-direction: column;
+    }
+  
+    .form-toggle button {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
