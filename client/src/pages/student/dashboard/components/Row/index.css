@@ -1,0 +1,62 @@
+
+.each-row {
+    width: 100%;
+}
+
+.each-row .row-content {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.each-row .row-content .row-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; 
+    /* max-width: 83%; */
+    padding: 50px 10px;
+    border-bottom: 1px solid #EFF3FB;
+}
+
+.each-row .row-content .row-wrapper .fields {
+    font-family: DM Sans;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: 0px;
+    width: 14%;
+    text-align: center;
+    color: rgba(105, 105, 105, 1);
+}
+
+/* .each-row .row-content .row-wrapper .fields.tasks {} */
+
+.each-row .row-content .row-wrapper .fields.submission-link {
+    word-wrap: break-word;
+    width: 30%;
+    margin: 0px 10px;
+}
+
+.each-row .row-content .row-wrapper .fields.submission-link a {
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: rgba(105, 105, 105, 1);
+    text-decoration: none;
+
+}
+
+/* .each-row .row-content .row-wrapper .fields.deadline {}
+
+.each-row .row-content .row-wrapper .fields.status {}
+
+.each-row .row-content .row-wrapper .fields.score {}
+
+.each-row .row-content .row-wrapper .fields.score {
+
+} */

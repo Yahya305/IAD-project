@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
     provider = "prisma-client-js"
 }
@@ -27,47 +21,83 @@ model Student {
     section     Section?
     email       String?  @unique()
     password    String?
-    teamId      String?
     isActivated Boolean  @default(false)
-    team        Team?    @relation(fields: [teamId], references: [teamId])
-    // competitionScores CompetitionScore[]
+
+    teamId String?
+    team   Team?   @relation(fields: [teamId], references: [teamId])
+
+    challengeScore ChallengeScore[]
 }
 
 model Team {
-    teamId       String      @id
-    teamNumber   Int
-    section      Section
-    students     Student[]
-    competitions Challenge[] // Many-to-many with Competition
+    teamId     String  @id
+    teamNumber Int
+    section    Section
+
+    students             Student[]
+    challenges           Challenge[] // Many-to-many with Challenge
+    challengeSubmissions ChallengeSubmission[]
+}
+
+model ChallengeSubmission {
+    submissionId String  @id @default(uuid())
+    title        String
+    description  String?
+    projectURL   String
+    teamId       String
+    challengeId  String
+
+    submissionDate DateTime @default(now())
+
+    team      Team      @relation(fields: [teamId], references: [teamId])
+    challenge Challenge @relation(fields: [challengeId], references: [challengeId])
 }
 
 model Competition {
-    competitionId   String      @id @default(uuid())
+    competitionId   String   @id @default(uuid())
     competitionName String
-    startDate       DateTime    @default(now())
+    section         Section
+    startDate       DateTime @default(now())
     endDate         DateTime
-    competitions    Challenge[] // Lowercase plural
+
+    challenges Challenge[] // Lowercase plural
 }
 
 model Challenge {
-    challengeId     String      @id @default(uuid())
-    competitionName String
-    competitionId   String
-    challenge       Competition @relation(fields: [competitionId], references: [competitionId])
-    // competitionScores CompetitionScore[]
-    teams           Team[] // Many-to-many with Team
+    challengeId String          @id @default(uuid())
+    name        String
+    description String
+    status      ChallengeStatus @default(PENDING)
+
+    competitionId String
+    competition   Competition @relation(fields: [competitionId], references: [competitionId])
+
+    challengeScore ChallengeScore[]
+
+    teams                Team[]
+    challengeSubmissions ChallengeSubmission[]
 }
 
-// model CompetitionScore {
-//     competitionScoreId String    @id @default(uuid())
-//     score              Float
-//     studentId          String
-//     competitionId      String
-//     student            Student   @relation(fields: [studentId], references: [studentId])
-//     competition        Challenge @relation(fields: [competitionId], references: [competitionId])
-// }
+model ChallengeScore {
+    challengeScoreId String @id @default(uuid())
+    score            Float
+
+    studentId String
+    student   Student @relation(fields: [studentId], references: [studentId])
+
+    challengeId String
+    challenge   Challenge @relation(fields: [challengeId], references: [challengeId])
+}
 
 enum Section {
     A
     B
 }
+
+enum ChallengeStatus {
+    PENDING
+    IN_PROGRESS
+    COMPLETED
+}
+
+// // TODO 1) Challenge Status   2) section based segregation  3)  project submissions

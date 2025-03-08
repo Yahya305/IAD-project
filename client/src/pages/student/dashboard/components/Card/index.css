@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+
+.card {
+    /* background-color: red; */
+    border: none ;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 340px;
+}
+.card .container{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    align-items: start;
+    
+}
+.card .card-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.card .card-wrapper .left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+}
+
+.card .card-wrapper .left .total {
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #09090B;
+    text-wrap: nowrap;
+}
+
+.card .card-wrapper .left .no-of-tasks {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    color: #09090B;
+}
+.card .card-wrapper .right{
+    width: 50%;
+}
+.card .card-wrapper .right svg {
+    width: 120px;
+    height: 46px;
+}
+
+.card .percentage {
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: #1CB02E;
+    margin-top: 10px;
+    text-align: left;
+}

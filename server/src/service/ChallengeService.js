@@ -1,25 +1,98 @@
 import ChallengeRepository from "../repo/ChallengeRepository.js";
+import TeamRepository from "../repo/TeamsRepository.js";
 import { CustomError } from "../utils/exceptions/CustomError.js";
 import { HttpStatusCode } from "../utils/exceptions/HttpStatusCode.js";
 
 class ChallengeService {
-    static async fetchAllChallenges({ email, password }) {
-        const challenges = await ChallengeRepository.fetchAllChallenges();
+    static async fetchAllChallengesInCompetition({ competitionId }) {
+        const challenges = await ChallengeRepository.fetchChallenges({
+            competitionId,
+        });
 
         return challenges;
     }
-    static async startChallengeRound({ challengeName, endDate }) {
-        const today = new Date().toISOString(); // Get current date in ISO 8601 format
+    static async startChallengeRound({
+        name,
+        description,
+        competitionId,
+        teamIds,
+    }) {
+        // check if teams exist
+        const existingTeams = await TeamRepository.findManyTeams(teamIds);
 
-        if (new Date(endDate) < new Date(today)) {
-            throw new CustomError("Invalid Date", HttpStatusCode.BAD_REQUEST);
+        if (existingTeams.length !== teamIds.length) {
+            throw new CustomError(
+                "One or more teams do not exist.",
+                HttpStatusCode.NOT_FOUND
+            );
         }
 
         const challenge = await ChallengeRepository.createChallenge({
-            challengeName,
-            endDate,
+            name,
+            description,
+            competitionId,
+            teamIds,
         });
         return challenge;
+    }
+    static async submitProject({
+        title,
+        description,
+        projectURL,
+        challengeId,
+        teamId,
+    }) {
+        // check if team exists
+        const team = await TeamRepository.fetchTeamById(teamId);
+        if (!team) {
+            throw new CustomError("Team Not Found.", HttpStatusCode.NOT_FOUND);
+        }
+
+        // check if challenge exists
+        const challenge = await ChallengeRepository.fetchChallengeById({
+            challengeId,
+            includeTeams: true,
+        });
+        if (!challenge) {
+            throw new CustomError(
+                "Challenge Not Found.",
+                HttpStatusCode.NOT_FOUND
+            );
+        }
+
+        // Check if the team is part of the challenge
+        const isTeamInChallenge = challenge.teams.some(
+            (team) => team.teamId === teamId
+        );
+        if (!isTeamInChallenge) {
+            throw new CustomError(
+                "Team is not part of this challenge.",
+                HttpStatusCode.FORBIDDEN
+            );
+        }
+
+        const existingSubmission =
+            await ChallengeRepository.fetchTeamChallangeSubmission({
+                challengeId,
+                teamId,
+            });
+
+        if (existingSubmission) {
+            throw new CustomError(
+                "Project has already been submitted.",
+                HttpStatusCode.CONFLICT
+            );
+        }
+
+        const projectSubmission =
+            await ChallengeRepository.createChallengeSubmission({
+                title,
+                description,
+                projectURL,
+                challengeId,
+                teamId,
+            });
+        return projectSubmission;
     }
 }
 export default ChallengeService;
