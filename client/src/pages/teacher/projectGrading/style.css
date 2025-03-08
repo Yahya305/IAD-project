@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+.container {
+  text-align: center;
+  background-color:#fcfefe;
+  min-height: 100vh;
+  padding: 20px;
+
+  .heading {
+    font-size: 30px;
+    font-weight: bold;
+    color: #233951;
+    margin-bottom: 20px;
+  }
+
+  .grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}
+
+.card {
+  background: #00365c;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  min-height: auto;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  .card-content {
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+      color: #f4f1f1;
+      margin-bottom: 15px;
+    }
+  }
+
+  .members-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #f4f1f1;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.dropdown {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #233951;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #233951;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  text-align: center;
+  box-sizing: border-box;
+
+  &.third {
+    width: 30%;
+    display: inline-block;
+    margin: 0 1%;
+  }
+
+  &:focus {
+    border-color: #fcfefe;
+  }
+}
+
+.member-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: #00365c;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 15px;
+
+  &:hover {
+    background-color: #005796;
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .grid-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .input.third {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .member-row {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 22px;
+  }
+
+  .card {
+    padding: 15px;
+    width: 95%;
+  }
+
+  .button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
