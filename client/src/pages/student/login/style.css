@@ -1,16 +1,8 @@
-body {
+.container {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
     background-color: #00365c;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100%;
@@ -48,6 +40,7 @@ body {
 .form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
 .form h2 {
@@ -56,7 +49,6 @@ body {
 
 .form input {
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -87,16 +79,6 @@ body {
 .signup-login-link span:hover {
     color: #071d35;
 }
-/* .form a {
-    color: #007bff;
-    text-decoration: none;
-    margin-bottom: 10px;
-    text-align: right;
-  }
-  
-  .form p {
-    text-align: center;
-  } */
 
 h1,
 h2 {
@@ -110,10 +92,6 @@ h2 {
 }
 
 @media (max-width: 768px) {
-    .container {
-        max-width: 90%;
-    }
-
     .form-toggle button {
         font-size: 14px;
     }
@@ -126,11 +104,6 @@ h2 {
 }
 
 @media (max-width: 480px) {
-    .container {
-        max-width: 100%;
-        padding: 10px;
-    }
-
     .form-container {
         padding: 15px;
     }
