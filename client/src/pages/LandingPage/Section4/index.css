@@ -1,0 +1,58 @@
+.landing-page-four-section > .hero {
+    > .secImg {
+      display: flex;
+      align-items: center;
+    }
+  
+    .train {
+      width: 50vw;
+      p {
+        padding: 15px 0 0 0;
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--dimBlue);
+      }
+  
+      > span:nth-child(1) {
+        font-family: "Inter", sans-serif;
+        font-size: 50px;
+        color: var(--blueColor);
+      }
+  
+      .card {
+        display: flex;
+        margin: 30px 5px;
+        gap: 15px;
+        background-color: white;
+        border-radius: 30px;
+        padding: 20px;
+        width: 80%;
+        box-shadow: 7px 6px 13px;
+  
+        .text span {
+          font-family: "Inter", sans-serif;
+          font-size: 30px;
+          font-weight: bold;
+          color: var(--blueColor);
+        }
+      }
+    }
+  }
+
+
+@media screen and (max-width: 1000px) {
+    
+  
+    .fourth .hero {
+      flex-direction: column-reverse;
+      .train {
+        width: 100%;
+        margin-top: 50px;
+  
+        > span:nth-child(1) {
+          font-size: 42px;
+        }
+      }
+    }
+}

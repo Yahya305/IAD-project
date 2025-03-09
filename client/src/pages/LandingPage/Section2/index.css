@@ -1,0 +1,72 @@
+.landing-page-section2 {
+    > h2 {
+      font-family: "Inter", sans-serif;
+      margin-top: 25px;
+      padding-left: 30px;
+      font-size: 60px;
+      width: 93vw;
+      margin: 30px auto 0 auto;
+      font-weight: bolder;
+      color: var(--blueColor);
+    }
+    .hero {
+      margin: 0;
+    }
+    
+    .grid-text {
+      width: 50%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      background-color: rgba(0, 255, 255, 0.121);
+      padding: 20px;
+      border-radius: 20px;
+  
+      .grid-item {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+  
+        :nth-child(2) {
+          font-family: "Inter", sans-serif;
+          font-size: 25px;
+          font-weight: bold;
+          color: var(--blueColor);
+        }
+        :nth-child(3) {
+          font-family: "Inter", sans-serif;
+  
+          color: var(--lightBlue);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    
+  
+    .landing-page-section2 {
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 49px;
+        padding-top: 20px;
+      }
+      > h2 {
+        font-size: 45px;
+      }
+  
+      .grid-text {
+        width: 85%;
+        gap: 30px;
+  
+        :nth-child(2) {
+          font-size: 20px;
+        }
+        :nth-child(3) {
+          font-size: 13px;
+        }
+      }
+    }
+}

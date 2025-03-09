@@ -1,0 +1,35 @@
+.landing-page-section-6 {
+    color: white;
+    padding: 34px;
+  
+    h2 {
+      text-align: center;
+      font-size: 48px;
+      color: var(--blueColor);
+    }
+  
+    .faqbox {
+      transition: all 0.5s ease-out;
+      font-size: 24px;
+      color: white;
+      background-color: var(--blueColor);
+      padding: 24px;
+      display: flex;
+      max-width: 60vw;
+      margin: 34px auto;
+      justify-content: space-between;
+      cursor: pointer;
+      align-items: center;
+  
+      &:hover {
+        background-color: var(--lightBlue);
+      }
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+  
+    .faq h2 {
+      font-size: 42px;
+    }
+  }

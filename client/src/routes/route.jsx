@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router";
 import StudentDashboard from "../pages/student/dashboard";
-import LandingPage from "../pages/landing-page";
+import LandingPage from "../pages/LandingPage/Main.jsx";
 import TeacherDashboard from "../pages/teacher/dashboard";
 import Loginpage from "../pages/student/authentication/Login";
 import Signup from "../pages/student/authentication/signup";
@@ -11,6 +11,7 @@ function Router() {
     return (
         <Routes>
             {/* Root route */}
+            
             <Route path="/" element={<LandingPage />} />
 
             {/* Nested student routes */}

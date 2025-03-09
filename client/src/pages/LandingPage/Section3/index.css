@@ -1,0 +1,57 @@
+.landing-page-third-section > .hero {
+    width: 85vw;
+    margin: auto;
+    background-color: var(--lightBlue);
+    border-radius: 40px;
+  
+    .hero-text {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+  
+      :nth-child(1) {
+        font-family: "Inter", sans-serif;
+        font-size: 46px;
+        font-weight: bolder;
+        color: white;
+      }
+      :nth-child(2) {
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        color: white;
+      }
+      > .started {
+        width: 50%;
+        align-self: flex-start;
+        background-color: white;
+        color: var(--blueColor);
+        font-weight: 500;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+  
+    .third > .hero > .hero-text {
+      width: 95%;
+      gap: 30px;
+      padding-left: 20px;
+  
+      :nth-child(1) {
+        font-size: 45px;
+      }
+      :nth-child(2) {
+        font-size: 15px;
+      }
+  
+      > .started {
+        width: 250px;
+        padding: 21px 5px;
+        font-weight: 300;
+      }
+      > .secImg {
+        width: 95%;
+      }
+    }
+}
