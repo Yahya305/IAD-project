@@ -1,7 +1,7 @@
 import extractTokenFromHeader from "../utils/extractTokenFromHeader.js";
 import { verifyToken } from "../utils/JWTUtils.js";
 
-export const authorizeStudent = (req, res, next) => {
+export const authorizeUser = (req, res, next) => {
     try {
         const token = extractTokenFromHeader(req, res);
         const payload = verifyToken(token);
@@ -17,7 +17,7 @@ export const authorizeStudent = (req, res, next) => {
         }
     }
 };
-export const authorizeInstructor = (req, res, next) => {
+export const authorizeOnlyInstructor = (req, res, next) => {
     try {
         const token = extractTokenFromHeader(req, res);
         const payload = verifyToken(token);

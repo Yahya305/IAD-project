@@ -1,22 +1,22 @@
 import { Router } from "express";
 import { requestHandler } from "../utils/requestHandler.js";
 import {
-    authorizeInstructor,
-    authorizeStudent,
+    authorizeOnlyInstructor,
+    authorizeUser,
 } from "../middlewares/authorizationMiddleware.js";
 import ChallengeController from "../controller/ChallengeController.js";
 
 const ChallengeRouter = Router();
 
-ChallengeRouter.get("/challenges-in-competition/:competitionId", authorizeStudent, (req, res, next) =>
+ChallengeRouter.get("/challenges-in-competition/:competitionId", authorizeUser, (req, res, next) =>
     requestHandler(req, res, next, ChallengeController.fetchAllChallengesInCompetition)
 );
 
 
-ChallengeRouter.post("/", authorizeInstructor, (req, res, next) =>
+ChallengeRouter.post("/", authorizeOnlyInstructor, (req, res, next) =>
     requestHandler(req, res, next, ChallengeController.startChallengeRound)
 );
-ChallengeRouter.post("/project-submission", authorizeInstructor, (req, res, next) =>
+ChallengeRouter.post("/project-submission", authorizeOnlyInstructor, (req, res, next) =>
     requestHandler(req, res, next, ChallengeController.submitProject)
 );
 

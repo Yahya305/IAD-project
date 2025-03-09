@@ -7,6 +7,7 @@ import { setupApplication } from "./config/setupApplication.js";
 import AuthenticationRouter from "./router/AuthenticationRouter.js";
 import ChallengeRouter from "./router/ChallengeRouter.js";
 import CompetitionRouter from "./router/CompetitionRouter.js";
+import UserRouter from "./router/UserRouter.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", AuthenticationRouter);
+app.use("/user", UserRouter);
 app.use("/challenge", ChallengeRouter);
 app.use("/competition", CompetitionRouter);
 

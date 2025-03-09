@@ -58,9 +58,12 @@ class AuthenticationService {
 
         activatedStudentAccount.token = signToken({
             userId: activatedStudentAccount.studentId,
-            email: activatedStudentAccount.email,
             name: activatedStudentAccount.name,
+            email: activatedStudentAccount.email,
+            seatNo: activatedStudentAccount.seatNo,
+            isActivated: activatedStudentAccount.isActivated,
             section: activatedStudentAccount.section,
+            teamId: activatedStudentAccount.teamId,
             userType: "STUDENT",
         });
 
