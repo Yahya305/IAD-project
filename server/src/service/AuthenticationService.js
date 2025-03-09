@@ -32,7 +32,7 @@ class AuthenticationService {
         return _teacher_data;
     }
 
-    static async studentRegister({ seatNo, email, password }) {
+    static async studentRegister({ email, seatNo, section, password }) {
         const enrolledStudent = await StudentService.fetchStudentBySeatNo(
             seatNo
         );

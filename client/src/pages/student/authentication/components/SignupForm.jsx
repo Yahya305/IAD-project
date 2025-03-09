@@ -4,7 +4,7 @@ const SignupForm = ({ onSubmit }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [seatNo, setSeatno] = useState("");
-    const [section, setSection] = useState(""); // Default value for section
+    // const [section, setSection] = useState(""); // Default value for section
     const [name, setName] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
@@ -17,7 +17,7 @@ const SignupForm = ({ onSubmit }) => {
             !name ||
             !email ||
             !seatNo ||
-            !section ||
+            // !section ||
             !password ||
             !confirmPassword
         ) {
@@ -35,14 +35,14 @@ const SignupForm = ({ onSubmit }) => {
 
         // Call the onSubmit prop if provided
         if (onSubmit) {
-            onSubmit({ name, email, seatNo, section, password });
+            onSubmit({ name, email, seatNo, password });
         }
 
         console.log("Signing up with:", {
             name,
             email,
             seatNo,
-            section,
+            // section,
             password,
         });
     };
@@ -68,7 +68,7 @@ const SignupForm = ({ onSubmit }) => {
                     aria-label="Seat Number"
                 />
             </div>
-            <div className="form-group">
+            {/* <div className="form-group">
                 <select
                     id="section"
                     value={section}
@@ -79,7 +79,7 @@ const SignupForm = ({ onSubmit }) => {
                     <option value="A">A</option>
                     <option value="B">B</option>
                 </select>
-            </div>
+            </div> */}
             <div className="form-group">
                 <input
                     id="email"
