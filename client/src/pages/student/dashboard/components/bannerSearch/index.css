@@ -1,6 +1,7 @@
 .banner-search {
     width: 100%;
     position: absolute;
+    right: 0;
     background-color: white;
     display: flex;
     justify-content: flex-end;

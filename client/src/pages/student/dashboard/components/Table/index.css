@@ -22,6 +22,7 @@
     display: flex;
     align-items: center;
     width: 100%;
+    position: relative;
     max-width: 418px;
     
 }
@@ -30,7 +31,7 @@
     width: 20px;
     height: 20px;
     position: absolute;
-    left: 35px;
+    left: 17px;
     z-index: 1;
 }
 
