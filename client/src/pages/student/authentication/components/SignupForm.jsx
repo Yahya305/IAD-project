@@ -4,6 +4,7 @@ const SignupForm = ({ onSubmit }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [seatNo, setSeatno] = useState("");
+    const [section, setSection] = useState(""); // Default value for section
     const [name, setName] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
@@ -12,7 +13,14 @@ const SignupForm = ({ onSubmit }) => {
         e.preventDefault();
 
         // Basic validation
-        if (!email || !password || !confirmPassword) {
+        if (
+            !name ||
+            !email ||
+            !seatNo ||
+            !section ||
+            !password ||
+            !confirmPassword
+        ) {
             setError("Please fill in all fields.");
             return;
         }
@@ -27,10 +35,16 @@ const SignupForm = ({ onSubmit }) => {
 
         // Call the onSubmit prop if provided
         if (onSubmit) {
-            onSubmit(email, password);
+            onSubmit({ name, email, seatNo, section, password });
         }
 
-        console.log("Signing up with", email, password);
+        console.log("Signing up with:", {
+            name,
+            email,
+            seatNo,
+            section,
+            password,
+        });
     };
 
     return (
@@ -42,6 +56,7 @@ const SignupForm = ({ onSubmit }) => {
                     placeholder="Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    aria-label="Name"
                 />
             </div>
             <div className="form-group">
@@ -50,7 +65,21 @@ const SignupForm = ({ onSubmit }) => {
                     placeholder="Seat Number"
                     value={seatNo}
                     onChange={(e) => setSeatno(e.target.value)}
+                    aria-label="Seat Number"
                 />
+            </div>
+            <div className="form-group">
+                <select
+                    id="section"
+                    value={section}
+                    onChange={(e) => setSection(e.target.value)}
+                    aria-label="Section"
+                    defaultValue={""}
+                >
+                    <option value="">Choose Section</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                </select>
             </div>
             <div className="form-group">
                 <input
