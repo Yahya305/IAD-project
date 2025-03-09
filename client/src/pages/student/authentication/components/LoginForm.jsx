@@ -19,7 +19,7 @@ const LoginForm = ({ onSubmit }) => {
 
         // Call the onSubmit prop if provided
         if (onSubmit) {
-            onSubmit(email, password);
+            onSubmit({email, password});
         }
 
         console.log("Logging in with", email, password);

@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 dotenv.config();
 import ErrorMiddleware from "./router/ErrorRouter.js";
 import { setupApplication } from "./config/setupApplication.js";
@@ -12,6 +13,9 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json());
+
+// Setup CORS
+app.use(cors());
 
 // Setting Up the Application
 setupApplication();
