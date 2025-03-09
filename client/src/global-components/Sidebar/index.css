@@ -31,9 +31,11 @@ aside.dashboard-sidebar {
                     font-family: Arial, Helvetica, sans-serif;
                     font-size: 20px;
                 }
+                &.active,
                 &:hover {
                     background-color: #233951;
-                    .name, .icon {
+                    .name,
+                    .icon {
                         color: white;
                     }
                 }
@@ -45,6 +47,5 @@ aside.dashboard-sidebar {
         hr {
             margin-bottom: 20px;
         }
-
     }
 }

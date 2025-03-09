@@ -1,9 +1,12 @@
 import React from 'react'
+import { useNavigate, useLocation } from "react-router"
 import "./index.css"
 
 
 
 const Sidebar = ({ routes }) => {
+    const navigate = useNavigate()
+    const { pathname } = useLocation()
     return (
         <aside className='dashboard-sidebar'>
             <div className="logo-section">
@@ -13,7 +16,7 @@ const Sidebar = ({ routes }) => {
             <div className="all-routes">
                 <div className="routes">
                     {routes.map(route => (
-                        <div className="route" key={route.path}>
+                        <div onClick={() => navigate(route.path)} className={`route ${route.path === pathname ? "active" : ""}`} key={route.path}>
                             <div className="icon">{route.icon}</div>
                             <div className="name">{route.name}</div>
                         </div>
