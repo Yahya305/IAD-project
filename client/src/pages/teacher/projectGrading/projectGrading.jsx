@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import TeamForm from "./teamForm";
+import TeamForm from "./components/teamForm";
 import "./style.css";
 
-const ProjectGrading = () => {
+const ProjectGradingPage = () => {
   const [teamSizes, setTeamSizes] = useState({ A: 0, B: 0 });
 
   const handleTeamSizeChange = (event, team) => {
@@ -37,7 +37,7 @@ const ProjectGrading = () => {
   };
 
   return (
-    <div className="container">
+    <div className="grading-container">
       <h1 className="heading">Project Grading</h1>
       <form onSubmit={handleSubmit}>
         <div className="grid-container">
@@ -55,4 +55,4 @@ const ProjectGrading = () => {
     </div>
   );
 };
-export default ProjectGrading;
+export default ProjectGradingPage;

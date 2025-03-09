@@ -74,7 +74,6 @@ const SignupForm = ({ onSubmit }) => {
                     value={section}
                     onChange={(e) => setSection(e.target.value)}
                     aria-label="Section"
-                    defaultValue={""}
                 >
                     <option value="">Choose Section</option>
                     <option value="A">A</option>
