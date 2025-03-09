@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TeamForm from "./components/teamForm";
+import TeamForm from "./components/TeamForm/teamForm";
 import "./style.css";
 
 const ProjectGradingPage = () => {
