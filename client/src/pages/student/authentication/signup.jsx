@@ -40,7 +40,7 @@ const Signup = () => {
     };
 
     return (
-        <div className="container">
+        <div className="auth-page-container">
             <div className="form-container">
                 <h1>Enroll Now</h1>
                 <h2>Signup</h2>
