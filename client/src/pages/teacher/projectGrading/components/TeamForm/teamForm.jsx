@@ -22,15 +22,15 @@ const TeamForm = ({ team, teamSize, handleTeamSizeChange }) => {
           ))}
         </select>
 
-        <input type="url" name={`url${team}`} placeholder="Project URL" className="input" required />
+        <input type="url" placeholder="Project URL" className="input" required />
 
         {teamSize > 0 && (
           <div className="members-list">
             {Array.from({ length: teamSize }, (_, index) => (
               <div key={index} className="member-row">
-                <input type="text" name={`name${team}${index}`} placeholder={`Member ${index + 1} Name`} className="input third" required />
-                <input type="text" name={`roll${team}${index}`} placeholder="Roll Number" className="input third" required />
-                <input type="number" name={`grade${team}${index}`} placeholder="Grade" className="input third" min="0" max="10" step="0.1" required />
+                <input type="text" placeholder={`Member ${index + 1} Name`} className="input third" required />
+                <input type="text" placeholder="Roll Number" className="input third" required />
+                <input type="number" placeholder="Grade" className="input third" min="0" max="10" step="0.1" required />
               </div>
             ))}
           </div>

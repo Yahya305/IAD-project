@@ -6,6 +6,7 @@ import Banner from "./components/Banner";
 import Search from "./components/bannerSearch";
 import Sidebar from "../../../global-components/Sidebar";
 import { FaHome } from "react-icons/fa";
+import PerformaceAnalysis from "./dashboard-inner-pages/PerformanceAnalysis";
 
 
 const Routes = [
@@ -33,13 +34,11 @@ function StudentDashboard() {
             <div className="dashboard" style={{
                 position: "relative"
             }}>
-                <Search />
+                {/* <Search />
                 <Banner />
-                <Table />
-                {/* <Card /> */}
-                {/* <Card />
-            <Card />
-            <Card /> */}
+                <Table /> */}
+
+                <PerformaceAnalysis />
             </div>
 
         </div>

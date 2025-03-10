@@ -1,8 +1,8 @@
 import React from "react";
 
-function MainSpan(props){
+function MainSpan(props) {
     return (
-    <span>{props.title}</span>
+        <span>{props.title}</span>
     );
 }
 

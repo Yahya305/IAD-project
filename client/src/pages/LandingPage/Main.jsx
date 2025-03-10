@@ -13,7 +13,14 @@ function Main() {
     <>
       <Headers />
       <main>
+        <div className="spacer" style={{ paddingTop: "200px" }}></div>
+
         <Section1 />
+
+        <div className="spacer" style={{ paddingTop: "200px" }}></div>
+
+        <div className="card"></div>
+
         <Section2 />
         <Section3 />
         <Section4 />

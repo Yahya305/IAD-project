@@ -11,7 +11,6 @@ function Router() {
     return (
         <Routes>
             {/* Root route */}
-            
             <Route path="/" element={<LandingPage />} />
 
             {/* Nested student routes */}
