@@ -9,8 +9,12 @@ function NavBar() {
     <nav>
         <Logo />
         <NavBars />
-        <NavButton name="Login Now" image="/images/circularArrow.svg"  />
-      </nav>
+        <NavButton 
+          name="Login Now" 
+          image="/images/circularArrow.svg" 
+          to="/student/login"
+        />
+    </nav>
   );
 }
 
