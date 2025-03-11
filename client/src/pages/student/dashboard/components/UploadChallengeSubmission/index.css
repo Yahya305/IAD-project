@@ -1,6 +1,6 @@
 .UploadChallengeSubmission {
     background: white;
-    height: 40vh;
+    height: auto;
     width: 50vw;
     z-index: 1011;
     border-radius: 20px;
@@ -14,11 +14,33 @@
         align-items: center;
 
         font-family: DM Sans;
-        font-weight: bold;
-        font-size: 30px;
+        .title {
+            font-weight: bold;
+            font-size: 20px;
+        }
         button {
             all: unset;
             cursor: pointer;
+        }
+    }
+    .body {
+        display: flex;
+        padding: 20px 0;
+        flex-direction: column;
+        gap: 20px;
+        input {
+            padding: 10px;
+            font-family: DM Sans;
+        }
+        button {
+            all: unset;
+            align-self: flex-start;
+            background-color: var(--blueColor);
+            padding: 10px 20px;
+            color: white;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: DM Sans;
         }
     }
 }

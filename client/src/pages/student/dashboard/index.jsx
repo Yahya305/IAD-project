@@ -6,6 +6,7 @@ import Search from "./components/bannerSearch";
 import Sidebar from "../../../global-components/Sidebar";
 import { FaHome } from "react-icons/fa";
 import UploadChallengeSubmission from "./components/UploadChallengeSubmission";
+import { AnimatePresence } from "framer-motion";
 
 
 const Routes = [
@@ -40,12 +41,14 @@ function StudentDashboard() {
                 <Search />
                 <Banner />
                 <Table />
-                {
-                    Modals.UploadChallengeSubmission &&
-                    <UploadChallengeSubmission 
-                        close={() => setModal("UploadChallengeSubmission", false)} 
-                    />
-                }
+                <AnimatePresence>
+                    {
+                        Modals.UploadChallengeSubmission &&
+                        <UploadChallengeSubmission
+                            close={() => setModal("UploadChallengeSubmission", false)}
+                        />
+                    }
+                </AnimatePresence>
             </div>
 
         </div>
