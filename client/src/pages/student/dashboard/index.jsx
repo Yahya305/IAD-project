@@ -34,11 +34,11 @@ function StudentDashboard() {
             <div className="dashboard" style={{
                 position: "relative"
             }}>
-                {/* <Search />
+                <Search />
                 <Banner />
-                <Table /> */}
+                <Table />
 
-                <PerformaceAnalysis />
+                {/* <PerformaceAnalysis /> */}
             </div>
 
         </div>

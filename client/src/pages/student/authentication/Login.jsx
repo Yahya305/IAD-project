@@ -27,6 +27,7 @@ const Loginpage = () => {
             });
             const fetchedUser = res.data;
             setUser({ ...fetchedUser, userType: "STUDENT" });
+            localStorage.setItem("token", fetchedUser.token);
             toast.success("Login Successful.");
             navigate("/student/dashboard");
         } catch (err) {
