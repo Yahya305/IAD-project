@@ -4,7 +4,7 @@ import CardText from "./CardText";
 
 function Card(props) {
   return (
-    <div className="card">
+    <div className="box-card">
       <Images image={props.cardImg} />
 
       <CardText  title={props.title} para={props.para} />

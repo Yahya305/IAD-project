@@ -1,4 +1,6 @@
 .landing-page-four-section > .hero {
+      gap: 72px;
+
     > .secImg {
       display: flex;
       align-items: center;
@@ -9,18 +11,19 @@
       p {
         padding: 15px 0 0 0;
         font-family: "Inter", sans-serif;
-        font-size: 15px;
+        font-size: 18px;
         font-weight: 400;
         color: var(--dimBlue);
       }
   
       > span:nth-child(1) {
         font-family: "Inter", sans-serif;
-        font-size: 50px;
+        font-size: 60px;
+        font-weight: 600;
         color: var(--blueColor);
       }
   
-      .card {
+      .box-card {
         display: flex;
         margin: 30px 5px;
         gap: 15px;
@@ -29,6 +32,10 @@
         padding: 20px;
         width: 80%;
         box-shadow: 7px 6px 13px;
+
+        img {
+          width: 60px;
+        }
   
         .text span {
           font-family: "Inter", sans-serif;
@@ -44,11 +51,12 @@
 @media screen and (max-width: 1000px) {
     
   
-    .fourth .hero {
+  .landing-page-four-section .hero {
       flex-direction: column-reverse;
       .train {
         width: 100%;
         margin-top: 50px;
+        
   
         > span:nth-child(1) {
           font-size: 42px;

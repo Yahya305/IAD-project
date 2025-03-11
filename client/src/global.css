@@ -5,6 +5,7 @@
 * {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 :root {
@@ -16,18 +17,20 @@
 
  .hero {
     margin-top: 30px;
-    padding: 50px;
+    /* padding: 50px; */
     display: flex;
     gap: 50px;
+    width: 80vw;
+    margin: auto;
 
     @media  (max-width: 1000px) {
         flex-direction: column;
-        padding: 50px 20px;
+        /* padding: 50px 20px; */
         gap: 20px;
     }
 
     @media  (max-width: 600px) {
-          padding: 10px 20px;
+        width: 90vw;
     }
     
 
@@ -38,24 +41,24 @@
       gap: 20px;
 
       @media  (max-width: 1000px) {
-        width: 96vw;
+        width: 100%;
       }
-
       :nth-child(1) {
         font-family: "Inter", sans-serif;
-        font-size: 48px;
+        font-size: 66px;
         font-weight: bolder;
         color: var(--blueColor);
+        :nth-child(1) {
+          font-family: "Inter", sans-serif;
+          font-size: 50px;
+          font-weight: bold;
+          color: var(--lightBlue);
+        }
       }
+
+      
 
       :nth-child(2) {
-        font-family: "Inter", sans-serif;
-        font-size: 32px;
-        font-weight: bold;
-        color: var(--lightBlue);
-      }
-
-      :nth-child(3) {
         font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: 300;
@@ -66,18 +69,18 @@
 
 .hero {
   margin-top: 30px;
-  padding: 50px;
+  padding: 50px 0;
   display: flex;
   gap: 50px;
 
   @media  (max-width: 1000px) {
       flex-direction: column;
-      padding: 50px 20px;
+      /* padding: 50px 20px; */
       gap: 20px;
   }
 
   @media  (max-width: 600px) {
-        padding: 10px 20px;
+    padding: 0;
   }
   
 
@@ -88,8 +91,11 @@
     gap: 20px;
 
     @media  (max-width: 1000px) {
-      width: 96vw;
+      width: 100%;
     }
+
+    
+   
 
     :nth-child(1) {
       font-family: "Inter", sans-serif;
@@ -98,14 +104,14 @@
       color: var(--blueColor);
     }
 
-    :nth-child(2) {
+    /* :nth-child(2) {
       font-family: "Inter", sans-serif;
       font-size: 32px;
       font-weight: bold;
       color: var(--lightBlue);
-    }
+    } */
 
-    :nth-child(3) {
+    :nth-child(2) {
       font-family: "Inter", sans-serif;
       font-size: 20px;
       font-weight: 300;
@@ -131,7 +137,7 @@ button {
 
 .started {
   width: 250px;
-  padding: 21px 5px;
+  padding: 22px 22px;
   align-self: flex-start;
 }
 
@@ -143,6 +149,7 @@ button {
   video {
     border-radius: 30px;
     box-shadow: 10px 10px 9px;
+    width: 95%;
   }
 }
 
@@ -152,7 +159,9 @@ button {
 
 
 
+
 @media screen and (max-width: 1000px) {
+  
   
 
   button {
@@ -177,14 +186,61 @@ button {
   }
 
   .secImg {
-    width: 95%;
+    height: 53vh;
+    width: 100%;
     justify-content: center;
+    align-self: flex-start;
+    
+
 
     video {
       margin-top: 50px;
-      width: 70vw;
+      width: 95%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  
+  
+
+  button {
+    width: 150px;
+    margin: 2px;
+    padding: 12px 12px;
+    font-size: 16px;
+    img {
+      width: 14px;
+      vertical-align: bottom;
+    }
+  }
+
+
+  .started {
+    width: 250px;
+    padding: 21px 5px;
+    font-size: 20px;
+    img {
+      width: 19px;
+    }
+  }
+
+  .secImg {
+    height: 28vh;
+    width: 100%;
+    justify-content: center;
+    align-self: flex-start;
+    
+
+
+    video {
+      margin-top: 50px;
+      width: 95%;
     }
   }
 }
 
 
+
+
+  

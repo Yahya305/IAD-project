@@ -1,9 +1,13 @@
 .landing-page-third-section > .hero {
-    width: 85vw;
-    margin: auto;
+    /* width: 85vw;
+    margin: auto; */
     background-color: var(--lightBlue);
     border-radius: 40px;
+    padding: 50px;
   
+    .secImg {
+      height: 57vh;
+    }
     .hero-text {
       display: flex;
       justify-content: center;
@@ -11,7 +15,7 @@
   
       :nth-child(1) {
         font-family: "Inter", sans-serif;
-        font-size: 46px;
+        font-size: 66px;
         font-weight: bolder;
         color: white;
       }
@@ -20,6 +24,7 @@
         font-size: 20px;
         font-weight: 300;
         color: white;
+        margin-bottom: 50px;
       }
       > .started {
         width: 50%;
@@ -32,11 +37,34 @@
   }
 
   @media screen and (max-width: 1000px) {
+
+    .landing-page-third-section {
+      width: 80vw;
+      margin: auto;
+      > .hero {
+      width: 90%;
+      padding: 25px;
+      /* margin: auto; */
+      .hero-text {
+        :nth-child(1) {
+        
+          font-size: 55px;
+        }
+      }
+      p{
+        width: 100%;
+      }
+    }
+  }
+
+    
   
-    .third > .hero > .hero-text {
+    /* .third > .hero > .hero-text {
       width: 95%;
       gap: 30px;
       padding-left: 20px;
+      
+     
   
       :nth-child(1) {
         font-size: 45px;
@@ -52,6 +80,31 @@
       }
       > .secImg {
         width: 95%;
+        
+      }
+    } */
+}
+
+
+@media screen and (max-width: 600px) {
+  .landing-page-third-section {
+    width: 90vw;
+    .hero{
+      width: 90%;
+      padding: 18px;
+      .hero-text {
+        width: 90%;
+        > .started {
+          max-width: 500px;
+          min-width: 300px;
+        }
+      }
+      @media screen and (max-width: 600px){
+        .secImg{
+          height: 28vh;
+
+        }
       }
     }
+  }
 }

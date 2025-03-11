@@ -13,18 +13,22 @@ function Main() {
     <>
       <Headers />
       <main>
-        <div className="spacer" style={{ paddingTop: "200px" }}></div>
+        <div className="spacer" style={{ paddingTop: "100px" }}></div>
 
         <Section1 />
 
-        <div className="spacer" style={{ paddingTop: "200px" }}></div>
+        <div className="spacer" style={{ paddingTop: "100px" }}></div>
 
-        <div className="card"></div>
+       
 
         <Section2 />
+        <div className="spacer" style={{ paddingTop: "100px" }}></div>
         <Section3 />
+        <div className="spacer" style={{ paddingTop: "100px" }}></div>
         <Section4 />
+        <div className="spacer" style={{ paddingTop: "100px" }}></div>
         <Section5 />
+        <div className="spacer" style={{ paddingTop: "100px" }}></div>
         <Section6 />
       </main>
       <Footer />
