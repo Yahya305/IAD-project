@@ -1,25 +1,23 @@
-import React, { FC } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
-type Component = FC<{
-    children?: JSX.Element;
-    onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-    Animation?: any;
-}>;
-const BackDrop: Component = ({ children, onClick, Animation }) => (
-    <motion.div
-        className="BackDrop"
-        {...(Animation ?? PageAnimation)}
-        style={Styling}
-        onClick={(e) => {
-            if (e.target === e.currentTarget) {
-                onClick?.(e);
-            }
-        }}
-    >
-        {children ?? ""}
-    </motion.div>
-);
+const BackDrop = (props) => {
+    const { children, onClick, Animation } = props;
+    return (
+        <motion.div
+            className="BackDrop"
+            {...(Animation ?? PageAnimation)}
+            style={Styling}
+            onClick={(e) => {
+                if (e.target === e.currentTarget) {
+                    onClick?.(e);
+                }
+            }}
+        >
+            {children ?? ""}
+        </motion.div>
+    );
+};
 
 const Styling = {
     position: "fixed",

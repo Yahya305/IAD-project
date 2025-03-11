@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./index.css";
 import Table from "./components/Table";
-import Card from "./components/Card";
 import Banner from "./components/Banner";
 import Search from "./components/bannerSearch";
 import Sidebar from "../../../global-components/Sidebar";
 import { FaHome } from "react-icons/fa";
-import PerformaceAnalysis from "./dashboard-inner-pages/PerformanceAnalysis";
+import UploadChallengeSubmission from "./components/UploadChallengeSubmission";
+import { AnimatePresence } from "framer-motion";
 
 
 const Routes = [
@@ -28,17 +28,27 @@ const Routes = [
 ]
 
 function StudentDashboard() {
+    const [Modals, _SET_MODALS] = useState({
+        UploadChallengeSubmission: true
+    })
+    const setModal = (name, value) => {
+        _SET_MODALS(p => ({ ...p, [name]: value }))
+    }
     return (
         <div className="student-dashboard">
             <Sidebar routes={Routes} />
-            <div className="dashboard" style={{
-                position: "relative"
-            }}>
+            <div className="dashboard" style={{ position: "relative" }}>
                 <Search />
                 <Banner />
                 <Table />
-
-                {/* <PerformaceAnalysis /> */}
+                <AnimatePresence>
+                    {
+                        Modals.UploadChallengeSubmission &&
+                        <UploadChallengeSubmission
+                            close={() => setModal("UploadChallengeSubmission", false)}
+                        />
+                    }
+                </AnimatePresence>
             </div>
 
         </div>
