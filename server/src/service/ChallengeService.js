@@ -11,11 +11,35 @@ class ChallengeService {
 
         return challenges;
     }
+    static async fetchAllAssignedChallenges(teamId) {
+        // based on team id fetch challenges inlcude challenge submissions
+        let challenges =
+            await ChallengeRepository.fetchChallengeDetailsByTeamId(teamId);
+
+        console.log(challenges);
+
+        challenges = challenges.map((challenge) => {
+            return {
+                challengeId: challenge.challengeId,
+                name: challenge.name,
+                description: challenge.description,
+                teamScore:
+                    challenge.challengeSubmissions.filter(
+                        (submission) => submission.teamId === teamId
+                    )[0]?.score ?? 0,
+                status: challenge.status,
+                deadline: challenge.deadline,
+            };
+        });
+
+        return challenges;
+    }
     static async startChallengeRound({
         name,
         description,
         competitionId,
         teamIds,
+        deadline
     }) {
         // check if teams exist
         const existingTeams = await TeamRepository.findManyTeams(teamIds);
@@ -32,6 +56,7 @@ class ChallengeService {
             description,
             competitionId,
             teamIds,
+            deadline
         });
         return challenge;
     }

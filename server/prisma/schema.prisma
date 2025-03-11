@@ -46,6 +46,7 @@ model ChallengeSubmission {
     projectURL   String
     teamId       String
     challengeId  String
+    score        Float?
 
     submissionDate DateTime @default(now())
 
@@ -68,6 +69,7 @@ model Challenge {
     name        String
     description String
     status      ChallengeStatus @default(PENDING)
+    deadline    DateTime
 
     competitionId String
     competition   Competition @relation(fields: [competitionId], references: [competitionId])
