@@ -68,8 +68,8 @@
       padding: 25px 0;
       flex: 1 1 100px; 
     min-width: 70px; 
-    max-width: 150px; 
-      height: 10vh;
+    max-width: 120px; 
+      /* height: 10vh; */
       border-radius: 30px;
       color: white;
       display: flex;
@@ -126,6 +126,7 @@
 
 @media screen and (max-width: 600px) {
   .landing-page-section-5 {
+    width: 90vw;
     & .boxes {
     .box {
       flex: 1 1 150px;
