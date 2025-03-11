@@ -7,6 +7,10 @@
   
     .secImg {
       height: 57vh;
+      align-self: center;
+      @media screen and (max-width: 1000px){
+        height: 47vh;
+      }
     }
     .hero-text {
       display: flex;
@@ -27,7 +31,8 @@
         margin-bottom: 50px;
       }
       > .started {
-        width: 50%;
+        
+        min-width: 290px;
         align-self: flex-start;
         background-color: white;
         color: var(--blueColor);
@@ -96,7 +101,7 @@
         width: 90%;
         > .started {
           max-width: 500px;
-          min-width: 300px;
+          min-width: 260px;
         }
       }
       @media screen and (max-width: 600px){

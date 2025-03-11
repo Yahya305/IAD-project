@@ -19,7 +19,7 @@
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    padding: calc(90px + 60px) 0px 50px 50px;
+    padding: 50px;
     gap: 15px;
     width: 100%;
     max-width: 765px;

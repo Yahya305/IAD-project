@@ -33,6 +33,10 @@
         width: 80%;
         box-shadow: 7px 6px 13px;
 
+        @media screen and (max-width: 600px) {
+          width: 85%;
+        }
+
         img {
           width: 60px;
         }
