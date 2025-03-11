@@ -13,7 +13,8 @@ class ChallengeService {
     }
     static async fetchAllAssignedChallenges(teamId) {
         // based on team id fetch challenges inlcude challenge submissions
-        let challenges = await ChallengeRepository.fetchChallengeDetailsByTeamId(teamId);
+        let challenges =
+            await ChallengeRepository.fetchChallengeDetailsByTeamId(teamId);
 
         challenges = challenges.map((challenge) => {
             return {
@@ -24,6 +25,10 @@ class ChallengeService {
                     challenge.challengeSubmissions.filter(
                         (submission) => submission.teamId === teamId
                     )[0]?.score ?? 0,
+                projectURL:
+                    challenge.challengeSubmissions.filter(
+                        (submission) => submission.teamId === teamId
+                    )[0]?.projectURL ?? undefined,
                 status: challenge.status,
                 deadline: challenge.deadline,
             };
@@ -36,7 +41,7 @@ class ChallengeService {
         description,
         competitionId,
         teamIds,
-        deadline
+        deadline,
     }) {
         // check if teams exist
         const existingTeams = await TeamRepository.findManyTeams(teamIds);
@@ -53,7 +58,7 @@ class ChallengeService {
             description,
             competitionId,
             teamIds,
-            deadline
+            deadline,
         });
         return challenge;
     }
