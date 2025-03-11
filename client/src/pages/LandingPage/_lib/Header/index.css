@@ -52,10 +52,7 @@ nav {
   
       .bars {
         display: none;
-        /* width: 80vw;
-        :nth-child(-n + 5) {
-          font-size: 20px;
-        } */
+   
       }
 
       button {
@@ -75,27 +72,6 @@ nav {
         background-color: white;
         color: var(--blueColor);
         font-size: 50px;
-      }
-      .bars {
-        width: 90vw;
-        gap: 8px;
-        margin: 0 5px 0 0;
-        :nth-child(-n + 5) {
-          font-size: 13px;
-        }
-  
-        div:nth-child(2) img {
-          margin-left: 0px;
-        }
-      }
-      button {
-        width: 100px;
-        padding: 18px 15px;
-        font-size: 10px;
-        border-radius: 50px;
-        img {
-          width: 10px;
-        }
       }
     }
   }

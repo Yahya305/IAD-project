@@ -15,19 +15,14 @@
   --shadyBlue: #fcfefe;
 }
 
- .hero {
-    margin-top: 30px;
-    /* padding: 50px; */
-    display: flex;
-    gap: 50px;
+.hero {
+   
+   
+    
     width: 80vw;
     margin: auto;
 
-    @media  (max-width: 1000px) {
-        flex-direction: column;
-        /* padding: 50px 20px; */
-        gap: 20px;
-    }
+
 
     @media  (max-width: 600px) {
         width: 90vw;
@@ -85,17 +80,6 @@
   
 
   .hero-text {
-    display: flex;
-    flex-direction: column;
-    width: 50vw;
-    gap: 20px;
-
-    @media  (max-width: 1000px) {
-      width: 100%;
-    }
-
-    
-   
 
     :nth-child(1) {
       font-family: "Inter", sans-serif;
@@ -103,13 +87,6 @@
       font-weight: bolder;
       color: var(--blueColor);
     }
-
-    /* :nth-child(2) {
-      font-family: "Inter", sans-serif;
-      font-size: 32px;
-      font-weight: bold;
-      color: var(--lightBlue);
-    } */
 
     :nth-child(2) {
       font-family: "Inter", sans-serif;
@@ -155,11 +132,6 @@ button {
 
 
 
-
-
-
-
-
 @media screen and (max-width: 1000px) {
   
   
@@ -201,42 +173,9 @@ button {
 }
 
 @media screen and (max-width: 600px) {
-  
-  
-
-  button {
-    width: 150px;
-    margin: 2px;
-    padding: 12px 12px;
-    font-size: 16px;
-    img {
-      width: 14px;
-      vertical-align: bottom;
-    }
-  }
-
-
-  .started {
-    width: 250px;
-    padding: 21px 5px;
-    font-size: 20px;
-    img {
-      width: 19px;
-    }
-  }
 
   .secImg {
     height: 28vh;
-    width: 100%;
-    justify-content: center;
-    align-self: flex-start;
-    
-
-
-    video {
-      margin-top: 50px;
-      width: 95%;
-    }
   }
 }
 
