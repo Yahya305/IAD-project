@@ -1,0 +1,24 @@
+.UploadChallengeSubmission {
+    background: white;
+    height: 40vh;
+    width: 50vw;
+    z-index: 1011;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    max-width: 1080px;
+    .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        font-family: DM Sans;
+        font-weight: bold;
+        font-size: 30px;
+        button {
+            all: unset;
+            cursor: pointer;
+        }
+    }
+}
