@@ -7,6 +7,21 @@ class ChallengeRepository {
         });
         return challenges;
     }
+
+    static async fetchChallengeDetailsByTeamId(teamId) {
+        const challenges = await prisma.challenge.findMany({
+            where: { teams: { some: { teamId } }, },include:{challengeSubmissions:true,challengeScore:true}
+        });
+        return challenges;
+    }
+
+    static async fetchChallengesScoreByTeamId(teamId) {
+        const challenges = await prisma.challengeScore.findMany({
+            where: { teams: { some: { teamId } }, },
+        });
+        return challenges;
+    }
+
     static async fetchChallengeById({ challengeId, includeTeams = false }) {
         const challenges = await prisma.challenge.findUnique({
             where: { challengeId },
@@ -21,6 +36,7 @@ class ChallengeRepository {
         description,
         competitionId,
         teamIds,
+        deadline
     }) {
         // Create the challenge
         const challenge = await prisma.challenge.create({
@@ -31,6 +47,7 @@ class ChallengeRepository {
                 teams: {
                     connect: teamIds.map((teamId) => ({ teamId })),
                 },
+                deadline
             },
         });
         return challenge;
