@@ -13,10 +13,7 @@ class ChallengeService {
     }
     static async fetchAllAssignedChallenges(teamId) {
         // based on team id fetch challenges inlcude challenge submissions
-        let challenges =
-            await ChallengeRepository.fetchChallengeDetailsByTeamId(teamId);
-
-        console.log(challenges);
+        let challenges = await ChallengeRepository.fetchChallengeDetailsByTeamId(teamId);
 
         challenges = challenges.map((challenge) => {
             return {

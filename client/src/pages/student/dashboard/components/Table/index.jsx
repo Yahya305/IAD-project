@@ -5,21 +5,15 @@ import TableSearch from "../TableSearch/TableSearch.jsx";
 import UploadButton from "../UploadButton/UploadButton.jsx";
 import { IoFilter } from "react-icons/io5";
 import apiClient from "../../../../../config/apiClient.js";
+import { useQuery } from "@tanstack/react-query";
 
 function Table() {
-    const [challengeData, setChallengeData] = useState();
-    const fetchTeamChallenges = async () => {
-        const res = await apiClient.get(
-            "/challenge/challenges-in-competition/f9e0c69a-4a13-4a2f-a18f-3cc10e608f70"
-        );
-        const challengeData = res.data;
-        console.log(challengeData);
-        setChallengeData(challengeData);
-    };
+    const { data: challengeData, isLoading } = useQuery({
+        queryFn: () => apiClient.get("/challenge/assigned-challenges"),
+        select: (data) => data.data,
+    });
 
-    useEffect(() => {
-        fetchTeamChallenges();
-    }, []);
+    // console.log(challengeData);
     return (
         <div className="table-section">
             <div className="table-wrapper">
@@ -43,10 +37,15 @@ function Table() {
                             <p className="fields expand"></p>
                         </div>
                     </div>
-                    <div className="tables-rows">
-                        <Row />
-                        <Row />
-                    </div>
+                    {isLoading ? (
+                        <div>Loading...</div>
+                    ) : (
+                        <div className="tables-rows">
+                            {challengeData.map((data, key) => (
+                                <Row key={key} data={data} />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
