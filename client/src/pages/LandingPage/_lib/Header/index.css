@@ -6,8 +6,9 @@ nav {
     justify-content: space-between;
     align-items: center;
     height: 126px;
-    width: 80vw;
-    margin: 30px auto;
+    max-width: 1440px;
+    width:80vw ;
+    margin: 0 auto;
   
     .logo img {
       padding: 10px;
