@@ -1,0 +1,47 @@
+.StudentProgress {
+    padding: 50px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    .head {
+        display: flex;
+        .input {
+            border: 1px solid #d7d7d7;
+            border-radius: 10px;
+            display: flex;
+            max-width: 430px;
+            width: 100%;
+            align-items: center;
+
+            .icon {
+                padding: 15px;
+                display: flex;
+                align-items: center;
+            }
+
+            input {
+                flex: 1;
+                padding: 20px 0;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+    table {
+        text-align: left;
+        font-family: DM Sans;
+        thead {
+            background-color: #eff3fb;
+            border-radius: 10px;
+            th {
+                padding: 27px;
+            }
+        }
+        tbody {
+            td {
+                padding: 38px 27px;
+            }
+        }
+    }
+}

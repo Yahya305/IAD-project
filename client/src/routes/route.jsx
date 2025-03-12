@@ -10,7 +10,8 @@ import ProjectGradingPage from "../pages/teacher/projectGrading/projectGrading";
 //  Student Routes
 import StudentDashboardStructure  from "../pages/student/dashboard";
 import StudentMainDashboardPage from "../pages/student/dashboard/dashboard-inner-pages/MainDashboard";
-import PerformanceAnalysis from "../pages/student/dashboard/dashboard-inner-pages/PerformanceAnalysis";
+import PerformanceAnalysisPage from "../pages/student/dashboard/dashboard-inner-pages/PerformanceAnalysis";
+import StudentProgressPage from "../pages/student/dashboard/dashboard-inner-pages/StudentProgress";
 
 function Router() {
     return (
@@ -21,7 +22,8 @@ function Router() {
             {/* Nested student routes */}
             <Route path="/student" element={<StudentDashboardStructure />}>
                 <Route path="dashboard"  element={<StudentMainDashboardPage />}/>
-                <Route path="performance-analysis"  element={<PerformanceAnalysis />}/>
+                <Route path="performance-analysis"  element={<PerformanceAnalysisPage />}/>
+                <Route path="std-progress"  element={<StudentProgressPage />}/>
                 <Route path="login" element={<Loginpage />} />
                 <Route path="signup" element={<Signup />} />
             </Route>

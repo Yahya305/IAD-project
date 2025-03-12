@@ -3,13 +3,22 @@ import "./index.css";
 import Sidebar from "../../../global-components/Sidebar";
 import { FaHome } from "react-icons/fa";
 import { Outlet } from 'react-router-dom';
-
-
+import Search from "./components/bannerSearch";
 
 const Routes = [
     {
         path: "/student/dashboard",
         name: "Dashboard",
+        icon: <FaHome />
+    },
+    {
+        path: "/student/performance-analysis",
+        name: "Performance Analysis",
+        icon: <FaHome />
+    },
+    {
+        path: "/student/std-progress",
+        name: "Student Progress",
         icon: <FaHome />
     },
     {
@@ -21,11 +30,6 @@ const Routes = [
         path: "/student/signup",
         name: "Signup",
         icon: <FaHome />
-    },
-    {
-        path: "/student/performance-analysis",
-        name: "Performance Analysis",
-        icon: <FaHome />
     }
 ]
 
@@ -34,9 +38,9 @@ function StudentDashboard() {
         <div className="student-dashboard">
             <Sidebar routes={Routes} />
             <div className="dashboard" style={{ position: "relative" }}>
+                <Search />
                 <Outlet />
             </div>
-
         </div>
     );
 }
