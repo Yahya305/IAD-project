@@ -8,6 +8,8 @@ import apiClient from "../../../../../config/apiClient.js";
 import { useQuery } from "@tanstack/react-query";
 
 function Table() {
+    const [searchQuery, setSearchQuery] = useState("");
+    
     const {
         data: challengeData,
         isLoading,
@@ -17,12 +19,19 @@ function Table() {
         select: (data) => data.data,
     });
 
-    // console.log(challengeData);
+    // Filter challenges based on search query
+    const filteredChallenges = challengeData?.filter(challenge => 
+        challenge.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
     return (
         <div className="table-section">
             <div className="table-wrapper">
                 <div className="table-tools">
-                    <TableSearch />
+                    <TableSearch 
+                        searchQuery={searchQuery}
+                        setSearchQuery={setSearchQuery}
+                    />
                     <div className="upload-container">
                         <IoFilter size={25} />
                         <UploadButton />
@@ -45,7 +54,7 @@ function Table() {
                         <div>Loading...</div>
                     ) : (
                         <div className="tables-rows">
-                            {challengeData?.map((data, key) => (
+                            {filteredChallenges?.map((data, key) => (
                                 <Row key={key} data={data} refetch={refetch} />
                             ))}
                         </div>

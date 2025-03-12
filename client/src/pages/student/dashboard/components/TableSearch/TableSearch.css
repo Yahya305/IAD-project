@@ -1,0 +1,35 @@
+.search-bar {
+    .search {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        max-width: 418px;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 17px;
+            z-index: 1;
+        }
+
+        input {
+            font-family: DM Sans;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 125%;
+            letter-spacing: 0%;
+            padding: 14px 14px 14px 50px;
+            border: 2px solid grey;
+            border-radius: 10px;
+            position: relative;
+            width: 100%;
+            outline: none;
+
+            &::placeholder {
+                color: #989898;
+            }
+        }
+    }
+}
