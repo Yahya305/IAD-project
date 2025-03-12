@@ -32,12 +32,7 @@ const Routes = [
 ]
 
 function StudentDashboard() {
-    const [Modals, _SET_MODALS] = useState({
-        UploadChallengeSubmission: true
-    })
-    const setModal = (name, value) => {
-        _SET_MODALS(p => ({ ...p, [name]: value }))
-    }
+
     return (
         <div className="student-dashboard">
             <Sidebar routes={Routes} />

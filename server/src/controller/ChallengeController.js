@@ -12,18 +12,20 @@ class ChallengeController {
         return await ChallengeService.fetchAllAssignedChallenges(teamId);
     }
     static async startChallengeRound(req) {
-        const { name, description, competitionId, teamIds, deadline } = req.body;
+        const { name, description, competitionId, teamIds, deadline } =
+            req.body;
         return await ChallengeService.startChallengeRound({
             name,
             description,
             competitionId,
             teamIds,
-            deadline
+            deadline,
         });
     }
     static async submitProject(req) {
-        const { title, description, projectURL, challengeId, teamId } =
-            req.body;
+        const { title, description, projectURL, challengeId } = req.body;
+
+        const { teamId } = req.user;
         return await ChallengeService.submitProject({
             title,
             description,

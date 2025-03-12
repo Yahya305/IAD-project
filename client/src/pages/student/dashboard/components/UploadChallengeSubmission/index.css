@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     max-width: 1080px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     .head {
         display: flex;
         justify-content: space-between;
@@ -16,11 +17,14 @@
         font-family: DM Sans;
         .title {
             font-weight: bold;
-            font-size: 20px;
+            font-size: 24px;
+            color: var(--blueColor);
         }
         button {
             all: unset;
             cursor: pointer;
+            font-size: 18px;
+            color: var(--dimBlue);
         }
     }
     .body {
@@ -28,19 +32,32 @@
         padding: 20px 0;
         flex-direction: column;
         gap: 20px;
-        input {
-            padding: 10px;
+        input, textarea {
+            padding: 12px;
             font-family: DM Sans;
+            border: 1px solid var(--dimBlue);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        input:focus, textarea:focus {
+            border-color: var(--blueColor);
+            outline: none;
         }
         button {
             all: unset;
             align-self: flex-start;
             background-color: var(--blueColor);
-            padding: 10px 20px;
+            padding: 12px 24px;
             color: white;
             border-radius: 12px;
             cursor: pointer;
             font-family: DM Sans;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: var(--dimBlue);
         }
     }
 }

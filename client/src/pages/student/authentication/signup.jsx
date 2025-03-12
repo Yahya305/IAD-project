@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import SignupForm from "./components/SignupForm";
 import { AxiosError } from "axios";
-import toast from "react-hot-toast";
+import toast from "../../../components/CustomToast/toast";
 import apiClient from "../../../config/apiClient";
 import useUserStore from "../../../store/userStore";
 
@@ -23,18 +23,19 @@ const Signup = () => {
             });
             const fetchedUser = res.data;
             setUser({ ...fetchedUser, userType: "STUDENT" });
-            toast.success("Signup Successful.");
+            toast.success({ title: "Success", description: "Signup Successful." });
             navigate("/student/dashboard");
         } catch (err) {
             if (err instanceof AxiosError) {
-                toast.error(
-                    err.response?.data.message.code
+                toast.error({
+                    title: "Error",
+                    description: err.response?.data.message.code
                         ? err.response?.data.message.message
                         : err.response?.data.message
-                );
+                });
             } else {
                 console.log(err);
-                toast.error("Internal Server Error.");
+                toast.error({ title: "Error", description: "Internal Server Error." });
             }
         }
     };

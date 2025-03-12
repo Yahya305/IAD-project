@@ -16,8 +16,6 @@ class ChallengeService {
         let challenges =
             await ChallengeRepository.fetchChallengeDetailsByTeamId(teamId);
 
-        console.log(challenges);
-
         challenges = challenges.map((challenge) => {
             return {
                 challengeId: challenge.challengeId,
@@ -27,6 +25,10 @@ class ChallengeService {
                     challenge.challengeSubmissions.filter(
                         (submission) => submission.teamId === teamId
                     )[0]?.score ?? 0,
+                projectURL:
+                    challenge.challengeSubmissions.filter(
+                        (submission) => submission.teamId === teamId
+                    )[0]?.projectURL ?? undefined,
                 status: challenge.status,
                 deadline: challenge.deadline,
             };
@@ -39,7 +41,7 @@ class ChallengeService {
         description,
         competitionId,
         teamIds,
-        deadline
+        deadline,
     }) {
         // check if teams exist
         const existingTeams = await TeamRepository.findManyTeams(teamIds);
@@ -56,7 +58,7 @@ class ChallengeService {
             description,
             competitionId,
             teamIds,
-            deadline
+            deadline,
         });
         return challenge;
     }

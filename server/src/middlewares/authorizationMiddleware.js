@@ -17,6 +17,27 @@ export const authorizeUser = (req, res, next) => {
         }
     }
 };
+export const authorizeOnlyStudent = (req, res, next) => {
+    try {
+        const token = extractTokenFromHeader(req, res);
+        const payload = verifyToken(token);
+        if (payload.userType !== "STUDENT") {
+            return res
+                .status(401)
+                .send("Only students can perform this action.");
+        }
+        req.user = payload;
+        next();
+    } catch (error) {
+        if (error.name === "JsonWebTokenError") {
+            return res.status(401).send("Invalid Token");
+        } else if (error.name === "TokenExpiredError") {
+            return res
+                .status(401)
+                .send("Session Timedout. Please Login Again.");
+        }
+    }
+};
 export const authorizeOnlyInstructor = (req, res, next) => {
     try {
         const token = extractTokenFromHeader(req, res);

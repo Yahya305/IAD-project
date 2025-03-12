@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
 import "./style.css";
 import apiClient from "../../../config/apiClient";
-import toast from "react-hot-toast";
+import toast from "../../../components/CustomToast/toast";
 import useUserStore from "../../../store/userStore";
 import { AxiosError } from "axios";
 
@@ -28,18 +28,25 @@ const Loginpage = () => {
             const fetchedUser = res.data;
             setUser({ ...fetchedUser, userType: "STUDENT" });
             localStorage.setItem("token", fetchedUser.token);
-            toast.success("Login Successful.");
+            toast.success({
+                title: "Success",
+                description: "Login Successful.",
+            });
             navigate("/student/dashboard");
         } catch (err) {
             if (err instanceof AxiosError) {
-                toast.error(
-                    err.response?.data.message.code
+                toast.error({
+                    title: "Error",
+                    description: err.response?.data.message.code
                         ? err.response?.data.message.message
-                        : err.response?.data.message
-                );
+                        : err.response?.data.message,
+                });
             } else {
                 console.log(err);
-                toast.error("Internal Server Error.");
+                toast.error({
+                    title: "Error",
+                    description: "Internal Server Error.",
+                });
             }
         }
     };

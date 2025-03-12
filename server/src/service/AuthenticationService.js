@@ -87,6 +87,7 @@ class AuthenticationService {
             name: student.name,
             section: student.section,
             userType: "STUDENT",
+            teamId: student.teamId,
         });
 
         const { password: _, ...studentData } = student;
