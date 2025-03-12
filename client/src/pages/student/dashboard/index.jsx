@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import "./index.css";
-import Table from "./components/Table";
-import Banner from "./components/Banner";
-import Search from "./components/bannerSearch";
 import Sidebar from "../../../global-components/Sidebar";
 import { FaHome } from "react-icons/fa";
 import UploadChallengeSubmission from "./components/UploadChallengeSubmission";
 import { AnimatePresence } from "framer-motion";
+import { Outlet } from 'react-router-dom';
+
 
 
 const Routes = [
@@ -24,6 +23,11 @@ const Routes = [
         path: "/student/signup",
         name: "Signup",
         icon: <FaHome />
+    },
+    {
+        path: "/student/performance-analysis",
+        name: "Performance Analysis",
+        icon: <FaHome />
     }
 ]
 
@@ -38,9 +42,7 @@ function StudentDashboard() {
         <div className="student-dashboard">
             <Sidebar routes={Routes} />
             <div className="dashboard" style={{ position: "relative" }}>
-                <Search />
-                <Banner />
-                <Table />
+                <Outlet />
                 <AnimatePresence>
                     {
                         Modals.UploadChallengeSubmission &&
