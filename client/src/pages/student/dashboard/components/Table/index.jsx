@@ -45,7 +45,7 @@ function Table() {
                         <div>Loading...</div>
                     ) : (
                         <div className="tables-rows">
-                            {challengeData.map((data, key) => (
+                            {challengeData?.map((data, key) => (
                                 <Row key={key} data={data} refetch={refetch} />
                             ))}
                         </div>
