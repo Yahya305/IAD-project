@@ -1,0 +1,15 @@
+.no-data-row {
+    width: 100%;
+    .content {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+        .message {
+            color: #666;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            margin: 0;
+        }
+    }
+}

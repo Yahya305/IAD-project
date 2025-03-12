@@ -6,10 +6,14 @@ import UploadButton from "../UploadButton/UploadButton.jsx";
 import { IoFilter } from "react-icons/io5";
 import apiClient from "../../../../../config/apiClient.js";
 import { useQuery } from "@tanstack/react-query";
+import ChallengesFilter from "../ChallengesFilter/ChallengesFilter.jsx";
+import { getChallengeStatus } from "../../../../../utils/getChallengeStatus.js";
+import NoDataRow from "../NoDataRow/NoDataRow.jsx";
 
 function Table() {
     const [searchQuery, setSearchQuery] = useState("");
-    
+    const [selectedStatus, setSelectedStatus] = useState(null);
+
     const {
         data: challengeData,
         isLoading,
@@ -19,22 +23,31 @@ function Table() {
         select: (data) => data.data,
     });
 
-    // Filter challenges based on search query
-    const filteredChallenges = challengeData?.filter(challenge => 
-        challenge.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+
+    // Filter challenges based on search query and status
+    const filteredChallenges = challengeData?.filter((challenge) => {
+        const matchesSearch = challenge.name
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase());
+        const matchesStatus =
+            !selectedStatus || getChallengeStatus(challenge) === selectedStatus;
+        return matchesSearch && matchesStatus;
+    });
+
+    const handleFilterChange = (status) => {
+        setSelectedStatus(status);
+    };
 
     return (
         <div className="table-section">
             <div className="table-wrapper">
                 <div className="table-tools">
-                    <TableSearch 
+                    <TableSearch
                         searchQuery={searchQuery}
                         setSearchQuery={setSearchQuery}
                     />
                     <div className="upload-container">
-                        <IoFilter size={25} />
-                        <UploadButton />
+                        <ChallengesFilter onFilterChange={handleFilterChange} />
                     </div>
                 </div>
                 <div className="table-content">
@@ -54,9 +67,13 @@ function Table() {
                         <div>Loading...</div>
                     ) : (
                         <div className="tables-rows">
-                            {filteredChallenges?.map((data, key) => (
-                                <Row key={key} data={data} refetch={refetch} />
-                            ))}
+                            {filteredChallenges?.length > 0 ? (
+                                filteredChallenges.map((data, key) => (
+                                    <Row key={key} data={data} refetch={refetch} />
+                                ))
+                            ) : (
+                                <NoDataRow />
+                            )}
                         </div>
                     )}
                 </div>

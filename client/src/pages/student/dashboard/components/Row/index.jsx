@@ -4,6 +4,7 @@ import "./index.css";
 import { AnimatePresence } from "framer-motion";
 import UploadChallengeSubmission from "../UploadChallengeSubmission";
 import Badge from "../Badge/Badge";
+import { getChallengeStatus } from "../../../../../utils/getChallengeStatus";
 
 const index = ({ data, refetch }) => {
     const [Modals, _SET_MODALS] = useState({
@@ -18,20 +19,6 @@ const index = ({ data, refetch }) => {
     const handleChallengeClick = (challenge) => {
         setSelectedChallenge(challenge);
         setModal("UploadChallengeSubmission", true);
-    };
-
-    const fetchStatus = (data) => {
-        let status;
-        if (!data.projectURL && new Date(data.deadline) < new Date()) {
-            status = "Missed Deadline";
-        } else if (data.projectURL) {
-            status = "Submitted";
-        } else if (data.status === "IN_PROGRESS") {
-            status = "In Progress";
-        } else {
-            status = data.status;
-        }
-        return <Badge status={status} />;
     };
 
     return (
@@ -50,7 +37,9 @@ const index = ({ data, refetch }) => {
                         <p className="fields deadline">
                             {new Date(data.deadline).toLocaleDateString()}
                         </p>
-                        <p className="fields status">{fetchStatus(data)}</p>
+                        <p className="fields status">
+                            <Badge status={getChallengeStatus(data)} />
+                        </p>
                         <p className="fields score">{data.teamScore}</p>
                         <p className="fields upload-btn">
                             <button disabled={data.projectURL ? true : false}>
