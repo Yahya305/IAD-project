@@ -2,6 +2,7 @@ import { Router } from "express";
 import { requestHandler } from "../utils/requestHandler.js";
 import {
     authorizeOnlyInstructor,
+    authorizeOnlyStudent,
     authorizeUser,
 } from "../middlewares/authorizationMiddleware.js";
 import ChallengeController from "../controller/ChallengeController.js";
@@ -35,7 +36,7 @@ ChallengeRouter.post("/", authorizeOnlyInstructor, (req, res, next) =>
 
 ChallengeRouter.post(
     "/project-submission",
-    authorizeOnlyInstructor,
+    authorizeOnlyStudent,
     (req, res, next) =>
         requestHandler(req, res, next, ChallengeController.submitProject)
 );

@@ -4,14 +4,20 @@ import "./index.css";
 import { AnimatePresence } from "framer-motion";
 import UploadChallengeSubmission from "../UploadChallengeSubmission";
 
-const index = ({ data }) => {
+const index = ({ data, refetch }) => {
     const [Modals, _SET_MODALS] = useState({
         UploadChallengeSubmission: false,
     });
+    const [selectedChallenge, setSelectedChallenge] = useState(null);
     const setModal = (name, value) => {
         _SET_MODALS((p) => ({ ...p, [name]: value }));
     };
     console.log(data);
+
+    const handleChallengeClick = (challenge) => {
+        setSelectedChallenge(challenge);
+        setModal("UploadChallengeSubmission", true);
+    };
 
     return (
         <>
@@ -20,9 +26,13 @@ const index = ({ data }) => {
                     <div className="row-wrapper">
                         <p className="fields tasks">{data.name}</p>
                         <p className="fields submission-link">
-                            <a href="https://example.com/task-demo">
-                                https://example.com/task-demo
-                            </a>
+                            {data.projectURL ? (
+                                <a href={data.projectURL}>
+                                    {data.projectURL}
+                                </a>
+                            ) : (
+                                "-"
+                            )}
                         </p>
                         <p className="fields deadline">
                             {new Date(data.deadline).toLocaleDateString()}
@@ -33,9 +43,7 @@ const index = ({ data }) => {
                             <IoMdAdd
                                 size={25}
                                 cursor={"pointer"}
-                                onClick={() =>
-                                    setModal("UploadChallengeSubmission", true)
-                                }
+                                onClick={() => handleChallengeClick(data)}
                             />
                         </p>
                     </div>
@@ -47,6 +55,8 @@ const index = ({ data }) => {
                         close={() =>
                             setModal("UploadChallengeSubmission", false)
                         }
+                        selectedChallenge={selectedChallenge}
+                        refetch={refetch}
                     />
                 )}
             </AnimatePresence>

@@ -8,7 +8,11 @@ import apiClient from "../../../../../config/apiClient.js";
 import { useQuery } from "@tanstack/react-query";
 
 function Table() {
-    const { data: challengeData, isLoading } = useQuery({
+    const {
+        data: challengeData,
+        isLoading,
+        refetch,
+    } = useQuery({
         queryFn: () => apiClient.get("/challenge/assigned-challenges"),
         select: (data) => data.data,
     });
@@ -42,7 +46,7 @@ function Table() {
                     ) : (
                         <div className="tables-rows">
                             {challengeData.map((data, key) => (
-                                <Row key={key} data={data} />
+                                <Row key={key} data={data} refetch={refetch} />
                             ))}
                         </div>
                     )}
