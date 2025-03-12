@@ -23,37 +23,74 @@
     opacity: 0;
     animation: slideIn 0.3s forwards, slideOut 0.3s forwards 2.7s;
     position: relative;
-}
+    min-width: 250px;
 
-.toast.success::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 5px;
-    border-radius: 8px 0 0 8px;
-    background-color: var(--lightBlue);
-}
-.toast.error::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 5px;
-    border-radius: 8px 0 0 8px;
-    background-color: red;
-}
-.toast.info::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 5px;
-    border-radius: 8px 0 0 8px;
-    background-color: #17a2b8;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        border-radius: 8px 0 0 8px;
+        background-color: currentColor;
+    }
+
+    &.success {
+        &::before {
+            background-color: var(--lightBlue);
+        }
+
+        .toast-title {
+            color: var(--lightBlue);
+        }
+    }
+
+    &.error {
+        &::before {
+            background-color: red;
+        }
+
+        .toast-title {
+            color: #dc3545;
+        }
+    }
+
+    &.info {
+        &::before {
+            background-color: #17a2b8;
+        }
+
+        .toast-title {
+            color: #17a2b8;
+        }
+    }
+
+    .toast-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .toast-title {
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+
+    .toast-description {
+        font-size: 14px;
+    }
+
+    span {
+        flex: 1;
+    }
+
+    button {
+        all: unset;
+        cursor: pointer;
+        margin-left: 10px;
+        color: inherit;
+        font-size: 16px;
+    }
 }
 
 @keyframes slideIn {
@@ -68,57 +105,4 @@
         transform: translateX(100%);
         opacity: 0;
     }
-}
-
-.toast.success {
-    /* background-color: #28a745; */
-    /* color: #fff; */
-}
-
-.toast.error {
-    /* background-color: #dc3545; */
-    /* color: #fff; */
-}
-
-.toast.info {
-    /* background-color: #17a2b8;
-    color: #fff; */
-}
-
-.toast span {
-    flex: 1;
-}
-
-.toast button {
-    all: unset;
-    cursor: pointer;
-    margin-left: 10px;
-    color: inherit;
-    font-size: 16px;
-}
-
-.toast-content {
-    display: flex;
-    flex-direction: column;
-}
-
-.toast-title {
-    font-weight: bold;
-    margin-bottom: 4px;
-}
-
-.toast-description {
-    font-size: 14px;
-}
-
-.toast.success .toast-title {
-    color: var(--lightBlue);
-}
-
-.toast.error .toast-title {
-    color: #dc3545;
-}
-
-.toast.info .toast-title {
-    color: #17a2b8;
 }

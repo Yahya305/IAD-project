@@ -14,6 +14,11 @@ const UploadChallengeSubmission = (props) => {
     const [description, setDescription] = useState("");
     const [projectURL, setProjectURL] = useState("");
 
+    toast.success({
+        title: "Success",
+        description: "successfully",
+    });
+
     const { mutate: submitChallenge, status: mutationStatus } = useMutation({
         mutationKey: ["submit-challenge"],
         mutationFn: async (newSubmission) => {
