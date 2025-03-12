@@ -3,6 +3,7 @@ import { IoMdAdd } from "react-icons/io";
 import "./index.css";
 import { AnimatePresence } from "framer-motion";
 import UploadChallengeSubmission from "../UploadChallengeSubmission";
+import Badge from "../Badge/Badge";
 
 const index = ({ data, refetch }) => {
     const [Modals, _SET_MODALS] = useState({
@@ -19,6 +20,20 @@ const index = ({ data, refetch }) => {
         setModal("UploadChallengeSubmission", true);
     };
 
+    const fetchStatus = (data) => {
+        let status;
+        if (!data.projectURL && new Date(data.deadline) < new Date()) {
+            status = "Missed Deadline";
+        } else if (data.projectURL) {
+            status = "Submitted";
+        } else if (data.status === "IN_PROGRESS") {
+            status = "In Progress";
+        } else {
+            status = data.status;
+        }
+        return <Badge status={status} />;
+    };
+
     return (
         <>
             <div className="each-row">
@@ -27,9 +42,7 @@ const index = ({ data, refetch }) => {
                         <p className="fields tasks">{data.name}</p>
                         <p className="fields submission-link">
                             {data.projectURL ? (
-                                <a href={data.projectURL}>
-                                    {data.projectURL}
-                                </a>
+                                <a href={data.projectURL}>{data.projectURL}</a>
                             ) : (
                                 "-"
                             )}
@@ -37,14 +50,16 @@ const index = ({ data, refetch }) => {
                         <p className="fields deadline">
                             {new Date(data.deadline).toLocaleDateString()}
                         </p>
-                        <p className="fields status">{data.status}</p>
+                        <p className="fields status">{fetchStatus(data)}</p>
                         <p className="fields score">{data.teamScore}</p>
-                        <p className="fields expand">
-                            <IoMdAdd
-                                size={25}
-                                cursor={"pointer"}
-                                onClick={() => handleChallengeClick(data)}
-                            />
+                        <p className="fields upload-btn">
+                            <button disabled={data.projectURL ? true : false}>
+                                <IoMdAdd
+                                    size={25}
+                                    cursor={"pointer"}
+                                    onClick={() => handleChallengeClick(data)}
+                                />
+                            </button>
                         </p>
                     </div>
                 </div>

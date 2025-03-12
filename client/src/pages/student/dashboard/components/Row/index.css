@@ -41,6 +41,19 @@
                         text-decoration: none;
                     }
                 }
+                &.upload-btn {
+                    button {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: var(--blueColor);
+                        padding: 5px;
+                        &:disabled {
+                            background-color: #999999;
+                            cursor: not-allowed;
+                        }
+                    }
+                }
             }
         }
     }

@@ -68,7 +68,7 @@ model Challenge {
     challengeId String          @id @default(uuid())
     name        String
     description String
-    status      ChallengeStatus @default(PENDING)
+    status      ChallengeStatus @default(IN_PROGRESS)
     deadline    DateTime
 
     competitionId String
@@ -97,7 +97,6 @@ enum Section {
 }
 
 enum ChallengeStatus {
-    PENDING
     IN_PROGRESS
     COMPLETED
 }
