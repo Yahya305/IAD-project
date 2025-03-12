@@ -37,11 +37,11 @@
                         line-height: 24px;
                         letter-spacing: 0px;
                         text-align: center;
-                        color: rgba(105, 105, 105, 1);
-                        text-decoration: none;
                     }
                 }
                 &.upload-btn {
+                    display: flex;
+                    justify-content: center;
                     button {
                         display: flex;
                         align-items: center;
