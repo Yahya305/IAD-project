@@ -25,7 +25,7 @@ function TeacherDashboardStructure() {
   return (
     <div className="teacher-dashboard dashboard-structure">
       <Sidebar routes={Routes} />
-      <div className="dashboard" style={{ position: "relative" }}>
+      <div className="dashboard" style={{ position: "relative", display: "flex", flexDirection: "column" }}>
         <DashboardSearchBar />
         <Outlet />
       </div>
