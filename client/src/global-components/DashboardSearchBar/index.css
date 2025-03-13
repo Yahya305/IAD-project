@@ -1,4 +1,4 @@
-.banner-search {
+.dashboard-banner-search {
     width: 100%;
     background-color: white;
     display: flex;
@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.banner-search .banner-search-wrapper {
+.dashboard-banner-search .banner-search-wrapper {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -29,7 +29,7 @@
     }
 }
 
-.banner-search .banner-search-wrapper .search {
+.dashboard-banner-search .banner-search-wrapper .search {
     display: flex;
     align-items: center;
     width: 100%;
@@ -52,14 +52,14 @@
     }
 }
 
-.banner-search .banner-search-wrapper .search input::placeholder {
+.dashboard-banner-search .banner-search-wrapper .search input::placeholder {
     color: #233951;
     opacity: 42%;
     @media (max-width: 567px) {
         color: #eff3fb;
     }
 }
-.banner-search .banner-search-wrapper .search input {
+.dashboard-banner-search .banner-search-wrapper .search input {
     width: 100%;
     font-family: DM Sans;
     font-weight: 400;
@@ -86,7 +86,7 @@
         height: 40px;
     }
 }
-.banner-search .banner-search-wrapper .search .search-icon {
+.dashboard-banner-search .banner-search-wrapper .search .search-icon {
     width: 24px;
     height: 24px;
     position: absolute;
@@ -101,14 +101,14 @@
         inset: 8px;
     }
 }
-.banner-search .banner-search-wrapper .search svg path {
+.dashboard-banner-search .banner-search-wrapper .search svg path {
     @media (max-width: 567px) {
         background-color: #eff3fb;
         fill: rgb(16, 16, 87);
     }
 }
 
-.banner-search .banner-search-wrapper .notification {
+.dashboard-banner-search .banner-search-wrapper .notification {
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -123,11 +123,11 @@
     }
 }
 
-.banner-search .banner-search-wrapper .notification .bell-icon {
+.dashboard-banner-search .banner-search-wrapper .notification .bell-icon {
     display: block;
 }
 
-.banner-search .banner-search-wrapper .notification .badge-icon {
+.dashboard-banner-search .banner-search-wrapper .notification .badge-icon {
     /* display: none; */
     display: block;
 }
