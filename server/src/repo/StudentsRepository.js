@@ -66,6 +66,7 @@ class StudentRepository {
                             seatNo: student.seatNo,
                             name: student.name,
                             section: student.section,
+                            email: student.email,
                             teamId: team.teamId, // Assign student to the team
                         },
                     });

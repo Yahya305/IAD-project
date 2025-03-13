@@ -21,6 +21,7 @@ export const seedStudentsData = async () => {
                 section: row.Section,
                 teamNumber: parseInt(row.Team), // Parse team number from CSV
                 teamId: `${row.Team}${row.Section}`, // Generate teamId (e.g., "9B")
+                email: row.Email, // Add email field from CSV
             };
             studentsData.push(student);
         })

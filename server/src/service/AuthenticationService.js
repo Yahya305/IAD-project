@@ -1,11 +1,21 @@
+import OTPRepository from "../repo/OTPRepository.js";
 import { checkPassword } from "../utils/bcryptUtils.js";
 import { CustomError } from "../utils/exceptions/CustomError.js";
 import { HttpStatusCode } from "../utils/exceptions/HttpStatusCode.js";
 import { signToken } from "../utils/JWTUtils.js";
+import NodemailerService from "./NodemailerService.js";
 import StudentService from "./StudentService.js";
 import TeacherService from "./TeacherService.js";
 
 class AuthenticationService {
+    static async initiateSignup(email) {
+        //save otp in db
+        const otp = this.generateOTP();
+        const expiresAt = new Date(Date.now() + 1 * 60 * 1000); // 1 minute from now
+        await OTPRepository.saveOTP(email, expiresAt, otp);
+        return await NodemailerService.sendOTP(email, otp);
+    }
+
     static async teacherLogin({ email, password }) {
         const teacher = await TeacherService.fetchTeacher();
 
@@ -32,16 +42,15 @@ class AuthenticationService {
         return _teacher_data;
     }
 
-    static async studentRegister({ email, seatNo, section, password }) {
-        const enrolledStudent = await StudentService.fetchStudentBySeatNo(
-            seatNo
-        );
+    static async studentRegister({ email, password, otp }) {
+        // verify otp
+        const otpData = await OTPRepository.fetchOTP(email);
+        if (!otpData || otpData.otp !== otp || otpData.expiresAt < new Date()) {
+            throw new CustomError("Invalid OTP.", HttpStatusCode.BAD_REQUEST);
+        }
+        const enrolledStudent = await StudentService.fetchStudentByEmail(email);
 
-        const duplicateStudent = await StudentService.fetchStudentByEmail(
-            email
-        );
-
-        if (enrolledStudent.isActivated || duplicateStudent) {
+        if (enrolledStudent.isActivated) {
             throw new CustomError(
                 "You are already Registered. Try Loggin in.",
                 HttpStatusCode.CONFLICT
@@ -51,7 +60,7 @@ class AuthenticationService {
         // Activate the student's account
         const activatedStudentAccount =
             await StudentService.activateStudentAccount({
-                seatNo,
+                seatNo: enrolledStudent.seatNo,
                 email,
                 password,
             });
@@ -92,6 +101,10 @@ class AuthenticationService {
 
         const { password: _, ...studentData } = student;
         return studentData;
+    }
+
+    static generateOTP() {
+        return Math.floor(100000 + Math.random() * 900000).toString();
     }
 }
 export default AuthenticationService;

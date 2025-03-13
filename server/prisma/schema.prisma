@@ -91,6 +91,13 @@ model ChallengeScore {
     challenge   Challenge @relation(fields: [challengeId], references: [challengeId])
 }
 
+model OTP {
+    otp       String   @id
+    email     String   @unique
+    createdAt DateTime @default(now())
+    expiresAt DateTime
+}
+
 enum Section {
     A
     B
