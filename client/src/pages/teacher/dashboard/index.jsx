@@ -15,6 +15,11 @@ const Routes = [
     name: "Student Grading",
     icon: <FaHome />
   },
+  {
+    path: "/teacher/challenge-entry",
+    name: "Challenge Entry",
+    icon: <FaHome />
+  }
 ]
 function TeacherDashboardStructure() {
   return (

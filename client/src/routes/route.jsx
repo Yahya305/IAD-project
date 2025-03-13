@@ -13,6 +13,9 @@ import StudentMainDashboardPage from "../pages/student/dashboard/dashboard-inner
 import PerformanceAnalysisPage from "../pages/student/dashboard/dashboard-inner-pages/PerformanceAnalysis";
 import StudentProgressPage from "../pages/student/dashboard/dashboard-inner-pages/StudentProgress";
 
+// Teacher Routes
+import ChallengeEntry from "../pages/teacher/dashboard-inner-pages/ChallengeEntry";
+
 function Router() {
     return (
         <Routes>
@@ -31,6 +34,7 @@ function Router() {
             {/* Nested teacher routes */}
             <Route path="/teacher" element={<TeacherDashboardStructure />} >
                 <Route path="dashboard" element={<StudentMainDashboardPage />} />
+                <Route path="challenge-entry" element={<ChallengeEntry />} />
                 <Route
                     path="student-grading"
                     element={<ProjectGradingPage />}
