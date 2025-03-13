@@ -131,3 +131,49 @@
         font-size: 1rem;
     }
 }
+
+.otp-verification-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.otp-verification-container h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.otp-verification-container p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.otp-verification-container input {
+    width: 200px;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+.otp-verification-container input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.resend-text {
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.resend-link {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.resend-link:hover {
+    color: #0056b3;
+}

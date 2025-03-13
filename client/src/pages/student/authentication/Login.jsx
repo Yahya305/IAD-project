@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LoginForm from "./components/LoginForm";
+import LoginForm from "./components/Form";
 import "./style.css";
 import apiClient from "../../../config/apiClient";
 import toast from "../../../components/CustomToast/toast";
 import useUserStore from "../../../store/userStore";
 import { AxiosError } from "axios";
+import Form from "./components/Form";
 
 const Loginpage = () => {
     const navigate = useNavigate();
@@ -56,7 +57,7 @@ const Loginpage = () => {
             <div className="form-container">
                 <h1>Welcome Back!</h1>
                 <h2>Login</h2>
-                <LoginForm onSubmit={handleSubmit} />
+                <Form onSubmit={handleSubmit} formType="Login" />
                 <p className="form-footer">
                     Don't have an account?{" "}
                     <span onClick={handleSignup} className="signup-login-link">

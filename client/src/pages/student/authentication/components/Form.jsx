@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const LoginForm = ({ onSubmit }) => {
+const Form = ({ onSubmit, formType }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -49,10 +49,10 @@ const LoginForm = ({ onSubmit }) => {
                 />
             </div>
             <button type="submit" className="submit-button">
-                Login
+                {formType}
             </button>
         </form>
     );
 };
 
-export default LoginForm;
+export default Form;
