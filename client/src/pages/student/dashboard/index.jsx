@@ -3,7 +3,7 @@ import "./index.css";
 import Sidebar from "../../../global-components/Sidebar";
 import { FaHome } from "react-icons/fa";
 import { Outlet } from 'react-router-dom';
-import Search from "./components/bannerSearch";
+import Search from "../../../global-components/DashboardSearchBar";
 
 const Routes = [
     {
@@ -35,7 +35,7 @@ const Routes = [
 
 function StudentDashboard() {
     return (
-        <div className="student-dashboard">
+        <div className="student-dashboard dashboard-structure">
             <Sidebar routes={Routes} />
             <div className="dashboard" style={{ position: "relative" }}>
                 <Search />

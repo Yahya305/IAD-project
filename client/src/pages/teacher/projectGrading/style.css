@@ -3,7 +3,6 @@
 .grading-container {
     text-align: center;
     background-color: #fcfefe;
-    min-height: 100vh;
     padding: 20px;
 
     .heading {

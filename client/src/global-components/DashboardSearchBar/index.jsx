@@ -1,9 +1,9 @@
 import React from 'react'
 import "./index.css";
 
-const index = () => {
+const DashboardSearchBar = () => {
     return (
-        <div className='banner-search'>
+        <div className='dashboard-banner-search'>
             <div className="banner-search-wrapper">
                 <div className="search">
                     <svg className="search-icon" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20" >
@@ -23,4 +23,4 @@ const index = () => {
     )
 }
 
-export default index
+export default DashboardSearchBar
