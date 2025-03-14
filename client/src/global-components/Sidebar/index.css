@@ -34,6 +34,13 @@ aside.dashboard-sidebar {
         flex-direction: column;
         gap: 40px;
         overflow-x: hidden;
+
+        @media (max-width: 800px) {
+            gap: 15px;
+            .user {
+                display: none;
+            }
+        }
         .logo-section {
             position: relative;
             .logo {
