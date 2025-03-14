@@ -10,14 +10,16 @@ const StudentProgress = () => {
 
     const { data } = useQuery({
         queryKey: ["fetch-all-students", offset],
-        select: data => data.data,
+        select: (data) => data.data,
         queryFn: async () => {
-            return await apiClient.get(`/student/all?offset=${offset}&size=${size}`);
-        }
+            return await apiClient.get(
+                `/leaderboard/fetch-students-leaderboard?section=B&offset=${offset}&size=${size}`
+            );
+        },
     });
 
-    const handleNextPage = () => setOffset(prev => prev + size);
-    const handlePrevPage = () => setOffset(prev => Math.max(0, prev - size));
+    const handleNextPage = () => setOffset((prev) => prev + size);
+    const handlePrevPage = () => setOffset((prev) => Math.max(0, prev - size));
 
     return (
         <div className="StudentProgress">
@@ -38,29 +40,29 @@ const StudentProgress = () => {
                             <th>Seat No</th>
                             <th>Section</th>
                             <th>Group</th>
-                            <th>Overall Score</th>
-                            <th>Best Score</th>
-                            <th>Progress</th>
+                            <th>Score</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data?.map((student) => (
-                            <tr key={student?.id}>
+                            <tr key={student?.studentId}>
                                 <td>{student?.name}</td>
                                 <td>{student?.seatNo}</td>
                                 <td>{student?.section}</td>
                                 <td>{student?.teamId}</td>
-                                <td>{student?.overallScore}</td>
-                                <td>{student?.bestScore}</td>
-                                <td>{student?.progress}</td>
+                                <td>{student?.score}</td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
             <div className="pagination">
-                <button onClick={handlePrevPage} disabled={offset === 0}>Previous</button>
-                <button onClick={handleNextPage} disabled={data?.length < size}>Next</button>
+                <button onClick={handlePrevPage} disabled={offset === 0}>
+                    Previous
+                </button>
+                <button onClick={handleNextPage} disabled={data?.length < size}>
+                    Next
+                </button>
             </div>
         </div>
     );

@@ -47,13 +47,15 @@ class StudentRepository {
                     select: {
                         seatNo: true,
                         name: true,
+                        teamId: true,
                         team: { select: { section: true } },
                     },
                 });
                 return {
-                    student: x.studentId,
+                    studentId: x.studentId,
                     name: student?.name,
                     seatNo: student?.seatNo,
+                    teamId: student?.teamId,
                     section: student?.team?.section,
                     score: x._sum.score || 0,
                 };
