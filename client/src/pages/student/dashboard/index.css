@@ -17,7 +17,7 @@
     max-width: 1920px;
     .dashboard {
         background-color: #eff3fb;
-        width: 100%;
+        /* width: 100%; */
         max-width: 1920px;
     }
 }

@@ -12,7 +12,7 @@ const Sidebar = ({ routes }) => {
     const { pathname } = useLocation()
     return (
         // style={{display: 'none'}}
-        <aside className='dashboard-sidebar' style={{display: 'none'}} >
+        <aside className='dashboard-sidebar'>
             <div className="logo-section">
                 <div className="logo">Logo</div>
                 <hr />

@@ -23,7 +23,6 @@ function Table() {
         select: (data) => data.data,
     });
 
-
     // Filter challenges based on search query and status
     const filteredChallenges = challengeData?.filter((challenge) => {
         const matchesSearch = challenge.name
@@ -52,16 +51,14 @@ function Table() {
                 </div>
                 <div className="table-content">
                     <div className="table-fields">
-                        <div className="field-wrapper">
-                            <p className="fields tasks">Tasks</p>
-                            <p className="fields submission-link">
-                                Submission Link
-                            </p>
-                            <p className="fields deadline">Deadline</p>
-                            <p className="fields status">Status</p>
-                            <p className="fields score">Score</p>
-                            <p className="fields expand"></p>
-                        </div>
+                        <p className="fields tasks">Tasks</p>
+                        <p className="fields submission-link">
+                            Submission Link
+                        </p>
+                        <p className="fields deadline">Deadline</p>
+                        <p className="fields status">Status</p>
+                        <p className="fields score">Score</p>
+                        <p className="fields expand"></p>
                     </div>
                     {isLoading ? (
                         <div>Loading...</div>
@@ -69,7 +66,11 @@ function Table() {
                         <div className="tables-rows">
                             {filteredChallenges?.length > 0 ? (
                                 filteredChallenges.map((data, key) => (
-                                    <Row key={key} data={data} refetch={refetch} />
+                                    <Row
+                                        key={key}
+                                        data={data}
+                                        refetch={refetch}
+                                    />
                                 ))
                             ) : (
                                 <NoDataRow />
