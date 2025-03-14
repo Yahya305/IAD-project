@@ -1,9 +1,9 @@
 import React from 'react'
-import '../Card/index.css'
+import './index.css'
 
 function Card() {
   return (
-    <div className='card'>
+    <div className='student-dashboard-card'>
       <div className="container">
         <div className="card-wrapper">
           <div className="left">

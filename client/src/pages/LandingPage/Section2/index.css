@@ -1,13 +1,13 @@
 .landing-page-section2 {
-  max-width: 1440px;
-  width:80vw ;
+  max-width: 600px;
+  width: 100%;
   margin: auto;
     > h2 {
       font-family: "Inter", sans-serif;
       margin-top: 25px;
       /* padding-left: 30px; */
       font-size: 60px;
-      width: 93vw;
+      /* width: 93vw; */
       margin: 30px auto 0 auto;
       font-weight: bolder;
       color: var(--blueColor);

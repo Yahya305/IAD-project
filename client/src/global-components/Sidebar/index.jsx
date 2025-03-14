@@ -11,7 +11,8 @@ const Sidebar = ({ routes }) => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
     return (
-        <aside className='dashboard-sidebar'>
+        // style={{display: 'none'}}
+        <aside className='dashboard-sidebar' style={{display: 'none'}} >
             <div className="logo-section">
                 <div className="logo">Logo</div>
                 <hr />
