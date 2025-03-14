@@ -17,25 +17,53 @@ class StudentRepository {
         });
     }
 
-    static async fetchStudentScores({section}) {
+    static async fetchStudentScores({ section, size = 0, offset = 0 }) {
         const std_progress = await prisma.challengeScore.groupBy({
             by: ["studentId"],
             _sum: {
                 score: true,
             },
+            orderBy:{
+                _sum:{
+                    score: "desc",
+                },
+            },
             where: {
                 student: {
-                    section: section
-                }
-            }
+                    section: section,
+                },
+            },
+            ...(size > 0 ? {
+                skip: +offset,
+                take: +size,
+            } : {})
         });
-        return std_progress.map((x) => ({
-            student: x.studentId,
-            score: x._sum.score || 0,
-        }));
+
+        // Fetch student details for the scores
+        const studentsWithScores = await Promise.all(
+            std_progress.map(async (x) => {
+                const student = await prisma.student.findUnique({
+                    where: { studentId: x.studentId },
+                    select: {
+                        seatNo: true,
+                        name: true,
+                        team: { select: { section: true } },
+                    },
+                });
+                return {
+                    student: x.studentId,
+                    name: student?.name,
+                    seatNo: student?.seatNo,
+                    section: student?.team?.section,
+                    score: x._sum.score || 0,
+                };
+            })
+        );
+
+        return studentsWithScores;
     }
 
-    static async fetchTeamScores({section}) {
+    static async fetchTeamScores({ section }) {
         const teamScores = await prisma.challengeSubmission.groupBy({
             by: ["teamId"],
             where: {

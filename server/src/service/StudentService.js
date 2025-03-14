@@ -15,13 +15,20 @@ class StudentService {
         return student;
     }
 
-    static async fetchStudentLeaderboard({section}) {
-        const teamLeaderboard = await StudentsRepository.fetchStudentScores({section});
+    static async fetchStudentLeaderboard({ section, size, offset }) {
+        // add size and offset
+        const teamLeaderboard = await StudentsRepository.fetchStudentScores({
+            section,
+            size,
+            offset
+        });
         return teamLeaderboard;
     }
 
-    static async fetchTeamLeaderboard({section}) {
-        const teamLeaderboard = await StudentsRepository.fetchTeamScores({section});
+    static async fetchTeamLeaderboard({ section }) {
+        const teamLeaderboard = await StudentsRepository.fetchTeamScores({
+            section,
+        });
         return teamLeaderboard;
     }
 
@@ -44,7 +51,7 @@ class StudentService {
     static fetchStudentProgress = async () => {
         const students = StudentsRepository.fetchStudentScores();
         return students;
-    }
+    };
 
     static async activateStudentAccount({ seatNo, email, password }) {
         const activatedStudentAccount =
