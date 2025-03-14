@@ -1,11 +1,6 @@
 import React from 'react'
 import "./index.css"
 
-// Choose Comp
-// Choose Teams
-// Name Project
-// Submit
-
 const ChallengeEntry = () => {
     return (
         <div className='ChallengeEntry'>

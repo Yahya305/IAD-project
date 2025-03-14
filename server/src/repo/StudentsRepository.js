@@ -6,17 +6,40 @@ class StudentRepository {
         return student;
     }
 
+    static async fetchAllStudents(size, offset) {
+        if (size == 0 && offset == 0) {
+            return await prisma.student.findMany();
+        }
+
+        return await prisma.student.findMany({
+            skip: offset,
+            take: size,
+        });
+    }
+
+    static async fetchStudentProgress() {
+        const std_progress = await prisma.challengeScore.groupBy({
+            by: ["studentId"],
+            _sum: {
+                score: true,
+            },
+        });
+        return std_progress.map((x) => ({
+            student: x.studentId,
+        }));
+    }
+
     static async fetchAllTeamScores() {
         const teamScores = await prisma.challengeSubmission.groupBy({
-            by: ['teamId'],
+            by: ["teamId"],
             _sum: {
-                score: true
-            }
+                score: true,
+            },
         });
 
-        return teamScores.map(team => ({
+        return teamScores.map((team) => ({
             teamId: team.teamId,
-            totalScore: team._sum.score || 0
+            totalScore: team._sum.score || 0,
         }));
     }
 

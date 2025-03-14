@@ -8,6 +8,7 @@ import AuthenticationRouter from "./router/AuthenticationRouter.js";
 import ChallengeRouter from "./router/ChallengeRouter.js";
 import CompetitionRouter from "./router/CompetitionRouter.js";
 import UserRouter from "./router/UserRouter.js";
+import StudentRouter from "./router/StudentRouter.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -30,6 +31,7 @@ app.use("/auth", AuthenticationRouter);
 app.use("/user", UserRouter);
 app.use("/challenge", ChallengeRouter);
 app.use("/competition", CompetitionRouter);
+app.use("/student", StudentRouter);
 
 app.use(ErrorMiddleware);
 

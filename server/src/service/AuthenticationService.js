@@ -82,7 +82,6 @@ class AuthenticationService {
 
     static async studentLogin({ email, password }) {
         const student = await StudentService.fetchStudentByEmail(email);
-
         if (!student || !checkPassword(password, student.password)) {
             throw new CustomError(
                 "Invalid Email or Password.",
