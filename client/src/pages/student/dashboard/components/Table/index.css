@@ -2,6 +2,7 @@
 
 .table-section {
     width: 100%;
+    max-width: 800px;
     background-color: azure;
     border-radius: 20px;
 
@@ -30,11 +31,19 @@
         }
 
         .table-content {
+            width: 100%;
+            max-width: 1024px;
+            overflow-x: auto;
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px;
             .table-fields {
-                background-color: #eff3fb;
+                background-color: #EFF3FB;
+                border-radius: 10px;
                 width: 100%;
                 display: flex;
                 justify-content: start;
+                border: none;
 
                 .field-wrapper {
                     display: flex;
@@ -42,6 +51,7 @@
                     align-items: center;
                     width: 100%;
                     padding: 50px 10px;
+                
 
                     .fields {
                         font-family: DM Sans;
@@ -50,18 +60,20 @@
                         line-height: 130%;
                         letter-spacing: 0px;
                         width: 14%;
+                        min-width: 150px;
                         text-align: center;
 
                         &.submission-link {
                             width: 30%;
+                            min-width: 200px;
                         }
                     }
                 }
             }
 
-            .tables-rows {
+            /* .tables-rows { */
                 /* Styles for table rows */
-            }
+            /* } */
         }
     }
 }
