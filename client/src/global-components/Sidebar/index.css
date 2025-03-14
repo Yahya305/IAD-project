@@ -16,11 +16,13 @@ aside.dashboard-sidebar {
         all: unset;
         position: absolute;
 
-        background-color: red;
+        background-color: transparent;
         padding: 10px 12px;
         border-radius: 50px;
         display: flex;
-        top: 20px;
+        top: 15px;
+        z-index: 1231;
+        font-size: 30px;
     }
     .logo-section {
         position: relative;

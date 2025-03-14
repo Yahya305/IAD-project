@@ -7,6 +7,9 @@ import { motion } from "framer-motion"
 import "./index.css"
 import { useIsMobile } from '../../utils/useIsMobile';
 import useGlobalVarsStore from '../../store/globalVarsStore';
+import { FaRegArrowAltCircleRight, FaRegArrowAltCircleLeft } from "react-icons/fa";
+
+
 
 
 
@@ -24,10 +27,10 @@ const Sidebar = ({ routes }) => {
             className={`dashboard-sidebar ${isMobile ? "mobile" : ""}`}>
             <motion.button
                 animate={{
-                    right: isOpen ? (isMobile ? "10px" : "-15px") : "-50px",
+                    right: isOpen ? (isMobile ? "18px" : "-15px") : "-50px",
                 }}
                 className="opener" onClick={() => setIsOpen(!isOpen)}>
-                X
+                {!isOpen ? <FaRegArrowAltCircleRight /> : <FaRegArrowAltCircleLeft />}
             </motion.button>
             {isOpen &&
                 <>
