@@ -1,181 +1,161 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700&family=Martel+Sans:wght@200;300;400;600;700;800&family=Poppins&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
-  --blueColor: #00365c;
-  --lightBlue: #005796;
-  --dimBlue: #7592a7;
-  --shadyBlue: #fcfefe;
+    --blueColor: #00365c;
+    --lightBlue: #005796;
+    --dimBlue: #7592a7;
+    --shadyBlue: #fcfefe;
 }
 
 .hero {
-   
-   
-    
     max-width: 1440px;
     width: 80vw;
     margin: auto;
 
-
-
-    @media  (max-width: 600px) {
+    @media (max-width: 600px) {
         width: 90vw;
     }
-    
 
     .hero-text {
-      display: flex;
-      flex-direction: column;
-      width: 50vw;
-      gap: 20px;
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        gap: 20px;
 
-      @media  (max-width: 1000px) {
-        width: 100%;
-      }
-      :nth-child(1) {
-        font-family: "Inter", sans-serif;
-        font-size: 66px;
-        font-weight: bolder;
-        color: var(--blueColor);
-        :nth-child(1) {
-          font-family: "Inter", sans-serif;
-          font-size: 50px;
-          font-weight: bold;
-          color: var(--lightBlue);
+        @media (max-width: 1000px) {
+            width: 100%;
         }
-      }
+        :nth-child(1) {
+            font-family: "Inter", sans-serif;
+            font-size: 66px;
+            font-weight: bolder;
+            color: var(--blueColor);
+            :nth-child(1) {
+                font-family: "Inter", sans-serif;
+                font-size: 50px;
+                font-weight: bold;
+                color: var(--lightBlue);
+            }
+        }
 
-      
-
-      :nth-child(2) {
-        font-family: "Inter", sans-serif;
-        font-size: 20px;
-        font-weight: 300;
-        color: var(--dimBlue);
-      }
+        :nth-child(2) {
+            font-family: "Inter", sans-serif;
+            font-size: 20px;
+            font-weight: 300;
+            color: var(--dimBlue);
+        }
     }
-  }
-
-.hero {
-  margin-top: 30px;
-  padding: 50px 0;
-  display: flex;
-  gap: 50px;
-
-  @media  (max-width: 1000px) {
-      flex-direction: column;
-      /* padding: 50px 20px; */
-      gap: 20px;
-  }
-
-  @media  (max-width: 600px) {
-    padding: 0;
-  }
-  
-
-  .hero-text {
-
-    :nth-child(1) {
-      font-family: "Inter", sans-serif;
-      font-size: 48px;
-      font-weight: bolder;
-      color: var(--blueColor);
-    }
-
-    :nth-child(2) {
-      font-family: "Inter", sans-serif;
-      font-size: 20px;
-      font-weight: 300;
-      color: var(--dimBlue);
-    }
-  }
 }
 
+.hero {
+    margin-top: 30px;
+    padding: 50px 0;
+    display: flex;
+    gap: 50px;
+
+    @media (max-width: 1000px) {
+        flex-direction: column;
+        /* padding: 50px 20px; */
+        gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+        padding: 0;
+    }
+
+    .hero-text {
+        :nth-child(1) {
+            font-family: "Inter", sans-serif;
+            font-size: 48px;
+            font-weight: bolder;
+            color: var(--blueColor);
+        }
+
+        :nth-child(2) {
+            font-family: "Inter", sans-serif;
+            font-size: 20px;
+            font-weight: 300;
+            color: var(--dimBlue);
+        }
+    }
+}
 
 button {
-  margin: 10px;
-  padding: 15px 25px;
-  border-style: none;
-  color: white;
-  background-color: var(--blueColor);
-  border-radius: 30px;
-  font-size: 17px;
-  img {
-    vertical-align: bottom;
-    padding: 0 0 0 5px;
-  }
+    margin: 10px;
+    padding: 15px 25px;
+    border-style: none;
+    color: white;
+    background-color: var(--blueColor);
+    border-radius: 30px;
+    font-size: 17px;
+    img {
+        vertical-align: bottom;
+        padding: 0 0 0 5px;
+    }
 }
 
 .started {
-  width: 250px;
-  padding: 22px 22px;
-  align-self: flex-start;
+    width: 250px;
+    padding: 22px 22px;
+    align-self: flex-start;
 }
 
 .secImg {
-  width: 50vw;
-  display: flex;
-  align-items: center;
-
-  video {
-    border-radius: 30px;
-    box-shadow: 10px 10px 9px;
-    width: 95%;
-  }
-}
-
-
-
-@media screen and (max-width: 1000px) {
-  
-  
-
-  button {
-    width: 150px;
-    margin: 2px;
-    padding: 12px 12px;
-    font-size: 16px;
-    img {
-      width: 14px;
-      vertical-align: bottom;
-    }
-  }
-
-
-  .started {
-    width: 250px;
-    padding: 21px 5px;
-    font-size: 20px;
-    img {
-      width: 19px;
-    }
-  }
-
-  .secImg {
-    height: 53vh;
-    width: 100%;
-    justify-content: center;
-    align-self: flex-start;
-    
-
+    width: 50vw;
+    display: flex;
+    align-items: center;
 
     video {
-      margin-top: 50px;
-      width: 95%;
+        border-radius: 30px;
+        box-shadow: 10px 10px 9px;
+        width: 95%;
     }
-  }
+}
+
+@media screen and (max-width: 1000px) {
+    button {
+        width: 150px;
+        margin: 2px;
+        padding: 12px 12px;
+        font-size: 16px;
+        img {
+            width: 14px;
+            vertical-align: bottom;
+        }
+    }
+
+    .started {
+        width: 250px;
+        padding: 21px 5px;
+        font-size: 20px;
+        img {
+            width: 19px;
+        }
+    }
+
+    .secImg {
+        height: 53vh;
+        width: 100%;
+        justify-content: center;
+        align-self: flex-start;
+
+        video {
+            margin-top: 50px;
+            width: 95%;
+        }
+    }
 }
 
 @media screen and (max-width: 600px) {
-
-  .secImg {
-    height: 28vh;
-  }
+    .secImg {
+        height: 28vh;
+    }
 }
 
 /* Example styles for toast notifications */
@@ -196,8 +176,3 @@ button {
     flex: 1;
     font-size: 14px;
 }
-
-
-
-
-  
