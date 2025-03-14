@@ -24,10 +24,10 @@
     width: 100%;
     max-width: 765px;
     /* z-index: 1; */
-    @media (max-width: 1440pxpx) {
+    @media (max-width: 1440px) {
     }
     @media (max-width: 991px) {
-        padding: calc(90px + 40px) 0px 30px 30px;
+        /* padding: calc(90px + 40px) 0px 30px 30px; */
         max-width: 80%;
     }
     @media (max-width: 767px) {
