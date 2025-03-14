@@ -6,7 +6,7 @@ class StudentController {
         return await StudentService.fetchAllStudents(+size, +offset);
     }
     static async fetchAllStudentProgress() {
-        
+        return await StudentService.fetchStudentProgress();
     }
 }
 export default StudentController;

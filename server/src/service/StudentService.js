@@ -31,6 +31,11 @@ class StudentService {
         return students;
     };
 
+    static fetchStudentProgress = async () => {
+        const students = StudentsRepository.fetchStudentProgress();
+        return students;
+    }
+
     static async activateStudentAccount({ seatNo, email, password }) {
         const activatedStudentAccount =
             await StudentsRepository.activateStudentAccount({
