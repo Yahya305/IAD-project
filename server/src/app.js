@@ -9,7 +9,6 @@ import ChallengeRouter from "./router/ChallengeRouter.js";
 import CompetitionRouter from "./router/CompetitionRouter.js";
 import UserRouter from "./router/UserRouter.js";
 import StudentRouter from "./router/StudentRouter.js";
-import StudentRepository from "./repo/StudentsRepository.js";
 import LeaderboardRouter from "./router/LeaderboardRouter.js";
 
 const app = express();
