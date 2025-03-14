@@ -1,11 +1,7 @@
 import React from 'react'
-import Sidebar from '../../../global-components/Sidebar'
 import { FaHome } from 'react-icons/fa'
-import DashboardSearchBar from '../../../global-components/DashboardSearchBar'
-import { Outlet } from 'react-router'
-import DashboardStructure from '../../../global-components/DashboardStructure'
 
-const Routes = [
+export const TeacherRoutes = [
   {
     path: "/teacher/dashboard",
     name: "Dashboard",
@@ -22,18 +18,3 @@ const Routes = [
     icon: <FaHome />
   }
 ]
-function TeacherDashboardStructure() {
-  return (
-    <DashboardStructure>
-      <Sidebar routes={Routes} />
-      <div className="dashboard-page">
-        <DashboardSearchBar />
-        <div className="dashboard-page-content">
-          <Outlet />
-        </div>
-      </div>
-    </DashboardStructure>
-  )
-}
-
-export default TeacherDashboardStructure

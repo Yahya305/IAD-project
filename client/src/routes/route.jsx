@@ -2,13 +2,13 @@ import React from "react";
 import { Routes, Route } from "react-router";
 
 import LandingPage from "../pages/LandingPage/Main.jsx";
-import TeacherDashboardStructure from "../pages/teacher/dashboard";
+import { TeacherRoutes } from "../pages/teacher/dashboard";
 import Loginpage from "../pages/student/authentication/Login";
 import Signup from "../pages/student/authentication/signup";
 import ProjectGradingPage from "../pages/teacher/projectGrading/projectGrading";
 
 //  Student Routes
-import StudentDashboardStructure from "../pages/student/dashboard";
+import StudentDashboardStructure, { StudentRoutes } from "../pages/student/dashboard";
 import StudentMainDashboardPage from "../pages/student/dashboard/dashboard-inner-pages/MainDashboard";
 import PerformanceAnalysisPage from "../pages/student/dashboard/dashboard-inner-pages/PerformanceAnalysis";
 import StudentProgressPage from "../pages/student/dashboard/dashboard-inner-pages/StudentProgress";
@@ -25,7 +25,7 @@ function Router() {
             <Route path="/student/login" element={<Loginpage />} />
             <Route path="/student/signup" element={<Signup />} />
             {/* Nested student routes */}
-            <Route path="/student" element={<StudentDashboardStructure />}>
+            <Route path="/student" element={<StudentDashboardStructure routes={StudentRoutes}/>}>
                 <Route
                     path="dashboard"
                     element={<StudentMainDashboardPage />}
@@ -38,7 +38,7 @@ function Router() {
             </Route>
 
             {/* Nested teacher routes */}
-            <Route path="/teacher" element={<TeacherDashboardStructure />}>
+            <Route path="/teacher" element={<StudentDashboardStructure routes={TeacherRoutes}/>}>
                 <Route
                     path="dashboard"
                     element={<StudentMainDashboardPage />}

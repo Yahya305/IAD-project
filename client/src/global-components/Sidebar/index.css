@@ -1,6 +1,4 @@
 aside.dashboard-sidebar {
-    display: flex;
-    flex-direction: column;
     position: relative;
     background-color: white;
 
@@ -16,103 +14,124 @@ aside.dashboard-sidebar {
         all: unset;
         position: absolute;
 
-        background-color: red;
+        background-color: transparent;
         padding: 10px 12px;
         border-radius: 50px;
         display: flex;
-        top: 20px;
+        top: 15px;
+        z-index: 1231;
+        font-size: 30px;
     }
-    .logo-section {
-        position: relative;
-        .logo {
-            padding: 32px 78px;
-            font-weight: bold;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 30px;
-            @media (max-width: 1200px) {
-                padding: 15px 20px;
-            }
+    &.closed {
+        .logo-section,
+        .all-routes,
+        .user {
+            opacity: 0;
         }
     }
-    .all-routes {
-        flex: 1;
-        padding: 40px 0;
-        @media (max-width: 1200px) {
-            padding: 10px 0;
-        }
-        .routes {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            @media (max-width: 1200px) {
-                gap: 10px;
+    .dashboard-sidebar-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        overflow-x: hidden;
+
+        @media (max-width: 800px) {
+            gap: 15px;
+            .user {
+                display: none;
             }
-            .route {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                padding: 17px 19px;
-                cursor: pointer;
-                border-radius: 32px;
+        }
+        .logo-section {
+            position: relative;
+            .logo {
+                padding: 32px 78px;
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 30px;
                 @media (max-width: 1200px) {
-                    padding: 10px 12px;
+                    padding: 15px 20px;
+                }
+            }
+        }
+        .all-routes {
+            flex: 1;
+            @media (max-width: 1200px) {
+                padding: 10px 0;
+            }
+            .routes {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                @media (max-width: 1200px) {
                     gap: 10px;
                 }
-                .icon {
-                    font-size: 30px;
+                .route {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    padding: 17px 19px;
+                    cursor: pointer;
+                    border-radius: 32px;
                     @media (max-width: 1200px) {
-                        font-size: 15px;
+                        padding: 10px 12px;
+                        gap: 10px;
                     }
-                }
-                .name {
-                    font-family: "Inter", sans-serif;
-                    font-size: 20px;
-                    font-weight: 400;
-                    @media (max-width: 1200px) {
-                        font-size: 12px;
-                    }
-                }
-                &.active,
-                &:hover {
-                    background-color: #233951;
-                    .name,
                     .icon {
-                        color: white;
+                        font-size: 30px;
+                        @media (max-width: 1200px) {
+                            font-size: 15px;
+                        }
+                    }
+                    .name {
+                        font-family: "Inter", sans-serif;
+                        font-size: 20px;
+                        font-weight: 400;
+                        @media (max-width: 1200px) {
+                            font-size: 12px;
+                        }
+                    }
+                    &.active,
+                    &:hover {
+                        background-color: #233951;
+                        .name,
+                        .icon {
+                            color: white;
+                        }
                     }
                 }
             }
         }
-    }
-    .user {
-        padding-bottom: 40px;
-        font-family: "Inter", sans-serif;
-        hr {
-            margin-bottom: 20px;
-        }
-        .profile {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            margin-top: 25px;
+        .user {
+            padding-bottom: 40px;
             font-family: "Inter", sans-serif;
-            img {
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
+            hr {
+                margin-bottom: 20px;
             }
-        }
-        .actions {
-            margin-top: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            button {
-                all: unset;
+            .profile {
                 display: flex;
                 gap: 20px;
                 align-items: center;
+                margin-top: 25px;
                 font-family: "Inter", sans-serif;
-                svg {
+                img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                }
+            }
+            .actions {
+                margin-top: 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                button {
+                    all: unset;
+                    display: flex;
+                    gap: 20px;
+                    align-items: center;
+                    font-family: "Inter", sans-serif;
+                    svg {
+                    }
                 }
             }
         }
