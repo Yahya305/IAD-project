@@ -4,6 +4,7 @@ import Sidebar from "../../../global-components/Sidebar";
 import { FaHome } from "react-icons/fa";
 import { Outlet } from 'react-router-dom';
 import Search from "../../../global-components/DashboardSearchBar";
+import DashboardStructure from "../../../global-components/DashboardStructure";
 
 const Routes = [
     {
@@ -35,13 +36,15 @@ const Routes = [
 
 function StudentDashboard() {
     return (
-        <div className="student-dashboard dashboard-structure">
+        <DashboardStructure>
             <Sidebar routes={Routes} />
-            <div className="dashboard" style={{ position: "relative" }}>
+            <div className="dashboard-page">
                 <Search />
-                <Outlet />
+                <div className="dashboard-page-content">
+                    <Outlet />
+                </div>
             </div>
-        </div>
+        </DashboardStructure>
     );
 }
 

@@ -4,7 +4,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    /* height: 85px; */
+    height: 85px;
     .banner-search-wrapper {
         display: flex;
         justify-content: flex-end;
