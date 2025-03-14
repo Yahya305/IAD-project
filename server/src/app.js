@@ -9,7 +9,7 @@ import ChallengeRouter from "./router/ChallengeRouter.js";
 import CompetitionRouter from "./router/CompetitionRouter.js";
 import UserRouter from "./router/UserRouter.js";
 import StudentRouter from "./router/StudentRouter.js";
-import StudentRepository from "./repo/StudentsRepository.js";
+import LeaderboardRouter from "./router/LeaderboardRouter.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -24,9 +24,8 @@ app.use(cors());
 setupApplication();
 
 // Routes
-app.get("/", async (req, res) => {
-    const a = await StudentRepository.fetchStudentProgress();
-    res.json(a);
+app.get("/", (req, res) => {
+    res.send("The Server is up and Running!");
 });
 
 app.use("/auth", AuthenticationRouter);
@@ -34,6 +33,7 @@ app.use("/user", UserRouter);
 app.use("/challenge", ChallengeRouter);
 app.use("/competition", CompetitionRouter);
 app.use("/student", StudentRouter);
+app.use("/leaderboard", LeaderboardRouter);
 
 app.use(ErrorMiddleware);
 

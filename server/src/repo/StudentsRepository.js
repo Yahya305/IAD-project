@@ -17,12 +17,17 @@ class StudentRepository {
         });
     }
 
-    static async fetchStudentProgress() {
+    static async fetchStudentScores({section}) {
         const std_progress = await prisma.challengeScore.groupBy({
             by: ["studentId"],
             _sum: {
                 score: true,
             },
+            where: {
+                student: {
+                    section: section
+                }
+            }
         });
         return std_progress.map((x) => ({
             student: x.studentId,
@@ -30,9 +35,14 @@ class StudentRepository {
         }));
     }
 
-    static async fetchAllTeamScores() {
+    static async fetchTeamScores({section}) {
         const teamScores = await prisma.challengeSubmission.groupBy({
             by: ["teamId"],
+            where: {
+                teamId: {
+                    contains: section,
+                },
+            },
             _sum: {
                 score: true,
             },
