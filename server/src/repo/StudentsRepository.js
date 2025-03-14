@@ -26,6 +26,7 @@ class StudentRepository {
         });
         return std_progress.map((x) => ({
             student: x.studentId,
+            score: x._sum.score || 0,
         }));
     }
 
