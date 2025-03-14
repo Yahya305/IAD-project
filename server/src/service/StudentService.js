@@ -15,6 +15,16 @@ class StudentService {
         return student;
     }
 
+    static async fetchStudentLeaderboard({section}) {
+        const teamLeaderboard = await StudentsRepository.fetchStudentScores({section});
+        return teamLeaderboard;
+    }
+
+    static async fetchTeamLeaderboard({section}) {
+        const teamLeaderboard = await StudentsRepository.fetchTeamScores({section});
+        return teamLeaderboard;
+    }
+
     static async fetchStudentByEmail(email) {
         const student = await StudentsRepository.fetchStudentByEmail(email);
         // if (!student) {
@@ -32,7 +42,7 @@ class StudentService {
     };
 
     static fetchStudentProgress = async () => {
-        const students = StudentsRepository.fetchStudentProgress();
+        const students = StudentsRepository.fetchStudentScores();
         return students;
     }
 

@@ -17,7 +17,7 @@ class StudentRepository {
         });
     }
 
-    static async fetchStudentProgress() {
+    static async fetchStudentScores() {
         const std_progress = await prisma.challengeScore.groupBy({
             by: ["studentId"],
             _sum: {
@@ -30,9 +30,14 @@ class StudentRepository {
         }));
     }
 
-    static async fetchAllTeamScores() {
+    static async fetchTeamScores({section}) {
         const teamScores = await prisma.challengeSubmission.groupBy({
             by: ["teamId"],
+            where: {
+                teamId: {
+                    contains: section,
+                },
+            },
             _sum: {
                 score: true,
             },
