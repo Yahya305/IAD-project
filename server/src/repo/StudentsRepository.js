@@ -6,6 +6,18 @@ class StudentRepository {
         return student;
     }
 
+    static async fetchAllStudents(size, offset) {
+        if (size == 0 && offset == 0) {
+            return await prisma.student.findMany();
+        }
+    
+        return await prisma.student.findMany({
+            skip: offset,
+            take: size
+        });
+    }
+    
+
     static async fetchStudentBySeatNo(seatNo) {
         const student = await prisma.student.findUnique({ where: { seatNo } });
         return student;

@@ -26,12 +26,17 @@ class StudentService {
         return student;
     }
 
+    static fetchAllStudents = async (size, offset) => {
+        const students = StudentsRepository.fetchAllStudents(size, offset);
+        return students;
+    };
+
     static async activateStudentAccount({ seatNo, email, password }) {
         const activatedStudentAccount =
             await StudentsRepository.activateStudentAccount({
                 seatNo,
                 email,
-                password:hashPassword(password),
+                password: hashPassword(password),
             });
         return activatedStudentAccount;
     }

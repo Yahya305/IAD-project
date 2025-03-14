@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
+
+    height: calc(100vh - 85px);
     .head {
         display: flex;
         .input {
@@ -28,19 +30,33 @@
             }
         }
     }
-    table {
-        text-align: left;
-        font-family: DM Sans;
-        thead {
-            background-color: #eff3fb;
-            border-radius: 10px;
-            th {
-                padding: 27px;
-            }
+    .table-container {
+        max-height: 500px;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            display: none;
         }
-        tbody {
-            td {
-                padding: 38px 27px;
+        table {
+            text-align: left;
+            font-family: DM Sans;
+            border-collapse: collapse;
+            width: 100%;
+
+            thead {
+                background-color: #eff3fb;
+                border-radius: 10px;
+                position: sticky;
+                top: 0;
+                z-index: 1;
+
+                th {
+                    padding: 27px;
+                }
+            }
+            tbody {
+                td {
+                    padding: 38px 27px;
+                }
             }
         }
     }
