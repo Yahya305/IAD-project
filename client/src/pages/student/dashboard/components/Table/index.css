@@ -2,7 +2,6 @@
 
 .table-section {
     width: 100%;
-    max-width: 800px;
     background-color: azure;
     border-radius: 20px;
 
@@ -32,7 +31,7 @@
 
         .table-content {
             width: 100%;
-            max-width: 1024px;
+            /* max-width: 1024px; */
             overflow-x: auto;
             background-color: white;
             border-radius: 20px;

@@ -2,7 +2,7 @@ import React from 'react'
 import '../Banner/index.css'
 
 
-const index = () => {
+const Banner = () => {
 	return (
 		<div className='banner-section'>
 			<div className="image-wrapper">
@@ -15,4 +15,4 @@ const index = () => {
 	)
 }
 
-export default index
+export default Banner;
