@@ -17,6 +17,28 @@ class StudentRepository {
         });
     }
     
+    static async fetchAllTeamScores() {
+        const teamScores = await prisma.challengeSubmission.groupBy({
+            by: ['teamId'],
+            _sum: {
+                score: true
+            }
+        });
+
+        return teamScores.map(team => ({
+            teamId: team.teamId,
+            totalScore: team._sum.score || 0
+        }));
+    }
+
+    static async fetchTeamScore(teamId) {
+        const team = await prisma.challengeSubmission.findMany({
+            where: { teamId },
+            select: { score: true },
+        });
+        const totalScore = team.reduce((acc, curr) => acc + curr.score, 0);
+        return totalScore;
+    }
 
     static async fetchStudentBySeatNo(seatNo) {
         const student = await prisma.student.findUnique({ where: { seatNo } });

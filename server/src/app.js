@@ -8,7 +8,6 @@ import AuthenticationRouter from "./router/AuthenticationRouter.js";
 import ChallengeRouter from "./router/ChallengeRouter.js";
 import CompetitionRouter from "./router/CompetitionRouter.js";
 import UserRouter from "./router/UserRouter.js";
-import AuthenticationService from "./service/AuthenticationService.js";
 import StudentRouter from "./router/StudentRouter.js";
 
 const app = express();
@@ -25,7 +24,6 @@ setupApplication();
 
 // Routes
 app.get("/", async (req, res) => {
-    await AuthenticationService.initiateSignup("saimyahya47@gmail.com");
     res.send("Hello, Express with ES6!");
 });
 
