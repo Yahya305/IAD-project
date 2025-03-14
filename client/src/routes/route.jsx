@@ -22,18 +22,27 @@ function Router() {
             {/* Root route */}
             <Route path="/" element={<LandingPage />} />
 
+            <Route path="/student/login" element={<Loginpage />} />
+            <Route path="/student/signup" element={<Signup />} />
             {/* Nested student routes */}
             <Route path="/student" element={<StudentDashboardStructure />}>
-                <Route path="dashboard" element={<StudentMainDashboardPage />} />
-                <Route path="performance-analysis" element={<PerformanceAnalysisPage />} />
+                <Route
+                    path="dashboard"
+                    element={<StudentMainDashboardPage />}
+                />
+                <Route
+                    path="performance-analysis"
+                    element={<PerformanceAnalysisPage />}
+                />
                 <Route path="std-progress" element={<StudentProgressPage />} />
-                <Route path="login" element={<Loginpage />} />
-                <Route path="signup" element={<Signup />} />
             </Route>
 
             {/* Nested teacher routes */}
-            <Route path="/teacher" element={<TeacherDashboardStructure />} >
-                <Route path="dashboard" element={<StudentMainDashboardPage />} />
+            <Route path="/teacher" element={<TeacherDashboardStructure />}>
+                <Route
+                    path="dashboard"
+                    element={<StudentMainDashboardPage />}
+                />
                 <Route path="challenge-entry" element={<ChallengeEntry />} />
                 <Route
                     path="student-grading"
