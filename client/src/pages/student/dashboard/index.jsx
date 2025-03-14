@@ -5,8 +5,9 @@ import { FaHome } from "react-icons/fa";
 import { Outlet } from 'react-router-dom';
 import Search from "../../../global-components/DashboardSearchBar";
 import DashboardStructure from "../../../global-components/DashboardStructure";
+import { motion } from "framer-motion"
 
-const Routes = [
+export const StudentRoutes = [
     {
         path: "/student/dashboard",
         name: "Dashboard",
@@ -34,16 +35,16 @@ const Routes = [
     }
 ]
 
-function StudentDashboard() {
+function StudentDashboard({ routes: Routes }) {
     return (
         <DashboardStructure>
             <Sidebar routes={Routes} />
-            <div className="dashboard-page">
+            <motion.div className="dashboard-page" animate={{ width: "100vw" }}>
                 <Search />
                 <div className="dashboard-page-content">
                     <Outlet />
                 </div>
-            </div>
+            </motion.div>
         </DashboardStructure>
     );
 }
