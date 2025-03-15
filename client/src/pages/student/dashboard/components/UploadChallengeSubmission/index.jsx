@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import BackDrop from "../../../../../global-components/Backdrop";
 import "./index.css";
-import apiClient from "../../../../../config/apiClient";
 import useUserStore from "../../../../../store/userStore";
 import toast from "../../../../../components/CustomToast/toast";
 import { AxiosError } from "axios";
+import apiClient from "@config/apiClient";
 
 const UploadChallengeSubmission = (props) => {
     const { close, selectedChallenge, refetch } = props;

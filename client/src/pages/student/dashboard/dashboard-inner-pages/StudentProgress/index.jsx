@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { useQuery } from "@tanstack/react-query";
-import apiClient from "../../../../../config/apiClient.js";
+import apiClient from "@/config/apiClient.js";
 import "./index.css";
 
 const StudentProgress = () => {
