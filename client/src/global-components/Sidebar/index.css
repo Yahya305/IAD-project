@@ -13,14 +13,20 @@ aside.dashboard-sidebar {
     .opener {
         all: unset;
         position: absolute;
-
-        background-color: transparent;
         padding: 10px 12px;
         border-radius: 50px;
         display: flex;
         top: 15px;
+        right: -33px;
         z-index: 1231;
         font-size: 30px;
+        /* background color */
+        width: 40px;
+        height: 40px;
+        /* center */
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     &.closed {
         .logo-section,
@@ -34,9 +40,14 @@ aside.dashboard-sidebar {
         flex-direction: column;
         gap: 40px;
         overflow-x: hidden;
+        .user {
+            padding: 10px;
+        }
+        
 
         @media (max-width: 800px) {
             gap: 15px;
+
             .user {
                 display: none;
             }
@@ -86,6 +97,8 @@ aside.dashboard-sidebar {
                         font-family: "Inter", sans-serif;
                         font-size: 20px;
                         font-weight: 400;
+                        /* background-color: red; */
+                        white-space: nowrap;
                         @media (max-width: 1200px) {
                             font-size: 12px;
                         }
