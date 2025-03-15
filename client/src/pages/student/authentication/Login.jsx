@@ -7,6 +7,7 @@ import toast from "../../../components/CustomToast/toast";
 import useUserStore from "../../../store/userStore";
 import { AxiosError } from "axios";
 import Form from "./components/Form";
+import loginpic from "../../../../public/images/login.jpg";
 
 const Loginpage = () => {
     const navigate = useNavigate();
@@ -54,6 +55,11 @@ const Loginpage = () => {
 
     return (
         <div className="auth-page-container">
+            <div className="image-container">
+                <figure>
+                    <img src={loginpic} alt="login" />
+                </figure>
+            </div>
             <div className="form-container">
                 <h1>Welcome Back!</h1>
                 <h2>Login</h2>
