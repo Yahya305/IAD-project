@@ -1,0 +1,13 @@
+.table-tools {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    .section-select {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+        width: 120px;
+    }
+}

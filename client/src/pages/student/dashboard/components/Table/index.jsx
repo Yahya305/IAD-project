@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../Table/index.css";
 import Row from "../Row/index.jsx";
-import TableSearch from "../TableSearch/TableSearch.jsx";
+import TableSearch from "../../../../../components/TableSearch/TableSearch.jsx";
 import UploadButton from "../UploadButton/UploadButton.jsx";
 import { IoFilter } from "react-icons/io5";
 import apiClient from "../../../../../config/apiClient.js";
@@ -45,6 +45,7 @@ function Table() {
                     <TableSearch
                         searchQuery={searchQuery}
                         setSearchQuery={setSearchQuery}
+                        placeholder="Search challenges..."
                     />
                     <div className="upload-container">
                         <ChallengesFilter onFilterChange={handleFilterChange} />

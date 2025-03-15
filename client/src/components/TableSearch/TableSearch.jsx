@@ -2,7 +2,7 @@ import React from "react";
 import { IoSearch } from "react-icons/io5";
 import "./TableSearch.css";
 
-const TableSearch = ({ searchQuery, setSearchQuery }) => {
+const TableSearch = ({ searchQuery, setSearchQuery, placeholder }) => {
     const handleSearch = (e) => {
         setSearchQuery(e.target.value);
     };
@@ -15,7 +15,7 @@ const TableSearch = ({ searchQuery, setSearchQuery }) => {
                     type="text"
                     id="search-field"
                     className="searh"
-                    placeholder="Search challenges..."
+                    placeholder={placeholder}
                     value={searchQuery}
                     onChange={handleSearch}
                 />

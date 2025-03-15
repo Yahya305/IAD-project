@@ -19,6 +19,7 @@ import StudentProgressPage from "../pages/student/dashboard/dashboard-inner-page
 import ChallengeEntry from "../pages/teacher/dashboard-inner-pages/ChallengeEntry";
 import TeamLeaderboard from "../pages/student/dashboard/dashboard-inner-pages/TeamLeaderboard/TeamLeaderboard.jsx";
 import CreateCompetition from "../pages/teacher/dashboard-inner-pages/CreateCompetition/index.jsx";
+import TeacherTeamLeaderboard from "../pages/teacher/dashboard-inner-pages/TeamLeaderboard/TeamLeaderboard.jsx";
 
 function Router() {
     return (
@@ -29,7 +30,10 @@ function Router() {
             <Route path="/student/login" element={<Loginpage />} />
             <Route path="/student/signup" element={<Signup />} />
             {/* Nested student routes */}
-            <Route path="/student" element={<StudentDashboardStructure routes={StudentRoutes} />}>
+            <Route
+                path="/student"
+                element={<StudentDashboardStructure routes={StudentRoutes} />}
+            >
                 <Route
                     path="dashboard"
                     element={<StudentMainDashboardPage />}
@@ -43,10 +47,21 @@ function Router() {
             </Route>
 
             {/* Nested teacher routes */}
-            <Route path="/teacher" element={<StudentDashboardStructure routes={TeacherRoutes} />}>
+            <Route
+                path="/teacher"
+                element={<StudentDashboardStructure routes={TeacherRoutes} />}
+            >
                 <Route
                     path="dashboard"
                     element={<StudentMainDashboardPage />}
+                />
+                <Route
+                    path="student-leaderboard"
+                    element={<ChallengeEntry />}
+                />
+                <Route
+                    path="team-leaderboard"
+                    element={<TeacherTeamLeaderboard />}
                 />
                 <Route path="challenge-entry" element={<ChallengeEntry />} />
                 <Route

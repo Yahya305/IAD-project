@@ -21,5 +21,10 @@ export const TeacherRoutes = [
 		path: "/teacher/competition-creation",
 		name: "Competition Creation",
 		icon: <FaHome />
+	},
+	{
+		path: "/teacher/team-leaderboard",
+		name: "Team Leaderboard",
+		icon: <FaHome />
 	}
 ]
