@@ -25,13 +25,13 @@ const Sidebar = ({ routes }) => {
     const isMobile = useIsMobile(1200)
 
     const closedBtnStyle = {
-            right: isOpen ? (isMobile ? "18px" : "-33px") : "-67px",
-            backgroundColor: isOpen ?  "#ffffff": "#ffffff52",
-            border: "1px solid #00365c",
-        };
+        right: isOpen ? (isMobile ? "18px" : "-33px") : "-67px",
+        backgroundColor: isOpen ? "#ffffff" : "#ffffff52",
+        border: "1px solid #00365c",
+    };
 
-    const {clearUser}= useUserStore();
-    const handleLogout = () =>{
+    const { clearUser } = useUserStore();
+    const handleLogout = () => {
         clearUser()
         navigate("/student/login")
     }
@@ -54,7 +54,7 @@ const Sidebar = ({ routes }) => {
             </motion.button>
             <div className="dashboard-sidebar-wrapper">
                 <div className="logo-section">
-                    <Logo/>
+                    <Logo />
                     <hr />
                 </div>
                 <div className="all-routes">
@@ -72,7 +72,7 @@ const Sidebar = ({ routes }) => {
                     <div className="role">Admin</div>
                     <div className="profile">
                         <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="" />
-                        <div className="name">Hamza Choo</div>
+                        <div className="name">Yahya Raand</div>
                     </div>
                     <div className="actions">
                         <button>
