@@ -1,7 +1,7 @@
 import React from 'react'
 import "./index.css"
-import { useIsMobile } from '../../utils/useIsMobile'
-import useGlobalVarsStore from '../../store/globalVarsStore'
+import { useIsMobile } from '@utils/useIsMobile'
+import useGlobalVarsStore from '@store/globalVarsStore'
 
 const DashboardStructure = ({ children }) => {
 

@@ -19,6 +19,7 @@ function Table() {
         isLoading,
         refetch,
     } = useQuery({
+        queryKey: ["assigned-challenges"],
         queryFn: () => apiClient.get("/challenge/assigned-challenges"),
         select: (data) => data.data,
     });
