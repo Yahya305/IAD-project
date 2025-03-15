@@ -2,11 +2,11 @@ import { CompetitionService } from "../service/CompetitionService.js";
 
 class CompetitionController {
     static async createCompetition(req) {
-        const { competitionName, section, endDate } = req.body;
+        const { comp_name, section, end_date } = req.body;
         return await CompetitionService.createCompitition({
-            competitionName,
+            competitionName: comp_name,
             section,
-            endDate,
+            endDate: end_date,
         });
     }
     static async fetchCompetitions(req) {
