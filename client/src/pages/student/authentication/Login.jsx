@@ -57,7 +57,7 @@ const Loginpage = () => {
         <div className="auth-page-container">
             <div className="image-container">
                 <figure>
-                    <img src={loginpic} alt="login" />
+                <img src={"/images/login.jpg"} alt="login-image"/>
                 </figure>
             </div>
             <div className="form-container">
