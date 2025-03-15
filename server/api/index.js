@@ -2,15 +2,15 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 dotenv.config();
-import ErrorMiddleware from "./router/ErrorRouter.js";
-import { setupApplication } from "./config/setupApplication.js";
-import AuthenticationRouter from "./router/AuthenticationRouter.js";
-import ChallengeRouter from "./router/ChallengeRouter.js";
-import CompetitionRouter from "./router/CompetitionRouter.js";
-import UserRouter from "./router/UserRouter.js";
-import StudentRouter from "./router/StudentRouter.js";
-import LeaderboardRouter from "./router/LeaderboardRouter.js";
-import TeamRouter from "./router/TeamRouter.js";
+import ErrorMiddleware from "../src/router/ErrorRouter.js";
+import { setupApplication } from "../src/config/setupApplication.js";
+import AuthenticationRouter from "../src/router/AuthenticationRouter.js";
+import ChallengeRouter from "../src/router/ChallengeRouter.js";
+import CompetitionRouter from "../src/router/CompetitionRouter.js";
+import UserRouter from "../src/router/UserRouter.js";
+import StudentRouter from "../src/router/StudentRouter.js";
+import LeaderboardRouter from "../src/router/LeaderboardRouter.js";
+import TeamRouter from "../src/router/TeamRouter.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -43,3 +43,5 @@ app.use(ErrorMiddleware);
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
+
+export default app;
