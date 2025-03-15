@@ -21,6 +21,18 @@ ChallengeRouter.get(
         )
 );
 
+ChallengeRouter.get(
+    "/submissions",
+    authorizeUser,
+    (req, res, next) =>
+        requestHandler(
+            req,
+            res,
+            next,
+            ChallengeController.fetchAllSubmissions
+        )
+);
+
 ChallengeRouter.get("/assigned-challenges", authorizeUser, (req, res, next) =>
     requestHandler(
         req,
@@ -43,6 +55,10 @@ ChallengeRouter.post(
     authorizeOnlyStudent,
     (req, res, next) =>
         requestHandler(req, res, next, ChallengeController.submitProject)
+);
+
+ChallengeRouter.get("/challenge-details/:challengeId", (req, res, next) =>
+    requestHandler(req, res, next, ChallengeController.fetchChallengeDetails)
 );
 
 export default ChallengeRouter;

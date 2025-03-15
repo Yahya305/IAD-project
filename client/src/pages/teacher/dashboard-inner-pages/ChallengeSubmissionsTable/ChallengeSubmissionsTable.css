@@ -1,0 +1,44 @@
+.challenge-submissions-table {
+    .table-container {
+        /* max-height: 500px; */
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        table {
+            text-align: left;
+            font-family: DM Sans;
+            border-collapse: collapse;
+            width: 100%;
+
+            thead {
+                background-color: var(--blueColor);
+                border-radius: 10px;
+                position: sticky;
+                top: 0;
+                z-index: 1;
+
+                th {
+                    padding: 27px;
+                }
+            }
+            tbody {
+                td {
+                    padding: 38px 27px;
+                }
+                &:nth-child(even) {
+                    background-color: rgba(13, 110, 253, 0.05);
+                }
+            }
+        }
+    }
+}
+
+.challenge-submissions-table tbody tr {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.challenge-submissions-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}

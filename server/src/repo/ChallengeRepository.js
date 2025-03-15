@@ -10,14 +10,15 @@ class ChallengeRepository {
 
     static async fetchChallengeDetailsByTeamId(teamId) {
         const challenges = await prisma.challenge.findMany({
-            where: { teams: { some: { teamId } }, },include:{challengeSubmissions:true,challengeScore:true}
+            where: { teams: { some: { teamId } } },
+            include: { challengeSubmissions: true, challengeScore: true },
         });
         return challenges;
     }
 
     static async fetchChallengesScoreByTeamId(teamId) {
         const challenges = await prisma.challengeScore.findMany({
-            where: { teams: { some: { teamId } }, },
+            where: { teams: { some: { teamId } } },
         });
         return challenges;
     }
@@ -36,7 +37,7 @@ class ChallengeRepository {
         description,
         competitionId,
         teamIds,
-        deadline
+        deadline,
     }) {
         // Create the challenge
         const challenge = await prisma.challenge.create({
@@ -47,7 +48,7 @@ class ChallengeRepository {
                 teams: {
                     connect: teamIds.map((teamId) => ({ teamId })),
                 },
-                deadline
+                deadline,
             },
         });
         return challenge;
@@ -78,6 +79,37 @@ class ChallengeRepository {
             },
         });
         return challengeSubmission;
+    }
+
+    static async fetchChallengeDetails({
+        challengeId,
+    }) {
+        const challenge = await prisma.challenge.findUnique({
+            where: { challengeId },
+            include: {
+                teams: {
+                    include: {
+                        students: {
+                            select: { name: true, seatNo: true },
+                        },
+                    },
+                },
+                competition: true,
+                challengeSubmissions: true,
+            },
+        });
+        console.log(challenge);
+        return challenge;
+    }
+
+    static async fetchAllSubmissions({ section, offset, size }) {
+        const submissions = await prisma.challengeSubmission.findMany({
+            where: { teamId: { contains: section } },
+            skip: offset,
+            take: size,
+            orderBy: { submissionDate: "desc" },
+        });
+        return submissions;
     }
 }
 
