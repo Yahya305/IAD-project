@@ -1,12 +1,16 @@
 /* Global Styles */
 .auth-page-container {
     font-family: Arial, sans-serif;
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Equal spacing */
-    height: 100vh;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto auto;
     width: 100%;
     background-color: #ffffff;
-    margin: 0;
+    /* background-color: red; */
     overflow: hidden;
 }
 
