@@ -140,5 +140,20 @@ class ChallengeService {
             });
         return projectSubmission;
     }
+
+    static async submitGrades({ challengeId, grades }) {
+        const challenge = await ChallengeRepository.fetchChallengeById({
+            challengeId,
+        });
+        if (!challenge) {
+            throw new CustomError("Challenge Not Found.", HttpStatusCode.NOT_FOUND);
+        }
+
+        const updatedChallenge = await ChallengeRepository.submitGrades({
+            challengeId,
+            grades,
+        });
+        return updatedChallenge;
+    }
 }
 export default ChallengeService;

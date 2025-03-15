@@ -15,12 +15,13 @@ function ChallengeGrading() {
         select: (data) => data.data,
     });
 
-    const handleGradeChange = (teamId, studentSeatNo, value) => {
+    const handleGradeChange = (teamId, student, value) => {
+        console.log(student)
         setGrades((prev) => ({
             ...prev,
             [teamId]: {
                 ...prev[teamId],
-                [studentSeatNo]: value,
+                [student.studentId]: value,
             },
         }));
     };
@@ -29,8 +30,32 @@ function ChallengeGrading() {
 
     const handleSubmitGrades = async () => {
         try {
-            await apiClient.post(`/challenge/submit-grades/${challengeId}`, {
-                grades,
+            // Transform grades into the required format
+            const transformedGrades = Object.entries(grades).map(([teamId, studentGrades]) => ({
+                teamId,
+                members: Object.entries(studentGrades).map(([studentId, score]) => ({
+                    studentId,
+                    score: Number(score)
+                }))
+            }));
+
+            // Validate that all grades are numbers between 0 and 10
+            const isValid = transformedGrades.every(team => 
+                team.members.every(member => 
+                    !isNaN(member.score) && 
+                    member.score >= 0 && 
+                    member.score <= 10
+                )
+            );
+
+            if (!isValid) {
+                alert("Please ensure all grades are numbers between 0 and 10");
+                return;
+            }
+
+            await apiClient.post(`/challenge/submit-grades`, {
+                challengeId,
+                grades: transformedGrades
             });
             alert("Grades submitted successfully!");
         } catch (error) {
@@ -96,17 +121,17 @@ function ChallengeGrading() {
                                             <label>Grade:</label>
                                             <input
                                                 type="number"
-                                                min="0"
-                                                max="100"
+                                                min={0}
+                                                max={10}
                                                 value={
                                                     grades[team.teamId]?.[
-                                                        student.seatNo
+                                                        student.studentId
                                                     ] || ""
                                                 }
                                                 onChange={(e) =>
                                                     handleGradeChange(
                                                         team.teamId,
-                                                        student.seatNo,
+                                                        student,
                                                         e.target.value
                                                     )
                                                 }
