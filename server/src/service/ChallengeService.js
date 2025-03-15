@@ -11,6 +11,16 @@ class ChallengeService {
 
         return challenges;
     }
+
+    static async fetchAllSubmissions({ section, offset, size }) {
+        const submissions = await ChallengeRepository.fetchAllSubmissions({
+            section,
+            offset,
+            size,
+        });
+        return submissions;
+    }
+
     static async fetchAllAssignedChallenges(teamId) {
         // based on team id fetch challenges inlcude challenge submissions
         let challenges =
