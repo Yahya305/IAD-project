@@ -50,5 +50,9 @@ class ChallengeController {
             teamId,
         });
     }
+    static async submitGrades(req) {
+        const { challengeId, grades } = req.body;
+        return await ChallengeService.submitGrades({ challengeId, grades });
+    }
 }
 export default ChallengeController;

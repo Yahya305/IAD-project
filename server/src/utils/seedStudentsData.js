@@ -1,8 +1,11 @@
 import fs from "fs";
 import csv from "csv-parser";
 import StudentRepository from "../repo/StudentsRepository.js";
+import prisma from "../config/prismaConfig.js";
 
 export const seedStudentsData = async () => {
+    // await prisma.challengeScore.deleteMany({});
+    // await prisma.challengeSubmission.deleteMany({});
     const seeded = await StudentRepository.areStudentsSeeded();
     if (seeded) {
         return;
