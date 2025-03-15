@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import apiClient from "@config/apiClient";
 import "./ChallengeGrading.css";
 import { useQuery } from "@tanstack/react-query";
+import toast from "../../../../components/CustomToast/toast";
 
 function ChallengeGrading() {
     const { challengeId } = useParams();
@@ -16,7 +17,7 @@ function ChallengeGrading() {
     });
 
     const handleGradeChange = (teamId, student, value) => {
-        console.log(student)
+        console.log(student);
         setGrades((prev) => ({
             ...prev,
             [teamId]: {
@@ -26,41 +27,56 @@ function ChallengeGrading() {
         }));
     };
 
-    console.log(grades)
+    console.log(grades);
 
     const handleSubmitGrades = async () => {
         try {
             // Transform grades into the required format
-            const transformedGrades = Object.entries(grades).map(([teamId, studentGrades]) => ({
-                teamId,
-                members: Object.entries(studentGrades).map(([studentId, score]) => ({
-                    studentId,
-                    score: Number(score)
-                }))
-            }));
+            const transformedGrades = Object.entries(grades).map(
+                ([teamId, studentGrades]) => ({
+                    teamId,
+                    members: Object.entries(studentGrades).map(
+                        ([studentId, score]) => ({
+                            studentId,
+                            score: Number(score),
+                        })
+                    ),
+                })
+            );
 
             // Validate that all grades are numbers between 0 and 10
-            const isValid = transformedGrades.every(team => 
-                team.members.every(member => 
-                    !isNaN(member.score) && 
-                    member.score >= 0 && 
-                    member.score <= 10
+            const isValid = transformedGrades.every((team) =>
+                team.members.every(
+                    (member) =>
+                        !isNaN(member.score) &&
+                        member.score >= 0 &&
+                        member.score <= 10
                 )
             );
 
             if (!isValid) {
-                alert("Please ensure all grades are numbers between 0 and 10");
+                toast.error({
+                    title: "Validation Error",
+                    description:
+                        "Please ensure all grades are numbers between 0 and 10",
+                });
                 return;
             }
 
             await apiClient.post(`/challenge/submit-grades`, {
                 challengeId,
-                grades: transformedGrades
+                grades: transformedGrades,
             });
-            alert("Grades submitted successfully!");
+            toast.success({
+                title: "Success",
+                description: "Grades submitted successfully!",
+            });
         } catch (error) {
             console.error("Error submitting grades:", error);
-            alert("Failed to submit grades. Please try again.");
+            toast.error({
+                title: "Error",
+                description: "Failed to submit grades. Please try again.",
+            });
         }
     };
 
@@ -69,6 +85,8 @@ function ChallengeGrading() {
             (submission) => submission.teamId === teamId
         );
     };
+
+    console.log(challengeData)
 
     if (!challengeData) return <div className="loading">Loading...</div>;
 
@@ -82,7 +100,8 @@ function ChallengeGrading() {
                         Competition: {challengeData.competition.competitionName}
                     </span>
                     <span>
-                        Deadline: {new Date(challengeData.deadline).toLocaleDateString()}
+                        Deadline:{" "}
+                        {new Date(challengeData.deadline).toLocaleDateString()}
                     </span>
                     <span>Status: {challengeData.status}</span>
                 </div>
@@ -94,11 +113,16 @@ function ChallengeGrading() {
                     return (
                         <div key={team.teamId} className="team-card">
                             <div className="team-header">
-                                <h2>Team {team.teamNumber} - Section {team.section}</h2>
+                                <h2>
+                                    Team {team.teamNumber} - Section{" "}
+                                    {team.section}
+                                </h2>
                                 {submission && (
                                     <span className="submission-date">
                                         Submitted:{" "}
-                                        {new Date(submission.submissionDate).toLocaleDateString()}
+                                        {new Date(
+                                            submission.submissionDate
+                                        ).toLocaleDateString()}
                                     </span>
                                 )}
                             </div>
@@ -164,7 +188,9 @@ function ChallengeGrading() {
                             )}
                             {!submission && (
                                 <div className="team-submission">
-                                    <p className="no-submission">No submission yet</p>
+                                    <p className="no-submission">
+                                        No submission yet
+                                    </p>
                                 </div>
                             )}
                         </div>
@@ -176,6 +202,7 @@ function ChallengeGrading() {
                 <button
                     onClick={handleSubmitGrades}
                     className="submit-grades-btn"
+                    disabled={challengeData.status === "COMPLETED"}
                 >
                     Submit All Grades
                 </button>
