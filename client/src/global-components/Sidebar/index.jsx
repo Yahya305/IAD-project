@@ -55,7 +55,7 @@ const Sidebar = ({ routes }) => {
                     <div className="role">Admin</div>
                     <div className="profile">
                         <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="" />
-                        <div className="name">Yahya Hamza</div>
+                        <div className="name">Hamza Choo</div>
                     </div>
                     <div className="actions">
                         <button>

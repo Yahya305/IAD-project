@@ -81,21 +81,33 @@ class ChallengeRepository {
         return challengeSubmission;
     }
 
+    static async fetchChallengeDetails({
+        challengeId,
+    }) {
+        const challenge = await prisma.challenge.findUnique({
+            where: { challengeId },
+            include: {
+                teams: {
+                    include: {
+                        students: {
+                            select: { name: true, seatNo: true },
+                        },
+                    },
+                },
+                competition: true,
+                challengeSubmissions: true,
+            },
+        });
+        console.log(challenge);
+        return challenge;
+    }
+
     static async fetchAllSubmissions({ section, offset, size }) {
         const submissions = await prisma.challengeSubmission.findMany({
             where: { teamId: { contains: section } },
             skip: offset,
             take: size,
             orderBy: { submissionDate: "desc" },
-            include: {
-                challenge: {
-                    select: {
-                        name: true,
-                        deadline: true,
-                        competition: { select: { competitionName: true } },
-                    },
-                },
-            },
         });
         return submissions;
     }

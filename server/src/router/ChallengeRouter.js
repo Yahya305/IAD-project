@@ -57,4 +57,8 @@ ChallengeRouter.post(
         requestHandler(req, res, next, ChallengeController.submitProject)
 );
 
+ChallengeRouter.get("/challenge-details/:challengeId", (req, res, next) =>
+    requestHandler(req, res, next, ChallengeController.fetchChallengeDetails)
+);
+
 export default ChallengeRouter;

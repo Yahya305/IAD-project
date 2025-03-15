@@ -72,6 +72,15 @@ class ChallengeService {
         });
         return challenge;
     }
+
+
+    static async fetchChallengeDetails({ challengeId }) {
+        const challenge = await ChallengeRepository.fetchChallengeDetails({
+            challengeId,
+        });
+        return challenge;
+    }
+
     static async submitProject({
         title,
         description,

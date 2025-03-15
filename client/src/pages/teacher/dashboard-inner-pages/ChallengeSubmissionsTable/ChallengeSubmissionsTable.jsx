@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./ChallengeSubmissionsTable.css";
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 import apiClient from "@config/apiClient";
 import SubmissionTableTools from "./components/TableTools/SubmissionTableTools";
 
 function ChallengeSubmissionsTable() {
+    const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
     const [offset, setOffset] = useState(0);
     const [section, setSection] = useState("A");
@@ -21,6 +23,10 @@ function ChallengeSubmissionsTable() {
     });
 
     console.log(data,"-=--=-=-=-")
+
+    const handleRowClick = (challenge) => {
+        navigate(`/teacher/challenge-grading/${challenge.challengeId}`);
+    };
 
     const handleSectionChange = (e) => {
         const selectedSection = e.target.value;
@@ -55,7 +61,10 @@ function ChallengeSubmissionsTable() {
                             </tr>
                         )}
                         {data?.map((submission) => (
-                            <tr key={submission?.submissionId}>
+                            <tr 
+                                key={submission?.submissionId}
+                                onClick={() => handleRowClick(submission)}
+                            >
                                 <td>{submission?.challenge?.competition?.competitionName}</td>
                                 <td>{submission?.challenge?.name}</td>
                                 <td>{submission?.teamId}</td>

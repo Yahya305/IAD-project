@@ -16,6 +16,12 @@ class ChallengeController {
             competitionId,
         });
     }
+    static async fetchChallengeDetails(req) {
+        const { challengeId } = req.params;
+        return await ChallengeService.fetchChallengeDetails({
+            challengeId,
+        });
+    }
     static async fetchAllAssignedChallenges(req) {
         const { teamId } = req.user;
         return await ChallengeService.fetchAllAssignedChallenges(teamId);
