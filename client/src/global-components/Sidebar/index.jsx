@@ -40,6 +40,7 @@ const Sidebar = ({ routes }) => {
         <motion.aside
             animate={{
                 width: isOpen ? (isMobile ? "100vw" : "300px") : "0px",
+                // border: isOpen ? "" : "1px solid #00365c",
                 padding: isOpen ? "0 10px" : "0",
                 transition: {
                     type: "tween"
@@ -70,7 +71,7 @@ const Sidebar = ({ routes }) => {
                     <hr />
                     <div className="role">Admin</div>
                     <div className="profile">
-                        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="" />
+                        {/* <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="" /> */}
                         <div className="name">Yahya Hamza</div>
                     </div>
                     <div className="actions">

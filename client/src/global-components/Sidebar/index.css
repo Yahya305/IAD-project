@@ -40,9 +40,14 @@ aside.dashboard-sidebar {
         flex-direction: column;
         gap: 40px;
         overflow-x: hidden;
+        .user {
+            padding: 10px;
+        }
+        
 
         @media (max-width: 800px) {
             gap: 15px;
+
             .user {
                 display: none;
             }
