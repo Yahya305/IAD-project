@@ -23,8 +23,8 @@ class StudentRepository {
             _sum: {
                 score: true,
             },
-            orderBy:{
-                _sum:{
+            orderBy: {
+                _sum: {
                     score: "desc",
                 },
             },
@@ -33,10 +33,12 @@ class StudentRepository {
                     section: section,
                 },
             },
-            ...(size > 0 ? {
-                skip: +offset,
-                take: +size,
-            } : {})
+            ...(size > 0
+                ? {
+                      skip: +offset,
+                      take: +size,
+                  }
+                : {}),
         });
 
         // Fetch student details for the scores
@@ -75,6 +77,11 @@ class StudentRepository {
             },
             _sum: {
                 score: true,
+            },
+            orderBy: {
+                _sum: {
+                    score: "desc",
+                },
             },
         });
 
