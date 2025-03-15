@@ -30,6 +30,10 @@ ChallengeRouter.get("/assigned-challenges", authorizeUser, (req, res, next) =>
     )
 );
 
+ChallengeRouter.post("/create-challenge", (req, res, next) => {
+    requestHandler(req, res, next, ChallengeController.startChallengeRound);
+});
+
 ChallengeRouter.post("/", authorizeOnlyInstructor, (req, res, next) =>
     requestHandler(req, res, next, ChallengeController.startChallengeRound)
 );

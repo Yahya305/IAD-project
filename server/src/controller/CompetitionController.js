@@ -9,7 +9,7 @@ class CompetitionController {
             endDate,
         });
     }
-    static async fetchCompetitions(req) {        
+    static async fetchCompetitions(req) {
         return await CompetitionService.fetchCompetitions();
     }
 }

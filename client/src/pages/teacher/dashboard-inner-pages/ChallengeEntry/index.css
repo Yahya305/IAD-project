@@ -38,6 +38,12 @@
                     font-family: DM sans;
                 }
                 input {
+                    padding: 10px;
+                    border: 1px solid #d3d3d3;
+                    border-radius: 6px;
+                    outline: none;
+                }
+                input {
                     outline: none;
                 }
             }

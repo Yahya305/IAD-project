@@ -8,5 +8,8 @@ class StudentController {
     static async fetchAllStudentProgress() {
         return await StudentService.fetchStudentProgress();
     }
+    static async fetchTeams() {
+        
+    }
 }
 export default StudentController;

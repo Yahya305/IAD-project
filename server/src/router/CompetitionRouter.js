@@ -9,4 +9,8 @@ CompetitionRouter.post("/", authorizeOnlyInstructor, (req, res, next) =>
     requestHandler(req, res, next, CompetitionController.createCompetition)
 );
 
+CompetitionRouter.get("/", (req, res, next) =>
+    requestHandler(req, res, next, CompetitionController.fetchCompetitions)
+);
+
 export default CompetitionRouter;
