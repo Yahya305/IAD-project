@@ -3,6 +3,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { useQuery } from "@tanstack/react-query";
 import apiClient from "@/config/apiClient.js";
 import "./index.css";
+import StudentLeaderboardTable from "@components/StudentLeaderboardTable/StudentLeaderboardTable";
 
 const StudentProgress = () => {
     const [offset, setOffset] = useState(0);
@@ -32,38 +33,13 @@ const StudentProgress = () => {
                 </div>
                 <div className="actions"></div>
             </div>
-            <div className="table-container">
-                <table cellSpacing="0" cellPadding="0">
-                    <thead>
-                        <tr>
-                            <th>Student's Name</th>
-                            <th>Seat No</th>
-                            <th>Section</th>
-                            <th>Group</th>
-                            <th>Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data?.map((student) => (
-                            <tr key={student?.studentId}>
-                                <td>{student?.name}</td>
-                                <td>{student?.seatNo}</td>
-                                <td>{student?.section}</td>
-                                <td>{student?.teamId}</td>
-                                <td>{student?.score}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-            <div className="pagination">
-                <button onClick={handlePrevPage} disabled={offset === 0}>
-                    Previous
-                </button>
-                <button onClick={handleNextPage} disabled={data?.length < size}>
-                    Next
-                </button>
-            </div>
+            <StudentLeaderboardTable
+                data={data}
+                handlePrevPage={handlePrevPage}
+                handleNextPage={handleNextPage}
+                offset={offset}
+                size={size}
+            />
         </div>
     );
 };

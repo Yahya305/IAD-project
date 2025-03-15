@@ -20,6 +20,7 @@ import ChallengeEntry from "../pages/teacher/dashboard-inner-pages/ChallengeEntr
 import TeamLeaderboard from "../pages/student/dashboard/dashboard-inner-pages/TeamLeaderboard/TeamLeaderboard.jsx";
 import CreateCompetition from "../pages/teacher/dashboard-inner-pages/CreateCompetition/index.jsx";
 import TeacherTeamLeaderboard from "../pages/teacher/dashboard-inner-pages/TeamLeaderboard/TeamLeaderboard.jsx";
+import StudentLeaderboardForTeacher from "../pages/teacher/dashboard-inner-pages/StudentLeaderboard/StudentLeaderboard.jsx";
 
 function Router() {
     return (
@@ -57,7 +58,7 @@ function Router() {
                 />
                 <Route
                     path="student-leaderboard"
-                    element={<ChallengeEntry />}
+                    element={<StudentLeaderboardForTeacher />}
                 />
                 <Route
                     path="team-leaderboard"
