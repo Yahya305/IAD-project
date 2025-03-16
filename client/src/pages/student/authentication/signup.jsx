@@ -92,6 +92,13 @@ const Signup = () => {
 
     return (
         <div className="auth-page-container">
+            {!showOTPVerification && (
+                <div className="image-container">
+                    <figure>
+                        <img src={"/src/assets/login.jpg"} alt="login-image" />
+                    </figure>
+                </div>
+            )}
             <div className="form-container">
                 <h1>Enroll Now</h1>
                 <h2>Signup</h2>
