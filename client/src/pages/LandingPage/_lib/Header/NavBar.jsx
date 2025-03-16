@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+
 import Logo from "./Logo";
 import NavBars from "./NavBars";
 import NavButton from "./NavButton";
@@ -11,15 +13,22 @@ function NavBar() {
     <>
       <nav>
         <Logo />
-        <NavBars />
-        <NavButton
+        {/* <NavBars /> */}
+      <div>
+      <NavButton
           name="Login Now"
           image="/images/circularArrow.svg"
           to="/student/login"
         />
+      <NavButton
+          name="Teacher Login"
+          image="/images/circularArrow.svg"
+          to="/teacher/login"
+        />
+      </div>
 
-        <button class="hamburger" onClick={() => setMenuOpen(true)}>
-          ☰
+        <button className="hamburger" onClick={() => setMenuOpen(true)}>
+        <GiHamburgerMenu />
         </button>
       </nav>
       <div className={`overlay ${menuOpen ? "show" : ""}`}>
