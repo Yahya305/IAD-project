@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router";
+import withAuth from "../utils/withAuth";
 
 import LandingPage from "../pages/LandingPage/Main.jsx";
 import { TeacherRoutes } from "../pages/teacher/dashboard";
@@ -25,59 +26,86 @@ import TeacherMainDashboard from "../pages/teacher/dashboard-inner-pages/Teacher
 import ChallengeGrading from "../pages/teacher/dashboard-inner-pages/ChallengeGrading/ChallengeGrading.jsx";
 import TeacherLoginPage from "../pages/teacher/authentication/Login.jsx";
 
+// Apply withAuth HOC to protected components
+const ProtectedStudentDashboard = withAuth(['STUDENT'])(StudentDashboardStructure);
+const ProtectedTeacherDashboard = withAuth(['INSTRUCTOR'])(StudentDashboardStructure);
+const ProtectedStudentMainDashboard = withAuth(['STUDENT'])(StudentMainDashboardPage);
+const ProtectedPerformanceAnalysis = withAuth(['STUDENT'])(PerformanceAnalysisPage);
+const ProtectedStudentProgress = withAuth(['STUDENT'])(StudentProgressPage);
+const ProtectedStudentTeamLeaderboard = withAuth(['STUDENT'])(TeamLeaderboard);
+
+const ProtectedTeacherMainDashboard = withAuth(['INSTRUCTOR'])(TeacherMainDashboard);
+const ProtectedStudentLeaderboardForTeacher = withAuth(['INSTRUCTOR'])(StudentLeaderboardForTeacher);
+const ProtectedTeacherTeamLeaderboard = withAuth(['INSTRUCTOR'])(TeacherTeamLeaderboard);
+const ProtectedChallengeGrading = withAuth(['INSTRUCTOR'])(ChallengeGrading);
+const ProtectedChallengeEntry = withAuth(['INSTRUCTOR'])(ChallengeEntry);
+const ProtectedProjectGrading = withAuth(['INSTRUCTOR'])(ProjectGradingPage);
+const ProtectedCreateCompetition = withAuth(['INSTRUCTOR'])(CreateCompetition);
+
 function Router() {
     return (
         <Routes>
-            {/* Root route */}
+            {/* Public routes */}
             <Route path="/" element={<LandingPage />} />
-
             <Route path="/student/login" element={<Loginpage />} />
             <Route path="/student/signup" element={<Signup />} />
             <Route path="/teacher/login" element={<TeacherLoginPage />} />
 
-            {/* Nested student routes */}
+            {/* Protected student routes */}
             <Route
                 path="/student"
-                element={<StudentDashboardStructure routes={StudentRoutes} />}
+                element={<ProtectedStudentDashboard routes={StudentRoutes} />}
             >
                 <Route
                     path="dashboard"
-                    element={<StudentMainDashboardPage />}
+                    element={<ProtectedStudentMainDashboard />}
                 />
                 <Route
                     path="performance-analysis"
-                    element={<PerformanceAnalysisPage />}
+                    element={<ProtectedPerformanceAnalysis />}
                 />
-                <Route path="std-progress" element={<StudentProgressPage />} />
-                <Route path="team-leaderboard" element={<TeamLeaderboard />} />
+                <Route 
+                    path="std-progress" 
+                    element={<ProtectedStudentProgress />} 
+                />
+                <Route 
+                    path="team-leaderboard" 
+                    element={<ProtectedStudentTeamLeaderboard />} 
+                />
             </Route>
 
-            {/* Nested teacher routes */}
+            {/* Protected teacher routes */}
             <Route
                 path="/teacher"
-                element={<StudentDashboardStructure routes={TeacherRoutes} />}
+                element={<ProtectedTeacherDashboard routes={TeacherRoutes} />}
             >
-                <Route path="dashboard" element={<TeacherMainDashboard />} />
+                <Route 
+                    path="dashboard" 
+                    element={<ProtectedTeacherMainDashboard />} 
+                />
                 <Route
                     path="student-leaderboard"
-                    element={<StudentLeaderboardForTeacher />}
+                    element={<ProtectedStudentLeaderboardForTeacher />}
                 />
                 <Route
                     path="team-leaderboard"
-                    element={<TeacherTeamLeaderboard />}
+                    element={<ProtectedTeacherTeamLeaderboard />}
                 />
                 <Route
                     path="challenge-grading/:challengeId"
-                    element={<ChallengeGrading />}
+                    element={<ProtectedChallengeGrading />}
                 />
-                <Route path="challenge-entry" element={<ChallengeEntry />} />
+                <Route 
+                    path="challenge-entry" 
+                    element={<ProtectedChallengeEntry />} 
+                />
                 <Route
                     path="student-grading"
-                    element={<ProjectGradingPage />}
+                    element={<ProtectedProjectGrading />}
                 />
                 <Route
                     path="competition-creation"
-                    element={<CreateCompetition />}
+                    element={<ProtectedCreateCompetition />}
                 />
             </Route>
         </Routes>
