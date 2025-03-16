@@ -52,7 +52,8 @@
 [[headers]]
   for = "/*.gif"
   [headers.values]
-    Content-Type = "image/gif"[[headers]]
+    Content-Type = "image/gif"
+[[headers]]
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
