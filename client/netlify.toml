@@ -30,56 +30,29 @@
     Content-Type = "text/css"
 
 [[headers]]
-  for = "/assets/*/*.png"
+  for = "/*.png"
   [headers.values]
     Content-Type = "image/png"
 
 [[headers]]
-  for = "/public/*.png"
-  [headers.values]
-    Content-Type = "image/png"
-
-[[headers]]
-  for = "/assets/*/*.jpg"
+  for = "/*.jpg"
   [headers.values]
     Content-Type = "image/jpeg"
 
 [[headers]]
-  for = "/public/*.jpg"
+  for = "/*.jpeg"
   [headers.values]
     Content-Type = "image/jpeg"
 
 [[headers]]
-  for = "/assets/*/*.jpeg"
-  [headers.values]
-    Content-Type = "image/jpeg"
-
-[[headers]]
-  for = "/public/*.jpeg"
-  [headers.values]
-    Content-Type = "image/jpeg"
-
-[[headers]]
-  for = "/assets/*/*.svg"
+  for = "/*.svg"
   [headers.values]
     Content-Type = "image/svg+xml"
 
 [[headers]]
-  for = "/public/*.svg"
+  for = "/*.gif"
   [headers.values]
-    Content-Type = "image/svg+xml"
-
-[[headers]]
-  for = "/assets/*/*.gif"
-  [headers.values]
-    Content-Type = "image/gif"
-
-[[headers]]
-  for = "/public/*.gif"
-  [headers.values]
-    Content-Type = "image/gif"
-
-[[headers]]
+    Content-Type = "image/gif"[[headers]]
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
