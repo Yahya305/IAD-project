@@ -19,11 +19,19 @@
 
             th {
                 padding: 27px;
+                /* text-align: center; */
+                @media (max-width: 768px) {
+                    padding: 25px 10px !important; 
+                }
             }
         }
         tbody {
             td {
                 padding: 38px 27px;
+                /* text-align: center; */
+                @media (max-width: 768px) {
+                    padding: 25px 10px !important; 
+                }
             }
             &:nth-child(even) {
                 background-color: rgba(13, 110, 253, 0.05);
