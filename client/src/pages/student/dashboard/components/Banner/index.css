@@ -3,6 +3,7 @@
 .banner-section {
     background-color: #233951;
     width: 100%;
+    /* position: relative; */
 }
 
 .banner-section .image-wrapper {

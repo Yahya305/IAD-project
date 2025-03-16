@@ -8,11 +8,7 @@ function Section3() {
     <section className="landing-page-third-section">
       <div className="hero">
 
-        <HeroText heading="Why We Stand Out" subheading="" para="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-            omnis doloremque, non odio quo necessitatibus sequi ullam dolores
-            vel facilis nemo, sed adipisci impedit magnam. In accusamus
-            recusandae nemo hic, laboriosam illo pariatur mollitia numquam error
-            assumenda ipsam quidem nulla, doloremque quia porro eaque cumque?" btnCls="started" btnHead="Join Competition"
+        <HeroText heading="Why We Stand Out" subheading="" para="Dedicated to excellence, we provide seamless student management with innovative solutions. Our platform ensures efficiency, accuracy, and user-friendly experiences, fostering academic growth. With robust features, real-time insights, and reliable support, we empower institutions to streamline operations effortlessly" btnCls="started" btnHead="Join Competition"
             btnImg="images/bluecirculararrow.svg"  />
 
         <SecVideos video="videos/three.mp4" />

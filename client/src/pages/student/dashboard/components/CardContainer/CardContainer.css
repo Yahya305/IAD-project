@@ -1,8 +1,16 @@
 .Student-dashboard-card-container{
+    margin: 20px 0px;
+    width: 100%;
     display: flex;
     /* flex-direction: column; */
     justify-content: space-around;
     align-items: center;
     gap: 15px;
     padding: 0px 25px;
+    position: absolute;
+    top: 120px;
+    @media(max-width:767px){
+        position: unset;
+        flex-direction: column;
+}
 }

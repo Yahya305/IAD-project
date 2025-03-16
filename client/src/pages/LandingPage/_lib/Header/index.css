@@ -116,6 +116,7 @@ nav {
     border: none;
     color: white;
     cursor: pointer;
+    width: fit-content;
   }
 
   .overlay .bars {

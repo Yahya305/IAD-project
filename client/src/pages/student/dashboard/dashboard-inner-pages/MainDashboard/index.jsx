@@ -6,7 +6,7 @@ import "./index.css";
 
 const MainDashboard = () => {
     return (
-        <div className="main-dashboard">
+        <div className="main-dashboard" style={{position:"relative"}}>
             <Banner />
             <CardContainer/>
             <Table />
