@@ -89,6 +89,12 @@ class AuthenticationService {
 
     static async studentLogin({ email, password }) {
         const student = await StudentService.fetchStudentByEmail(email);
+        if (!student.isActivated) {
+            throw new CustomError(
+                "Your account is not activated. Please Signup.",
+                HttpStatusCode.UNAUTHORIZED
+            );
+        }
         if (!student || !checkPassword(password, student.password)) {
             throw new CustomError(
                 "Invalid Email or Password.",

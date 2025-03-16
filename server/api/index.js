@@ -18,8 +18,12 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(express.json());
 
-// Setup CORS
-app.use(cors());
+// Setup CORS for this url: https://iad-dcs-uok.netlify.app/
+app.use(cors({
+    origin: ["https://iad-dcs-uok.netlify.app", "http://localhost:5173"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+}));
 
 // Setting Up the Application
 setupApplication();
