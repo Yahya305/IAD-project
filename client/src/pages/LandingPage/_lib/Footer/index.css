@@ -2,8 +2,8 @@ footer {
     position: relative;
     background-color: var(--blueColor);
     text-align: center;
-    width:80vw;
-    max-width: 1440px;
+    width:100vw;
+    /* max-width: 1440px; */
     margin: 0 auto;
     p {
       color: var(--shadyBlue);

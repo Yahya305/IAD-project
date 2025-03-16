@@ -15,7 +15,6 @@ function Main() {
             <Headers />
             <main>
                 <div className="spacer" style={{ paddingTop: "100px" }}></div>
-
                 <Section1 />
 
                 <div className="spacer" style={{ paddingTop: "100px" }}></div>

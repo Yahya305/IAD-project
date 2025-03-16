@@ -8,11 +8,7 @@ function Section1() {
     <section className="landing-page-first">
       <div className="hero">
        
-        <HeroText heading="Academic Competition" subheading="IAD - 2025" para="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-            omnis doloremque, non odio quo necessitatibus sequi ullam dolores
-            vel facilis nemo, sed adipisci impedit magnam. In accusamus
-            recusandae nemo hic, laboriosam illo pariatur mollitia numquam error
-            assumenda ipsam quidem nulla, doloremque quia porro eaque cumque?" 
+        <HeroText heading="Academic Competition" subheading="IAD - 2025" para="Manage student records efficiently with our Student Management App. Easily track attendance, grades, and performance. Simplify administrative tasks with seamless data management and real-time updates." 
             btnCls="started"
             btnHead="Get Started today"
             btnImg="/images/circularArrow.svg"
