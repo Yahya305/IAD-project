@@ -186,7 +186,7 @@ const ChallengeEntry = () => {
                         </div>
                     </div>
                     <button
-                        disabled={isSuccess}
+                        disabled={isPending || isSuccess}
                         onClick={SubmitForm}
                         className="submit"
                     >
