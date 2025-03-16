@@ -100,7 +100,8 @@
                 .error-message {
                     color: #e61013;
                     font-size: 0.875rem;
-                    margin-top: 0.25rem;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
                     text-align: left;
                 }
             }
@@ -117,9 +118,9 @@
                 cursor: pointer;
                 transition: background-color 0.2s ease;
 
-                &:hover {
+                /* &:hover {
                     background-color: var(--darkBlueColor);
-                }
+                } */
             }
         }
 
