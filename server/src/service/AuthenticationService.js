@@ -50,6 +50,13 @@ class AuthenticationService {
         }
         const enrolledStudent = await StudentService.fetchStudentByEmail(email);
 
+        if (!enrolledStudent) {
+            throw new CustomError(
+                "You are not enrolled in this course. Please contact the admin.",
+                HttpStatusCode.BAD_REQUEST
+            );
+        }
+
         if (enrolledStudent.isActivated) {
             throw new CustomError(
                 "You are already Registered. Try Loggin in.",
