@@ -17,12 +17,16 @@ function NavButton(props, width = 20, height = 20) {
             onClick={handleClick}
         >
             {props.name}
-            {props.image && <img src={props.image} width={width} height={height} alt="" />}
-            <span className="icon" style={{
-                paddingLeft: 10,
-                display: "inline-flex",
-                
-            }}>
+            {props.image && (
+                <img src={props.image} width={width} height={height} alt="" />
+            )}
+            <span
+                className="icon"
+                style={{
+                    paddingLeft: 10,
+                    display: "inline-flex",
+                }}
+            >
                 {props.icon}
             </span>
         </button>
