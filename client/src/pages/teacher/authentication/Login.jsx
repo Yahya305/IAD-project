@@ -50,7 +50,7 @@ const TeacherLoginPage = () => {
                 <h2>Login to Your Dashboard</h2>
                 <Form onSubmit={handleSubmit} formType="Login" />
                 <p className="form-footer">
-                    Need help? Contact the administrator
+                    All Rights Reserved IAD-DCS-UOK 2025
                 </p>
             </div>
         </div>
