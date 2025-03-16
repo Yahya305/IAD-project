@@ -27,6 +27,12 @@
             width: 100%;
             outline: none;
 
+            @media(max-width:567px){
+                width: 85%;
+                font-size: 14px;
+                padding: 12px 12px 12px 40px;
+            }
+
             &::placeholder {
                 color: #989898;
             }

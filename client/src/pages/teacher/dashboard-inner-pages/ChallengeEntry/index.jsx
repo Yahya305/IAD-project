@@ -45,7 +45,7 @@ const ChallengeEntry = () => {
                 teamA: state.teamA,
                 teamB: state.teamB,
                 // deadline: state.project_deadline
-                deadline: new Date().toISOString()
+                deadline: new Date(state.project_deadline).toISOString()
             })
             toast.success({ title: "Challenge Creation", description: "Done" })
             setState({
@@ -67,7 +67,7 @@ const ChallengeEntry = () => {
             <div className="ChallengeEntry-wrapper">
                 <div className="head">
                     <div className="title">
-                        Week 001 Challenge Entry
+                        Assign Challenge
                     </div>
                 </div>
                 <div className="body">
@@ -75,7 +75,7 @@ const ChallengeEntry = () => {
                         <div className="title">Choose Competition</div>
                         <select onChange={e => changeValue("comp", e.target.value)}>
                             <option value="null" >Select Compition</option>
-                            {AllCompitions?.map(x => <option value={x.competitionId}>{x.competitionName}</option>)}
+                            {AllCompitions?.map(x => <option key={x.competitionId} value={x.competitionId}>{x.competitionName}</option>)}
                         </select>
                     </div>
                     {
@@ -98,7 +98,7 @@ const ChallengeEntry = () => {
                                         filter(x => x.section === section).
                                         map(
                                             x =>
-                                                <option value={x.teamId}>
+                                                <option key={x.teamId} value={x.teamId}>
                                                     {x.teamNumber} {x.section}
                                                 </option>
                                         )
@@ -118,7 +118,7 @@ const ChallengeEntry = () => {
                                         filter(x => x.teamId !== state.teamA).
                                         map(
                                             x =>
-                                                <option value={x.teamId}>
+                                                <option key={x.teamId} value={x.teamId}>
                                                     {x.teamNumber} {x.section}
                                                 </option>
                                         )
@@ -136,7 +136,7 @@ const ChallengeEntry = () => {
                         </div>
                         <div className="input size-1">
                             <div className="title">Deadline</div>
-                            <input type="text" onChange={e => changeValue("project_deadline", e.target.value)} />
+                            <input type="date" onChange={e => changeValue("project_deadline", e.target.value)} />
                         </div>
                         <div className="input size-2">
                             <div className="title">Description</div>

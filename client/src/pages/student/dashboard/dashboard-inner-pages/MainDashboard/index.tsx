@@ -8,7 +8,7 @@ const MainDashboard = () => {
     return (
         <div className="main-dashboard" style={{position:"relative"}}>
             <Banner />
-            <CardContainer/>
+            {/* <CardContainer/> */}
             <Table />
         </div>
     );
