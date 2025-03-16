@@ -41,6 +41,9 @@ aside.dashboard-sidebar {
         gap: 40px;
         overflow-x: hidden;
         height: 100vh;
+        &::-webkit-scrollbar {
+            display: none;
+        }
         .user {
             padding: 10px;
         }
@@ -137,6 +140,7 @@ aside.dashboard-sidebar {
                 display: flex;
                 flex-direction: column;
                 gap: 40px;
+                display: none;
                 button {
                     all: unset;
                     display: flex;

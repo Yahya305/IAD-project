@@ -111,6 +111,15 @@ class ChallengeRepository {
             skip: offset,
             take: size,
             orderBy: { submissionDate: "desc" },
+            include: {
+                challenge: {
+                    select: {
+                        name: true,
+                        deadline: true,
+                        competition: { select: { competitionName: true } },
+                    },
+                },
+            },
         });
         return submissions;
     }

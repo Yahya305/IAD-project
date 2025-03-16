@@ -11,13 +11,19 @@ function NavButton(props, width = 20, height = 20) {
     };
 
     return (
-        <button 
-            className={props.className || ""} 
+        <button
+            className={props.className || ""}
             type="button"
             onClick={handleClick}
         >
-          {props.name}
-          {props.image && <img src={props.image} width={width} height={height} alt="" />}
+            {props.name}
+            {props.image && <img src={props.image} width={width} height={height} alt="" />}
+            <span className="icon" style={{
+                paddingLeft: 10,
+                display: "inline-flex"
+            }}>
+                {props.icon}
+            </span>
         </button>
     );
 }

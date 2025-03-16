@@ -8,10 +8,10 @@
 .banner-section .image-wrapper {
     background-image: url(./IAD-Banner.png);
     width: 100%;
-    aspect-ratio: 3.8;
     background-repeat: no-repeat;
     background-position: right bottom;
     object-fit: cover;
+    padding: 30px 0;
 }
 
 .banner-section .banner-wrapper {
@@ -22,21 +22,10 @@
     padding: 50px;
     gap: 15px;
     width: 100%;
-    max-width: 765px;
+    height: 100%;
     /* z-index: 1; */
-    @media (max-width: 1440px) {
-    }
-    @media (max-width: 991px) {
-        /* padding: calc(90px + 40px) 0px 30px 30px; */
-        max-width: 80%;
-    }
-    @media (max-width: 767px) {
-        max-width: 80%;
-        padding: calc(90px + 40px) 20px 20px 20px;
-    }
-    @media (max-width: 567px) {
-        max-width: 90%;
-        gap: 10px;
+    @media (max-width: 768px) {
+        padding: 50px 20px;        
     }
 }
 
@@ -69,6 +58,8 @@
     letter-spacing: 0px;
     color: white;
     opacity: 55%;
+    width: 100%;
+    max-width: 765px;
     @media (max-width: 1440px) {
     }
     @media (max-width: 991px) {
