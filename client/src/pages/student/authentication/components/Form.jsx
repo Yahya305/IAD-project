@@ -28,7 +28,7 @@ const Form = ({ onSubmit, formType }) => {
             onSubmit({ email, password });
         }
 
-        console.log("Logging in with", email, password);
+        console.log("Authenticating...");
     };
 
     return (

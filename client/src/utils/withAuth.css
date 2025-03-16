@@ -1,0 +1,33 @@
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--blueColor);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    animation: rotation 1s linear infinite;
+}
+
+.loading-container p {
+    color: var(--blueColor);
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 

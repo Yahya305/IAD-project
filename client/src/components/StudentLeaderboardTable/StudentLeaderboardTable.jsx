@@ -29,15 +29,15 @@ function StudentLeaderboardTable({
                                 </td>
                             </tr>
                         )}
-                        {data?.map((student) => (
-                            <tr key={student?.studentId}>
-                                <td>{student?.name}</td>
-                                <td>{student?.seatNo}</td>
-                                <td>{student?.section}</td>
-                                <td>{student?.teamId}</td>
-                                <td>{student?.score}</td>
-                            </tr>
-                        ))}
+                            {data?.map((student) => (
+                                <tr key={student?.studentId}>
+                                    <td>{student?.name}</td>
+                                    <td>{student?.seatNo}</td>
+                                    <td>{student?.section}</td>
+                                    <td>{student?.teamId}</td>
+                                    <td>{student?.score}</td>
+                                </tr>
+                            ))}
                     </tbody>
                 </table>
             </div>

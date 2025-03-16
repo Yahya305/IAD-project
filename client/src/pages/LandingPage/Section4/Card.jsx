@@ -6,7 +6,6 @@ function Card(props) {
   return (
     <div className="box-card">
       <Images image={props.cardImg} />
-
       <CardText  title={props.title} para={props.para} />
     </div>
   );

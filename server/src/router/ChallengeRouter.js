@@ -21,16 +21,8 @@ ChallengeRouter.get(
         )
 );
 
-ChallengeRouter.get(
-    "/submissions",
-    authorizeUser,
-    (req, res, next) =>
-        requestHandler(
-            req,
-            res,
-            next,
-            ChallengeController.fetchAllSubmissions
-        )
+ChallengeRouter.get("/submissions", authorizeOnlyInstructor, (req, res, next) =>
+    requestHandler(req, res, next, ChallengeController.fetchAllSubmissions)
 );
 
 ChallengeRouter.get("/assigned-challenges", authorizeUser, (req, res, next) =>

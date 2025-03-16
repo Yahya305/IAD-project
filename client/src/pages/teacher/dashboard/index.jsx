@@ -1,5 +1,9 @@
 import React from 'react'
 import { FaHome } from 'react-icons/fa'
+import { BiAlarm } from "react-icons/bi";
+import { FaAward } from "react-icons/fa6";
+import { GiLightBulb } from "react-icons/gi";
+import { MdLeaderboard } from "react-icons/md";
 
 export const TeacherRoutes = [
 	{
@@ -8,28 +12,23 @@ export const TeacherRoutes = [
 		icon: <FaHome />
 	},
 	{
-		path: "/teacher/student-grading",
-		name: "Student Grading",
-		icon: <FaHome />
-	},
-	{
 		path: "/teacher/challenge-entry",
 		name: "Challenge Creation",
-		icon: <FaHome />
+		icon: <BiAlarm />
 	},
 	{
 		path: "/teacher/competition-creation",
 		name: "Competition Creation",
-		icon: <FaHome />
+		icon: <GiLightBulb />
 	},
 	{
 		path: "/teacher/team-leaderboard",
 		name: "Team Leaderboard",
-		icon: <FaHome />
+		icon: <FaAward />
 	},
 	{
 		path: "/teacher/student-leaderboard",
 		name: "Student Leaderboard",
-		icon: <FaHome />
+		icon: <MdLeaderboard />
 	}
 ]

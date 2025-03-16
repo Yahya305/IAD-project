@@ -22,6 +22,7 @@ nav {
       cursor: pointer;
       color: white;
       display: none; 
+      padding: 0px;
     }
 
     
@@ -56,6 +57,7 @@ nav {
         background-color: white;
         color: var(--blueColor);
         font-size: 50px;
+        width: fit-content;
       }
   
       .bars {
@@ -114,6 +116,7 @@ nav {
     border: none;
     color: white;
     cursor: pointer;
+    width: fit-content;
   }
 
   .overlay .bars {

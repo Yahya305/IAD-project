@@ -12,6 +12,7 @@
         flex-direction: column;
         .dashboard-page-content {
             height: 100vh ;
+            overflow-y: auto;
         }
     }
 }

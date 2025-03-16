@@ -50,6 +50,13 @@ class AuthenticationService {
         }
         const enrolledStudent = await StudentService.fetchStudentByEmail(email);
 
+        if (!enrolledStudent) {
+            throw new CustomError(
+                "You are not enrolled in this course. Please contact the admin.",
+                HttpStatusCode.BAD_REQUEST
+            );
+        }
+
         if (enrolledStudent.isActivated) {
             throw new CustomError(
                 "You are already Registered. Try Loggin in.",
@@ -82,6 +89,12 @@ class AuthenticationService {
 
     static async studentLogin({ email, password }) {
         const student = await StudentService.fetchStudentByEmail(email);
+        if (!student.isActivated) {
+            throw new CustomError(
+                "Your account is not activated. Please Signup.",
+                HttpStatusCode.UNAUTHORIZED
+            );
+        }
         if (!student || !checkPassword(password, student.password)) {
             throw new CustomError(
                 "Invalid Email or Password.",

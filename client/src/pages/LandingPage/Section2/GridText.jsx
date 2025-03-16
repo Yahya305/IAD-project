@@ -7,25 +7,23 @@ function GridText() {
       <GridItem
         image="images/growth.svg"
         head="Competitive Landscape"
-        subhead="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-          nobis."
+        subhead="Overview of Market Rivals and Trends in Student Management Solutions."
       />
       <GridItem
         image="images/calender.svg"
         head="Weekly Challenges"
-        subhead="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-              nobis."
+        subhead="Regular Tasks and Goals for Student Engagement and Progress Tracking."
       />
 
       <GridItem
         image="images/performance.svg"
         head="Performance Metrics"
-        subhead="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, nobis."
+        subhead="Key Indicators to Evaluate Student Progress and Institutional Efficiency."
       />
       <GridItem
         image="images/strategy.svg"
         head="Strategic Evaluation"
-        subhead="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, nobis."
+        subhead="Assessment of Key Strategies for Academic and Administrative Improvement."
       />
     </div>
   );

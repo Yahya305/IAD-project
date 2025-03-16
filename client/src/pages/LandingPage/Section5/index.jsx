@@ -10,9 +10,7 @@ function Section5() {
     <section className="landing-page-section-5">
       <MainSpan title="Getting ready for the next competition" />
       <Paragraph
-        para="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet
-        ratione, molestias cupiditate possimus obcaecati nisi libero blanditiis
-        consequuntur mollitia veritatis?"
+        para="Preparing Students for Upcoming Academic and Skill-Based Competitions with Confidence and Excellence."
       />
 
       <Buttons />

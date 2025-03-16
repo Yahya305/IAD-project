@@ -8,57 +8,69 @@
     width: 100%;
     max-width: calc(33% - 20px);
     background-color: white;
+    @media(max-width:767px){
+        max-width: 60%;
+}
     .container{
+        width: 100%;
         padding: 30px;
         display: flex;
         flex-direction: column;
-        justify-content:start;
+        justify-content:center;
         align-items: start;
-    }
-    .card-wrapper {
-        display: flex;
-        flex-direction: row;
-        justify-content:space-between;
-        align-items: center;
-        gap: 60px;
-        /* width: 100%; */
-        .left {
+        .card-wrapper {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 50%;
-            .total {
-                font-family: DM Sans;
-                font-weight: 400;
-                font-size: 16px;
-                line-height: 24px;
-                color: #09090B;
-                text-wrap: nowrap;
+            flex-direction: row;
+            justify-content:space-between;
+            align-items: center;
+            gap: 60px;
+            width: 100%;
+            .left {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 50%;
+                .total {
+                    font-family: DM Sans;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #09090B;
+                    text-wrap: nowrap;
+                }
+                .no-of-tasks {
+                    font-family: DM Sans;
+                    font-weight: 700;
+                    font-size: 24px;
+                    line-height: 32px;
+                    color: #09090B;
+                }
             }
-            .no-of-tasks {
-                font-family: DM Sans;
-                font-weight: 700;
-                font-size: 24px;
-                line-height: 32px;
-                color: #09090B;
+            .right{
+                display: none;
+                justify-content: end;
+                width: 100%;
+                @media(max-width:567px){
+                    display: none;
+        }
+                svg {
+                    /* width: 120px;
+                    height: 46px; */
+                    width: 100%;
+                    max-width: 120px;
+                    
+                }
             }
         }
-        .right{
-            width: 50%;
-            svg {
-                width: 120px;
-                height: 46px;
-            }
+        .percentage {
+            font-family: DM Sans;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 16px;
+            color: #1CB02E;
+            margin-top: 10px;
+            text-align: left;
         }
-    }
-    .percentage {
-        font-family: DM Sans;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 16px;
-        color: #1CB02E;
-        margin-top: 10px;
-        text-align: left;
     }
 }
 /* .card .container{
