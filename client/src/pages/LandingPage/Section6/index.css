@@ -26,6 +26,7 @@
             justify-content: space-between;
             cursor: pointer;
             align-items: center;
+            border-radius: 12px;
 
             &:hover {
                 background-color: var(--lightBlue);

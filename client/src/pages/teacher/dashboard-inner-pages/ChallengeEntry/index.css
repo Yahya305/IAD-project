@@ -1,5 +1,10 @@
 .ChallengeEntry {
     padding: 50px;
+
+    @media (max-width: 768px) {
+        padding: 20px;        
+    }
+
     .ChallengeEntry-wrapper {
         background-color: white;
         width: 100%;
@@ -14,6 +19,9 @@
         overflow-y: scroll;
         &::-webkit-scrollbar {
             display: none;
+        }
+        @media (max-width: 768px) {
+            padding: 20px;        
         }
         .head {
             .title {
