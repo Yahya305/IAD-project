@@ -17,6 +17,7 @@ const Sidebar = ({ routes }) => {
     const { isSidebarOpen: isOpen, setSidebarOpen: setIsOpen } = useGlobalVarsStore()
     const navigate = useNavigate()
     const { pathname } = useLocation()
+    const { user } = useUserStore();
     const isMobile = useIsMobile(1200)
 
     const closedBtnStyle = {
@@ -64,16 +65,11 @@ const Sidebar = ({ routes }) => {
                 </div>
                 <div className="user">
                     <hr />
-                    <div className="role">Admin</div>
                     <div className="profile">
                         <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="" />
-                        <div className="name">Yahya Raand</div>
+                        <div className="name">{user.name}</div>
                     </div>
                     <div className="actions">
-                        <button>
-                            <CiSettings fontSize={30} />
-                            <span>Settings</span>
-                        </button>
                         <button onClick={handleLogout}>
                             <SlLogout fontSize={20} />
                             <span>Log out</span>

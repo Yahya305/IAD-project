@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
-import SignupForm from "./components/SignupForm";
 import OTPVerification from "./components/OTPVerification";
 import { AxiosError } from "axios";
 import toast from "../../../components/CustomToast/toast";

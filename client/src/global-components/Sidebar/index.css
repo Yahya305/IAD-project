@@ -140,15 +140,14 @@ aside.dashboard-sidebar {
                 display: flex;
                 flex-direction: column;
                 gap: 40px;
-                display: none;
+                /* display: none; */
                 button {
                     all: unset;
+                    cursor: pointer;
                     display: flex;
                     gap: 20px;
                     align-items: center;
                     font-family: "Inter", sans-serif;
-                    svg {
-                    }
                 }
             }
         }
