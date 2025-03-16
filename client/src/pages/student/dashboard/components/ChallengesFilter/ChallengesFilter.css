@@ -1,6 +1,11 @@
 .filter-select-container {
     position: relative;
-    min-width: 200px;
+    /* min-width: 200px; */
+    width: 100%;
+    max-width: 200px ;
+    @media(max-width:400px){
+        /* max-width: 150px; */
+    }
 
     .challenge-select {
         width: 100%;
@@ -18,7 +23,9 @@
         background-position: right 8px center;
         background-size: 16px;
         padding-right: 32px;
+        @media(max-width:567px){
 
+        }
         &:hover {
             border-color: #bdbdbd;
         }
