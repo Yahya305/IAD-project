@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate, useLocation } from "react-router"
 import { CiSettings } from "react-icons/ci";
 import { SlLogout } from "react-icons/sl";
@@ -9,13 +9,8 @@ import { motion } from "framer-motion"
 import "./index.css"
 import { useIsMobile } from '../../utils/useIsMobile';
 import useGlobalVarsStore from '../../store/globalVarsStore';
-import { FaRegArrowAltCircleRight, FaRegArrowAltCircleLeft } from "react-icons/fa";
 import useUserStore from '../../store/userStore';
 import Logo from '../../pages/LandingPage/_lib/Header/Logo';
-
-
-
-
 
 const Sidebar = ({ routes }) => {
     // console.log("routes",routes)

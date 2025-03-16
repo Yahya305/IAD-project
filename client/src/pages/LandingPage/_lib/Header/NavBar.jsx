@@ -18,7 +18,7 @@ function NavBar() {
           to="/student/login"
         />
 
-        <button class="hamburger" onClick={() => setMenuOpen(true)}>
+        <button className="hamburger" onClick={() => setMenuOpen(true)}>
           ☰
         </button>
       </nav>
