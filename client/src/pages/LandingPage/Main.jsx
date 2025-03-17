@@ -8,7 +8,7 @@ import Section6 from "./Section6";
 import Headers from "./_lib/Header/index.jsx";
 import Footer from "./_lib/Footer/index.jsx";
 import "./LandingPage.css";
-import Spacer from "./_lib/Spacer/SPacer.jsx";
+import Spacer from "./_lib/Spacer/Spacer.jsx";
 
 function Main() {
     return (
