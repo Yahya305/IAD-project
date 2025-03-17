@@ -8,7 +8,7 @@ function Section2() {
         <section className="landing-page-section2">
             <h2>Competition Overview</h2>
             <div className="hero">
-                <SecVideos video="/src/assets/videos/7092056-hd_1920_1080_30fps.mp4" />
+                <SecVideos video="/videos/7092056-hd_1920_1080_30fps.mp4" />
 
                 <GridText />
             </div>

@@ -11,7 +11,7 @@ function Section3() {
         <HeroText heading="Why We Stand Out" subheading="" para="Dedicated to excellence, we provide seamless student management with innovative solutions. Our platform ensures efficiency, accuracy, and user-friendly experiences, fostering academic growth. With robust features, real-time insights, and reliable support, we empower institutions to streamline operations effortlessly" btnCls="started" btnHead="Join Competition"
             btnImg="images/bluecirculararrow.svg"  />
 
-        <SecVideos video="/src/assets/videos/three.mp4" />
+        <SecVideos video="/videos/three.mp4" />
       </div>
     </section>
   );

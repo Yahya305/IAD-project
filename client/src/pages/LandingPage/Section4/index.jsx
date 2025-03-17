@@ -7,7 +7,7 @@ function Section4() {
   return (
     <section className="landing-page-four-section">
       <div className="hero">
-        <SecVideos video="/src/assets/videos/five.mp4" />
+        <SecVideos video="/videos/five.mp4" />
 
         <Train />
 
