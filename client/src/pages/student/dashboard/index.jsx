@@ -1,13 +1,13 @@
 import React from "react";
 import "./index.css";
-import Sidebar from "../../../global-components/Sidebar";
 import { FaHome } from "react-icons/fa";
 import { PiStudentBold } from "react-icons/pi";
 import { AiOutlineTeam } from "react-icons/ai";
 import { Outlet } from "react-router-dom";
-import Search from "../../../global-components/DashboardSearchBar";
-import DashboardStructure from "../../../global-components/DashboardStructure";
+import DashboardStructure from "../../../components/DashboardStructure";
 import { motion } from "framer-motion";
+import Sidebar from "../../../components/Sidebar";
+import DashboardSearchBar from "../../../components/DashboardSearchBar";
 
 export const StudentRoutes = [
     {
@@ -47,7 +47,7 @@ function StudentDashboard({ routes: Routes }) {
         <DashboardStructure>
             <Sidebar routes={Routes} />
             <motion.div className="dashboard-page" animate={{ width: "100vw" }}>
-                {/* <Search /> */}
+                <DashboardSearchBar />
                 <div className="dashboard-page-content">
                     <Outlet />
                 </div>

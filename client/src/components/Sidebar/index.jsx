@@ -1,16 +1,14 @@
 import React from 'react'
 import { useNavigate, useLocation } from "react-router"
-import { CiSettings } from "react-icons/ci";
 import { SlLogout } from "react-icons/sl";
 import { FaChevronRight } from "react-icons/fa6";
 import { FaChevronLeft } from "react-icons/fa6";
 import { motion } from "framer-motion"
-
 import "./index.css"
-import { useIsMobile } from '../../utils/useIsMobile';
-import useGlobalVarsStore from '../../store/globalVarsStore';
 import useUserStore from '../../store/userStore';
 import Logo from '../../pages/LandingPage/_lib/Header/Logo';
+import useGlobalVarsStore from '../../store/globalVarsStore';
+import { useIsMobile } from '../../utils/useIsMobile';
 
 const Sidebar = ({ routes }) => {
     // console.log("routes",routes)
