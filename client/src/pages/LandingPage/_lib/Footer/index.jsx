@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer>
       <div className="container">
-        <Paragraph para=" &copy; All Rights Reserved By IAD Developers" />
+        <Paragraph para=" &copy; All Rights Reserved By IAD Group 9 Developers" />
       </div>
     </footer>
   );
