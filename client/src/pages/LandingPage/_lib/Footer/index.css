@@ -2,9 +2,10 @@ footer {
     position: relative;
     background-color: var(--blueColor);
     text-align: center;
-    width:100vw;
+    width: 100%;
     /* max-width: 1440px; */
     margin: 0 auto;
+    overflow-x: hidden;
     p {
       color: var(--shadyBlue);
       padding: 25px 0;

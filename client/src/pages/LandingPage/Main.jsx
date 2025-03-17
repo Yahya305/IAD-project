@@ -8,25 +8,24 @@ import Section6 from "./Section6";
 import Headers from "./_lib/Header/index.jsx";
 import Footer from "./_lib/Footer/index.jsx";
 import "./LandingPage.css";
+import Spacer from "./_lib/Spacer/SPacer.jsx";
 
 function Main() {
     return (
         <>
             <Headers />
             <main>
-                <div className="spacer" style={{ paddingTop: "100px" }}></div>
+                <Spacer height="100px" />
                 <Section1 />
-
-                <div className="spacer" style={{ paddingTop: "100px" }}></div>
-
+                <Spacer height="100px" />
                 <Section2 />
-                <div className="spacer" style={{ paddingTop: "100px" }}></div>
+                <Spacer height="100px" />
                 <Section3 />
-                <div className="spacer" style={{ paddingTop: "100px" }}></div>
+                <Spacer height="100px" />
                 <Section4 />
-                <div className="spacer" style={{ paddingTop: "100px" }}></div>
+                <Spacer height="100px" />
                 <Section5 />
-                <div className="spacer" style={{ paddingTop: "100px" }}></div>
+                <Spacer height="100px" />
                 <Section6 />
             </main>
             <Footer />
