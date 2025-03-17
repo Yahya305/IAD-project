@@ -14,7 +14,7 @@ function Section1() {
             btnImg="/images/circularArrow.svg"
         />
         
-        <SecVideos video="/src/assets/videos/4017223-uhd_3840_2160_30fps.mp4" />
+        <SecVideos video="/videos/4017223-uhd_3840_2160_30fps.mp4" />
 
       </div>
     </section>

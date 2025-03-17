@@ -95,7 +95,7 @@ const Signup = () => {
             {!showOTPVerification && (
                 <div className="image-container">
                     <figure>
-                        <img src={"/src/assets/login.jpg"} alt="login-image" />
+                        <img src={"/images/login.jpg"} alt="login-image" />
                     </figure>
                 </div>
             )}
