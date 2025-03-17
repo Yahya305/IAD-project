@@ -7,7 +7,7 @@ function Train() {
   return (
     <div className="train">
       <MainSpan title="Getting started is easy" />
-      <Paragraph para="Our platform is designed for a seamless experience—simply sign up, participate in challenges, and track your progress effortlessly" />
+      <Paragraph para="Seamless experience—simply sign up, participate in challenges, and track your progress effortlessly" />
 
       <Card
         cardImg="/images/onecircle.svg"
