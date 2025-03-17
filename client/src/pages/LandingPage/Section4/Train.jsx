@@ -7,17 +7,17 @@ function Train() {
   return (
     <div className="train">
       <MainSpan title="Getting started is easy" />
-      <Paragraph para=" Begin Effortlessly with Our Intuitive Student Management System for Seamless Administration." />
+      <Paragraph para="Our platform is designed for a seamless experience—simply sign up, participate in challenges, and track your progress effortlessly" />
 
       <Card
         cardImg="/images/onecircle.svg"
         title="Sign Up"
-        para="Register to Access Your Student Management Dashboard Effortlessly."
+        para="Sign up as a teacher or student and join competitions effortlessly."
       />
       <Card
         cardImg="/images/two.svg"
         title="Complete Challenges"
-        para="Achieve Milestones by Completing Assigned Academic and Administrative Tasks."
+        para="Participate in exciting challenges, collaborate with your team, and earn points."
       />
       <Card
         cardImg="/images/three.svg"

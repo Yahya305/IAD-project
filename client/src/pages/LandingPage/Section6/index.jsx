@@ -4,20 +4,20 @@ import "./index.css"
 
 const data = [
   {
-    title: "What is IAD",
-    content: "IAD is a platform that allows you to watch a wide range of movies and TV shows."
+    title: " How do teachers create competitions on the platform?",
+    content: "Teachers can sign up, create competitions, add multiple challenges, and assign them to teams or individual students through an easy-to-use interface."
   },
   {
-    title: "How much does IAD cost?",
-    content: "IAD is free to use."
+    title: "How do students participate in challenges?",
+    content: "Students join competitions, complete assigned challenges, and submit their work within the platform, earning points based on performance."
   },
   {
-    title: "What can I watch on IAD Result?",
-    content: "You can watch a wide range of movies and TV shows on IAD."
+    title: "How is the leaderboard updated?",
+    content: "The leaderboard updates in real-time based on challenge scores, allowing students and teams to track their rankings instantly."
   },
   {
-    title: "Where can I watch?",
-    content: "You can watch on any device that has an internet connection."
+    title: "Can competitions be customized?",
+    content: "Yes, teachers can set custom rules, deadlines, and scoring criteria to tailor competitions to their specific needs."
   }
 ]
 
